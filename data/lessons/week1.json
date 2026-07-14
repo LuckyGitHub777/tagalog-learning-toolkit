@@ -1,0 +1,556 @@
+{
+  "version": "2.0.0",
+  "title": "Tagalog Week 1: Introductions and Family",
+  "vocabulary": [
+    {
+      "id": "kumusta",
+      "category": "Greetings",
+      "tagalog": "Kumusta?",
+      "english": "How are you?",
+      "note": "Kamusta? is also common in everyday writing.",
+      "accepted": [
+        "kumusta",
+        "kumusta?",
+        "kamusta",
+        "kamusta?"
+      ]
+    },
+    {
+      "id": "morning",
+      "category": "Greetings",
+      "tagalog": "Magandang umaga.",
+      "english": "Good morning.",
+      "accepted": [
+        "magandang umaga",
+        "magandang umaga."
+      ]
+    },
+    {
+      "id": "afternoon",
+      "category": "Greetings",
+      "tagalog": "Magandang hapon.",
+      "english": "Good afternoon.",
+      "accepted": [
+        "magandang hapon",
+        "magandang hapon."
+      ]
+    },
+    {
+      "id": "evening",
+      "category": "Greetings",
+      "tagalog": "Magandang gabi.",
+      "english": "Good evening.",
+      "accepted": [
+        "magandang gabi",
+        "magandang gabi."
+      ]
+    },
+    {
+      "id": "okay",
+      "category": "Feelings",
+      "tagalog": "Ayos lang ako.",
+      "english": "I am okay.",
+      "note": "Okay lang ako is also natural and common.",
+      "accepted": [
+        "ayos lang ako",
+        "ayos lang ako.",
+        "okay lang ako",
+        "okay lang ako."
+      ]
+    },
+    {
+      "id": "happy",
+      "category": "Feelings",
+      "tagalog": "Masaya ako.",
+      "english": "I am happy.",
+      "accepted": [
+        "masaya ako",
+        "masaya ako."
+      ]
+    },
+    {
+      "id": "sad",
+      "category": "Feelings",
+      "tagalog": "Malungkot ako.",
+      "english": "I am sad.",
+      "accepted": [
+        "malungkot ako",
+        "malungkot ako."
+      ]
+    },
+    {
+      "id": "sleepy",
+      "category": "Feelings",
+      "tagalog": "Inaantok ako.",
+      "english": "I am sleepy.",
+      "accepted": [
+        "inaantok ako",
+        "inaantok ako."
+      ]
+    },
+    {
+      "id": "excited",
+      "category": "Feelings",
+      "tagalog": "Nasasabik ako.",
+      "english": "I am excited.",
+      "note": "Often expresses anticipation.",
+      "accepted": [
+        "nasasabik ako",
+        "nasasabik ako."
+      ]
+    },
+    {
+      "id": "hungry",
+      "category": "Feelings",
+      "tagalog": "Gutom ako.",
+      "english": "I am hungry.",
+      "accepted": [
+        "gutom ako",
+        "gutom ako."
+      ]
+    },
+    {
+      "id": "stressed",
+      "category": "Feelings",
+      "tagalog": "Nai-stress ako.",
+      "english": "I am stressed.",
+      "note": "Stressed ako is common Taglish.",
+      "accepted": [
+        "nai-stress ako",
+        "nai-stress ako.",
+        "stressed ako",
+        "stressed ako."
+      ]
+    },
+    {
+      "id": "tired",
+      "category": "Feelings",
+      "tagalog": "Pagod ako.",
+      "english": "I am tired.",
+      "accepted": [
+        "pagod ako",
+        "pagod ako."
+      ]
+    },
+    {
+      "id": "name-question",
+      "category": "Introductions",
+      "tagalog": "Ano ang pangalan mo?",
+      "english": "What is your name?",
+      "accepted": [
+        "ano ang pangalan mo",
+        "ano ang pangalan mo?"
+      ]
+    },
+    {
+      "id": "name-answer",
+      "category": "Introductions",
+      "tagalog": "Ako si ____.",
+      "english": "I am ____.",
+      "note": "Use this before a personal name.",
+      "accepted": []
+    },
+    {
+      "id": "from-question",
+      "category": "Introductions",
+      "tagalog": "Taga-saan ka?",
+      "english": "Where are you from?",
+      "accepted": [
+        "taga-saan ka",
+        "taga saan ka",
+        "taga-saan ka?"
+      ]
+    },
+    {
+      "id": "from-answer",
+      "category": "Introductions",
+      "tagalog": "Taga-____ ako.",
+      "english": "I am from ____.",
+      "accepted": []
+    },
+    {
+      "id": "study-where",
+      "category": "School and Work",
+      "tagalog": "Saan ka nag-aaral?",
+      "english": "Where do you study?",
+      "accepted": [
+        "saan ka nag-aaral",
+        "saan ka nag-aaral?"
+      ]
+    },
+    {
+      "id": "study-answer",
+      "category": "School and Work",
+      "tagalog": "Nag-aaral ako sa ____.",
+      "english": "I study at ____.",
+      "accepted": []
+    },
+    {
+      "id": "study-what",
+      "category": "School and Work",
+      "tagalog": "Ano ang inaaral mo?",
+      "english": "What are you studying?",
+      "accepted": [
+        "ano ang inaaral mo",
+        "ano ang inaaral mo?"
+      ]
+    },
+    {
+      "id": "study-subject",
+      "category": "School and Work",
+      "tagalog": "Nag-aaral ako ng ____.",
+      "english": "I am studying ____.",
+      "note": "A natural pattern for a subject or field.",
+      "accepted": []
+    },
+    {
+      "id": "work-where",
+      "category": "School and Work",
+      "tagalog": "Saan ka nagtatrabaho?",
+      "english": "Where do you work?",
+      "accepted": [
+        "saan ka nagtatrabaho",
+        "saan ka nagtatrabaho?"
+      ]
+    },
+    {
+      "id": "work-answer",
+      "category": "School and Work",
+      "tagalog": "Nagtatrabaho ako sa ____.",
+      "english": "I work at ____.",
+      "accepted": []
+    },
+    {
+      "id": "job-question",
+      "category": "School and Work",
+      "tagalog": "Ano ang trabaho mo?",
+      "english": "What is your job?",
+      "accepted": [
+        "ano ang trabaho mo",
+        "ano ang trabaho mo?"
+      ]
+    },
+    {
+      "id": "job-answer",
+      "category": "School and Work",
+      "tagalog": "____ ako.",
+      "english": "I am a/an ____.",
+      "note": "Example: Inhinyero ako. You can also say: Ang trabaho ko ay ____.",
+      "accepted": []
+    },
+    {
+      "id": "thanks",
+      "category": "Leave-Taking",
+      "tagalog": "Salamat!",
+      "english": "Thank you!",
+      "accepted": [
+        "salamat",
+        "salamat!"
+      ]
+    },
+    {
+      "id": "goodbye",
+      "category": "Leave-Taking",
+      "tagalog": "Paalam!",
+      "english": "Goodbye!",
+      "accepted": [
+        "paalam",
+        "paalam!"
+      ]
+    },
+    {
+      "id": "take-care-one",
+      "category": "Leave-Taking",
+      "tagalog": "Ingat ka!",
+      "english": "Take care! (one person)",
+      "accepted": [
+        "ingat ka",
+        "ingat ka!"
+      ]
+    },
+    {
+      "id": "take-care-many",
+      "category": "Leave-Taking",
+      "tagalog": "Ingat kayo!",
+      "english": "Take care! (plural or respectful)",
+      "accepted": [
+        "ingat kayo",
+        "ingat kayo!"
+      ]
+    },
+    {
+      "id": "mother",
+      "category": "Family",
+      "tagalog": "Nanay / Ina",
+      "english": "Mother",
+      "note": "Nanay is common and conversational; Ina is more formal.",
+      "accepted": [
+        "nanay",
+        "ina"
+      ]
+    },
+    {
+      "id": "father",
+      "category": "Family",
+      "tagalog": "Tatay / Ama",
+      "english": "Father",
+      "note": "Tatay is common and conversational; Ama is more formal.",
+      "accepted": [
+        "tatay",
+        "ama"
+      ]
+    },
+    {
+      "id": "older-brother",
+      "category": "Family",
+      "tagalog": "Kuya",
+      "english": "Older brother",
+      "note": "Also used respectfully for an older male.",
+      "accepted": [
+        "kuya"
+      ]
+    },
+    {
+      "id": "older-sister",
+      "category": "Family",
+      "tagalog": "Ate",
+      "english": "Older sister",
+      "note": "Also used respectfully for an older female.",
+      "accepted": [
+        "ate"
+      ]
+    },
+    {
+      "id": "youngest",
+      "category": "Family",
+      "tagalog": "Bunso",
+      "english": "Youngest child or sibling",
+      "accepted": [
+        "bunso"
+      ]
+    },
+    {
+      "id": "sibling",
+      "category": "Family",
+      "tagalog": "Kapatid",
+      "english": "Sibling",
+      "accepted": [
+        "kapatid"
+      ]
+    },
+    {
+      "id": "grandfather",
+      "category": "Family",
+      "tagalog": "Lolo",
+      "english": "Grandfather",
+      "accepted": [
+        "lolo"
+      ]
+    },
+    {
+      "id": "grandmother",
+      "category": "Family",
+      "tagalog": "Lola",
+      "english": "Grandmother",
+      "accepted": [
+        "lola"
+      ]
+    },
+    {
+      "id": "uncle",
+      "category": "Family",
+      "tagalog": "Tiyo / Tito",
+      "english": "Uncle",
+      "note": "Tito is very common in everyday speech.",
+      "accepted": [
+        "tiyo",
+        "tito"
+      ]
+    },
+    {
+      "id": "aunt",
+      "category": "Family",
+      "tagalog": "Tiya / Tita",
+      "english": "Aunt",
+      "note": "Tita is very common in everyday speech.",
+      "accepted": [
+        "tiya",
+        "tita"
+      ]
+    },
+    {
+      "id": "cousin",
+      "category": "Family",
+      "tagalog": "Pinsan",
+      "english": "Cousin",
+      "accepted": [
+        "pinsan"
+      ]
+    }
+  ],
+  "adjectives": [
+    {
+      "tagalog": "Mabait",
+      "english": "kind"
+    },
+    {
+      "tagalog": "Maganda",
+      "english": "beautiful"
+    },
+    {
+      "tagalog": "Gwapo",
+      "english": "handsome"
+    },
+    {
+      "tagalog": "Masaya",
+      "english": "happy"
+    },
+    {
+      "tagalog": "Matalino",
+      "english": "smart"
+    },
+    {
+      "tagalog": "Masipag",
+      "english": "hardworking"
+    },
+    {
+      "tagalog": "Nakakatawa",
+      "english": "funny"
+    },
+    {
+      "tagalog": "Matangkad",
+      "english": "tall"
+    },
+    {
+      "tagalog": "Mabuti",
+      "english": "good"
+    },
+    {
+      "tagalog": "Palakaibigan",
+      "english": "friendly or sociable"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "How do you say 'Good morning'?",
+      "choices": [
+        "Magandang umaga.",
+        "Magandang gabi.",
+        "Paalam!",
+        "Pagod ako."
+      ],
+      "answer": 0,
+      "explanation": "Umaga means morning."
+    },
+    {
+      "question": "What does 'Taga-saan ka?' ask?",
+      "choices": [
+        "Where do you work?",
+        "Where are you from?",
+        "What is your name?",
+        "How are you?"
+      ],
+      "answer": 1,
+      "explanation": "Use Taga-____ ako to answer."
+    },
+    {
+      "question": "Which sentence means 'I am tired'?",
+      "choices": [
+        "Masaya ako.",
+        "Gutom ako.",
+        "Pagod ako.",
+        "Inaantok ako."
+      ],
+      "answer": 2,
+      "explanation": "Pagod means tired."
+    },
+    {
+      "question": "What is the Tagalog word for older sister?",
+      "choices": [
+        "Kuya",
+        "Ate",
+        "Bunso",
+        "Pinsan"
+      ],
+      "answer": 1,
+      "explanation": "Ate means older sister and can also be a respectful title."
+    },
+    {
+      "question": "Which is a natural response for a field of study?",
+      "choices": [
+        "Nag-aaral ako ng Tagalog.",
+        "Taga-Tagalog ako.",
+        "Tagalog si ako.",
+        "Ako ang saan Tagalog."
+      ],
+      "answer": 0,
+      "explanation": "Nag-aaral ako ng + subject is a natural pattern."
+    },
+    {
+      "question": "What does 'Ingat kayo!' mean?",
+      "choices": [
+        "Thank you",
+        "Take care, one person",
+        "Take care, plural or respectful",
+        "Good evening"
+      ],
+      "answer": 2,
+      "explanation": "Kayo can be plural or respectful."
+    },
+    {
+      "question": "Which sentence follows Adjective + si + Family Member?",
+      "choices": [
+        "Si mabait Nanay.",
+        "Mabait si Nanay.",
+        "Nanay mabait si.",
+        "Ako si mabait Nanay."
+      ],
+      "answer": 1,
+      "explanation": "Mabait si Nanay means Mother is kind."
+    },
+    {
+      "question": "What does 'Bunso' mean?",
+      "choices": [
+        "Cousin",
+        "Youngest child or sibling",
+        "Grandmother",
+        "Older brother"
+      ],
+      "answer": 1,
+      "explanation": "Bunso identifies the youngest child or sibling."
+    },
+    {
+      "question": "Which means 'I am hungry'?",
+      "choices": [
+        "Gutom ako.",
+        "Malungkot ako.",
+        "Nasasabik ako.",
+        "Ayos lang ako."
+      ],
+      "answer": 0,
+      "explanation": "Gutom means hungry."
+    },
+    {
+      "question": "How do you say 'My name is Ana' using the Week 1 pattern?",
+      "choices": [
+        "Taga-Ana ako.",
+        "Ako si Ana.",
+        "Ana ang trabaho ko.",
+        "Saan si Ana?"
+      ],
+      "answer": 1,
+      "explanation": "Ako si + name introduces yourself."
+    }
+  ],
+  "id": "week1-introductions-family",
+  "description": "A foundational lesson for greetings, feelings, introductions, school, work, family, and simple descriptions.",
+  "learning_outcomes": [
+    "Greet someone and state how you feel.",
+    "Introduce yourself and say where you are from.",
+    "Describe where and what you study or where you work.",
+    "Name common family roles.",
+    "Describe a person with a simple adjective-first sentence."
+  ],
+  "language": "fil-PH",
+  "content_status": "Human review recommended before formal classroom adoption."
+}
