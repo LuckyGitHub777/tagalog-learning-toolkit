@@ -1,0 +1,666 @@
+{
+  "version": "3.0.1",
+  "id": "week2",
+  "week": 2,
+  "title": "Tagalog Week 2: Colors and Food",
+  "short_title": "Colors and Food",
+  "subtitle": "Describe colors, express likes and dislikes, and talk about food and drinks.",
+  "description": "A practical week for identifying colors and sharing food preferences.",
+  "language": "Tagalog / Filipino",
+  "content_status": "Beta — educator review recommended.",
+  "objectives": [
+    "Name common colors, foods, and drinks.",
+    "Ask and answer questions about favorite colors and foods.",
+    "Express likes and dislikes with gusto and ayaw.",
+    "Use basic adjective linkers in color phrases.",
+    "Create a short conversation about food preferences."
+  ],
+  "vocabulary": [
+    {
+      "id": "red",
+      "category": "Colors",
+      "tagalog": "Pula",
+      "english": "Red",
+      "accepted": [
+        "pula"
+      ]
+    },
+    {
+      "id": "blue",
+      "category": "Colors",
+      "tagalog": "Asul / Bughaw",
+      "english": "Blue",
+      "accepted": [
+        "asul",
+        "bughaw"
+      ],
+      "note": "Asul is common; bughaw is also used."
+    },
+    {
+      "id": "green",
+      "category": "Colors",
+      "tagalog": "Berde / Luntian",
+      "english": "Green",
+      "accepted": [
+        "berde",
+        "luntian"
+      ],
+      "note": "Berde is common in everyday use."
+    },
+    {
+      "id": "yellow",
+      "category": "Colors",
+      "tagalog": "Dilaw",
+      "english": "Yellow",
+      "accepted": [
+        "dilaw"
+      ]
+    },
+    {
+      "id": "black",
+      "category": "Colors",
+      "tagalog": "Itim",
+      "english": "Black",
+      "accepted": [
+        "itim"
+      ]
+    },
+    {
+      "id": "white",
+      "category": "Colors",
+      "tagalog": "Puti",
+      "english": "White",
+      "accepted": [
+        "puti"
+      ]
+    },
+    {
+      "id": "purple",
+      "category": "Colors",
+      "tagalog": "Lila / Kulay ube",
+      "english": "Purple",
+      "accepted": [
+        "lila",
+        "kulay ube"
+      ]
+    },
+    {
+      "id": "pink",
+      "category": "Colors",
+      "tagalog": "Rosas / Kulay rosas",
+      "english": "Pink",
+      "accepted": [
+        "rosas",
+        "kulay rosas"
+      ]
+    },
+    {
+      "id": "orange-color",
+      "category": "Colors",
+      "tagalog": "Kahel / Kulay dalandan",
+      "english": "Orange (color)",
+      "accepted": [
+        "kahel",
+        "kulay dalandan"
+      ]
+    },
+    {
+      "id": "brown",
+      "category": "Colors",
+      "tagalog": "Kayumanggi",
+      "english": "Brown",
+      "accepted": [
+        "kayumanggi"
+      ]
+    },
+    {
+      "id": "gray",
+      "category": "Colors",
+      "tagalog": "Kulay abo / Abo",
+      "english": "Gray",
+      "accepted": [
+        "kulay abo",
+        "abo"
+      ]
+    },
+    {
+      "id": "favorite-color-q",
+      "category": "Color Questions",
+      "tagalog": "Ano ang paborito mong kulay?",
+      "english": "What is your favorite color?",
+      "accepted": [
+        "ano ang paborito mong kulay",
+        "ano ang paborito mong kulay?"
+      ]
+    },
+    {
+      "id": "what-color-this",
+      "category": "Color Questions",
+      "tagalog": "Anong kulay ito?",
+      "english": "What color is this?",
+      "accepted": [
+        "anong kulay ito",
+        "anong kulay ito?"
+      ]
+    },
+    {
+      "id": "what-color-that",
+      "category": "Color Questions",
+      "tagalog": "Anong kulay iyan?",
+      "english": "What color is that?",
+      "accepted": [
+        "anong kulay iyan",
+        "anong kulay iyan?"
+      ]
+    },
+    {
+      "id": "favorite-color-a",
+      "category": "Color Questions",
+      "tagalog": "Pula ang paborito kong kulay.",
+      "english": "Red is my favorite color.",
+      "accepted": [
+        "pula ang paborito kong kulay",
+        "pula ang paborito kong kulay."
+      ]
+    },
+    {
+      "id": "like-color",
+      "category": "Likes and Dislikes",
+      "tagalog": "Gusto ko ng asul.",
+      "english": "I like blue.",
+      "accepted": [
+        "gusto ko ng asul",
+        "gusto ko ng asul."
+      ]
+    },
+    {
+      "id": "dislike-color",
+      "category": "Likes and Dislikes",
+      "tagalog": "Ayaw ko ng rosas.",
+      "english": "I do not like pink.",
+      "accepted": [
+        "ayaw ko ng rosas",
+        "ayaw ko ng rosas."
+      ]
+    },
+    {
+      "id": "do-you-like",
+      "category": "Likes and Dislikes",
+      "tagalog": "Gusto mo ba ng berde?",
+      "english": "Do you like green?",
+      "accepted": [
+        "gusto mo ba ng berde",
+        "gusto mo ba ng berde?"
+      ]
+    },
+    {
+      "id": "rice",
+      "category": "Food",
+      "tagalog": "Kanin",
+      "english": "Rice",
+      "accepted": [
+        "kanin"
+      ]
+    },
+    {
+      "id": "bread",
+      "category": "Food",
+      "tagalog": "Tinapay",
+      "english": "Bread",
+      "accepted": [
+        "tinapay"
+      ]
+    },
+    {
+      "id": "chicken",
+      "category": "Food",
+      "tagalog": "Manok",
+      "english": "Chicken",
+      "accepted": [
+        "manok"
+      ]
+    },
+    {
+      "id": "pork",
+      "category": "Food",
+      "tagalog": "Baboy",
+      "english": "Pork",
+      "accepted": [
+        "baboy"
+      ]
+    },
+    {
+      "id": "fish",
+      "category": "Food",
+      "tagalog": "Isda",
+      "english": "Fish",
+      "accepted": [
+        "isda"
+      ]
+    },
+    {
+      "id": "vegetables",
+      "category": "Food",
+      "tagalog": "Gulay",
+      "english": "Vegetables",
+      "accepted": [
+        "gulay"
+      ]
+    },
+    {
+      "id": "fruit",
+      "category": "Food",
+      "tagalog": "Prutas",
+      "english": "Fruit",
+      "accepted": [
+        "prutas"
+      ]
+    },
+    {
+      "id": "apple",
+      "category": "Food",
+      "tagalog": "Mansanas",
+      "english": "Apple",
+      "accepted": [
+        "mansanas"
+      ]
+    },
+    {
+      "id": "banana",
+      "category": "Food",
+      "tagalog": "Saging",
+      "english": "Banana",
+      "accepted": [
+        "saging"
+      ]
+    },
+    {
+      "id": "water",
+      "category": "Food and Drinks",
+      "tagalog": "Tubig",
+      "english": "Water",
+      "accepted": [
+        "tubig"
+      ]
+    },
+    {
+      "id": "coffee",
+      "category": "Food and Drinks",
+      "tagalog": "Kape",
+      "english": "Coffee",
+      "accepted": [
+        "kape"
+      ]
+    },
+    {
+      "id": "tea",
+      "category": "Food and Drinks",
+      "tagalog": "Tsaa",
+      "english": "Tea",
+      "accepted": [
+        "tsaa"
+      ]
+    },
+    {
+      "id": "milk",
+      "category": "Food and Drinks",
+      "tagalog": "Gatas",
+      "english": "Milk",
+      "accepted": [
+        "gatas"
+      ]
+    },
+    {
+      "id": "favorite-food-q",
+      "category": "Food Questions",
+      "tagalog": "Ano ang paborito mong pagkain?",
+      "english": "What is your favorite food?",
+      "accepted": [
+        "ano ang paborito mong pagkain",
+        "ano ang paborito mong pagkain?"
+      ]
+    },
+    {
+      "id": "want-eat-q",
+      "category": "Food Questions",
+      "tagalog": "Ano ang gusto mong kainin?",
+      "english": "What do you want to eat?",
+      "accepted": [
+        "ano ang gusto mong kainin",
+        "ano ang gusto mong kainin?"
+      ]
+    },
+    {
+      "id": "want-drink-q",
+      "category": "Food Questions",
+      "tagalog": "Ano ang gusto mong inumin?",
+      "english": "What do you want to drink?",
+      "accepted": [
+        "ano ang gusto mong inumin",
+        "ano ang gusto mong inumin?"
+      ]
+    },
+    {
+      "id": "like-rice",
+      "category": "Food Answers",
+      "tagalog": "Gusto ko ng kanin.",
+      "english": "I like or want rice.",
+      "accepted": [
+        "gusto ko ng kanin",
+        "gusto ko ng kanin."
+      ]
+    },
+    {
+      "id": "dont-like-fish",
+      "category": "Food Answers",
+      "tagalog": "Ayaw ko ng isda.",
+      "english": "I do not like fish.",
+      "accepted": [
+        "ayaw ko ng isda",
+        "ayaw ko ng isda."
+      ]
+    },
+    {
+      "id": "full",
+      "category": "Food Answers",
+      "tagalog": "Busog ako.",
+      "english": "I am full.",
+      "accepted": [
+        "busog ako",
+        "busog ako."
+      ]
+    },
+    {
+      "id": "do-not-eat",
+      "category": "Food Answers",
+      "tagalog": "Hindi ako kumakain ng isda.",
+      "english": "I do not eat fish.",
+      "accepted": [
+        "hindi ako kumakain ng isda",
+        "hindi ako kumakain ng isda."
+      ]
+    }
+  ],
+  "grammar_notes": [
+    {
+      "title": "Gusto and ayaw",
+      "body": "Use gusto ko ng + noun for something you like or want. Use ayaw ko ng + noun for something you do not like or want.",
+      "examples": [
+        {
+          "tagalog": "Gusto ko ng kape.",
+          "english": "I like or want coffee."
+        },
+        {
+          "tagalog": "Ayaw ko ng isda.",
+          "english": "I do not like or want fish."
+        }
+      ]
+    },
+    {
+      "title": "Color linkers",
+      "body": "Many color words connect to a noun with -ng or na. Vowel-ending colors often take -ng; some consonant-ending forms use na.",
+      "examples": [
+        {
+          "tagalog": "Pulang kotse",
+          "english": "Red car"
+        },
+        {
+          "tagalog": "Berdeng sapatos",
+          "english": "Green shoes"
+        },
+        {
+          "tagalog": "Asul na bahay",
+          "english": "Blue house"
+        },
+        {
+          "tagalog": "Itim na damit",
+          "english": "Black clothing"
+        }
+      ]
+    }
+  ],
+  "sentence_patterns": [
+    {
+      "title": "Favorite color",
+      "pattern": "[Kulay] ang paborito kong kulay.",
+      "english": "[Color] is my favorite color."
+    },
+    {
+      "title": "Like or want",
+      "pattern": "Gusto ko ng [bagay o pagkain].",
+      "english": "I like or want [thing or food]."
+    },
+    {
+      "title": "Dislike",
+      "pattern": "Ayaw ko ng [bagay o pagkain].",
+      "english": "I do not like or want [thing or food]."
+    }
+  ],
+  "builders": [
+    {
+      "id": "favorite-things",
+      "title": "Build your favorite-things introduction",
+      "description": "Create four sentences about your preferences.",
+      "template": "{{color}} ang paborito kong kulay. {{food}} ang paborito kong pagkain. Gusto ko ng {{drink}}. Ayaw ko ng {{dislike}}.",
+      "fields": [
+        {
+          "name": "color",
+          "label": "Favorite color",
+          "type": "select",
+          "options": [
+            "Pula",
+            "Asul",
+            "Berde",
+            "Dilaw",
+            "Itim",
+            "Puti",
+            "Lila",
+            "Rosas",
+            "Kahel"
+          ]
+        },
+        {
+          "name": "food",
+          "label": "Favorite food",
+          "type": "text",
+          "placeholder": "adobo"
+        },
+        {
+          "name": "drink",
+          "label": "Preferred drink",
+          "type": "select",
+          "options": [
+            "tubig",
+            "kape",
+            "tsaa",
+            "gatas"
+          ]
+        },
+        {
+          "name": "dislike",
+          "label": "Food you dislike",
+          "type": "text",
+          "placeholder": "isda"
+        }
+      ]
+    },
+    {
+      "id": "color-object",
+      "title": "Describe a colored object",
+      "description": "Practice color + linker + object.",
+      "template": "{{phrase}} ang {{object}} ko.",
+      "fields": [
+        {
+          "name": "phrase",
+          "label": "Color form",
+          "type": "select",
+          "options": [
+            "Pula",
+            "Asul",
+            "Berde",
+            "Dilaw",
+            "Itim",
+            "Puti",
+            "Lila",
+            "Rosas",
+            "Kahel"
+          ]
+        },
+        {
+          "name": "object",
+          "label": "Object",
+          "type": "text",
+          "placeholder": "tasa"
+        }
+      ],
+      "note": "After generating, revise the color with the correct linker: pulang tasa, berdeng tasa, or asul na tasa."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What does pula mean?",
+      "choices": [
+        "Blue",
+        "Red",
+        "Yellow",
+        "Black"
+      ],
+      "answer": 1,
+      "explanation": "Pula means red."
+    },
+    {
+      "question": "Which phrase asks for someone's favorite color?",
+      "choices": [
+        "Anong kulay ito?",
+        "Ano ang paborito mong kulay?",
+        "Ano ang gusto mong kainin?",
+        "Gusto mo ba ng berde?"
+      ],
+      "answer": 1,
+      "explanation": "Paborito mong kulay means your favorite color."
+    },
+    {
+      "question": "How do you say 'I like blue'?",
+      "choices": [
+        "Ayaw ko ng asul.",
+        "Gusto ko ng asul.",
+        "Asul ang ayaw ko.",
+        "May asul ako."
+      ],
+      "answer": 1,
+      "explanation": "Gusto ko ng + noun expresses liking or wanting."
+    },
+    {
+      "question": "Which word means rice?",
+      "choices": [
+        "Kanin",
+        "Tinapay",
+        "Isda",
+        "Tubig"
+      ],
+      "answer": 0,
+      "explanation": "Kanin means cooked rice."
+    },
+    {
+      "question": "What does 'Ano ang gusto mong inumin?' ask?",
+      "choices": [
+        "What do you want to eat?",
+        "What is your favorite color?",
+        "What do you want to drink?",
+        "Do you like coffee?"
+      ],
+      "answer": 2,
+      "explanation": "Inumin means to drink."
+    },
+    {
+      "question": "Which sentence means 'I do not like fish'?",
+      "choices": [
+        "Gusto ko ng isda.",
+        "Ayaw ko ng isda.",
+        "May isda ako.",
+        "Busog ako."
+      ],
+      "answer": 1,
+      "explanation": "Ayaw ko ng expresses dislike."
+    },
+    {
+      "question": "Which color phrase correctly uses a linker?",
+      "choices": [
+        "Pula na kotse",
+        "Pulang kotse",
+        "Pula ng kotse",
+        "Pula ang kotse ko ng"
+      ],
+      "answer": 1,
+      "explanation": "Pula becomes pulang before the noun."
+    },
+    {
+      "question": "What does busog mean?",
+      "choices": [
+        "Hungry",
+        "Thirsty",
+        "Full",
+        "Tired"
+      ],
+      "answer": 2,
+      "explanation": "Busog means full after eating."
+    },
+    {
+      "question": "Which word means vegetables?",
+      "choices": [
+        "Prutas",
+        "Gulay",
+        "Manok",
+        "Baboy"
+      ],
+      "answer": 1,
+      "explanation": "Gulay means vegetables."
+    },
+    {
+      "question": "How do you politely answer yes?",
+      "choices": [
+        "Hindi po.",
+        "Opo.",
+        "Ayaw ko.",
+        "Paalam."
+      ],
+      "answer": 1,
+      "explanation": "Opo is a respectful yes."
+    }
+  ],
+  "missions": [
+    {
+      "title": "Favorite things challenge",
+      "description": "Rehearse or record a one-minute talk about colors and food.",
+      "steps": [
+        "Greet the listener.",
+        "Name your favorite color.",
+        "Name your favorite food and drink.",
+        "Mention one food you do not like.",
+        "End with thanks and a goodbye."
+      ],
+      "example": "Kumusta! Asul ang paborito kong kulay. Adobo ang paborito kong pagkain. Gusto ko ng kape. Ayaw ko ng isda. Salamat! Paalam!"
+    },
+    {
+      "title": "Color hunt",
+      "description": "Find five objects around you and identify their colors.",
+      "steps": [
+        "Choose five objects.",
+        "Say the color and object for each one.",
+        "Use at least two -ng color forms.",
+        "Use at least two na color forms.",
+        "Say which object is your favorite."
+      ],
+      "example": "Pulang tasa ito. Asul na telepono ito."
+    }
+  ],
+  "resources": [
+    {
+      "title": "Bahay Kubo",
+      "type": "Song practice",
+      "url": "https://www.youtube.com/watch?v=HYQM_iLwpoc",
+      "description": "Optional listening practice with familiar food and plant vocabulary."
+    }
+  ],
+  "source_status": "Transformed from Week 2 memorization, homework, challenge, and lesson-slide materials."
+}

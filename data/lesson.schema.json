@@ -1,44 +1,55 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.org/tagalog-learning-toolkit/lesson.schema.json",
-  "title": "Tagalog Learning Toolkit lesson",
+  "$id": "https://tagalog.academy/data/lesson.schema.json",
+  "title": "Tagalog Academy Lesson",
   "type": "object",
   "required": [
     "version",
     "id",
+    "week",
     "title",
+    "short_title",
+    "subtitle",
+    "objectives",
     "vocabulary",
-    "adjectives",
-    "quiz"
+    "grammar_notes",
+    "sentence_patterns",
+    "builders",
+    "quiz",
+    "missions",
+    "resources"
   ],
   "properties": {
     "version": {
-      "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+      "type": "string"
     },
     "id": {
       "type": "string",
-      "pattern": "^[a-z0-9-]+$"
+      "pattern": "^week[1-9][0-9]*$"
+    },
+    "week": {
+      "type": "integer",
+      "minimum": 1
     },
     "title": {
-      "type": "string",
-      "minLength": 1
-    },
-    "description": {
       "type": "string"
     },
-    "language": {
+    "short_title": {
       "type": "string"
     },
-    "learning_outcomes": {
+    "subtitle": {
+      "type": "string"
+    },
+    "objectives": {
       "type": "array",
+      "minItems": 4,
       "items": {
         "type": "string"
       }
     },
     "vocabulary": {
       "type": "array",
-      "minItems": 1,
+      "minItems": 20,
       "items": {
         "type": "object",
         "required": [
@@ -50,20 +61,16 @@
         ],
         "properties": {
           "id": {
-            "type": "string",
-            "pattern": "^[a-z0-9-]+$"
+            "type": "string"
           },
           "category": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "tagalog": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "english": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "note": {
             "type": "string"
@@ -74,63 +81,30 @@
               "type": "string"
             }
           }
-        },
-        "additionalProperties": false
+        }
       }
     },
-    "adjectives": {
+    "grammar_notes": {
+      "type": "array"
+    },
+    "sentence_patterns": {
+      "type": "array"
+    },
+    "builders": {
       "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "required": [
-          "tagalog",
-          "english"
-        ],
-        "properties": {
-          "tagalog": {
-            "type": "string"
-          },
-          "english": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      }
+      "minItems": 2
     },
     "quiz": {
       "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "required": [
-          "question",
-          "choices",
-          "answer",
-          "explanation"
-        ],
-        "properties": {
-          "question": {
-            "type": "string"
-          },
-          "choices": {
-            "type": "array",
-            "minItems": 2,
-            "items": {
-              "type": "string"
-            }
-          },
-          "answer": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "explanation": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      }
+      "minItems": 10,
+      "maxItems": 10
+    },
+    "missions": {
+      "type": "array",
+      "minItems": 2
+    },
+    "resources": {
+      "type": "array"
     }
-  },
-  "additionalProperties": true
+  }
 }

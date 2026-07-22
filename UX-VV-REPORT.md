@@ -1,79 +1,114 @@
 # UX V&V Report
 
-## Executive Verdict
+## Release
 
-**Publication-ready as a neutral GitHub learning product after final human language review.**
+**Tagalog Academy v3.0.1 — Independent V&V Remediation**
 
-The primary delivery should be the progressive web app. The Python CLI adds repository value but should not replace the browser experience.
+## Verdict
 
-## Major Corrective Actions Completed
+The repository is technically ready for deployment as a public beta after the new files are committed to GitHub.
 
-- Removed legacy school branding and logo dependencies.
-- Removed personal places, institutions, occupations, and identity-linked examples.
-- Removed branded original documents from the public package.
-- Repositioned the website from a single worksheet wrapper to a reusable learning product.
-- Added offline installation support through a web app manifest and service worker.
-- Added adaptive daily review with transparent mastery records.
-- Added local-only speaking playback and self-recording.
-- Added progress export and import.
-- Added searchable and filterable lesson content.
-- Added editable sentence-builder outputs and copy controls.
-- Added keyboard-operable tabs with correct ARIA relationships.
-- Added light and dark appearance modes.
-- Added neutral print materials.
-- Added a Python companion for validation, serving, and terminal recall.
-- Added continuous-integration validation for GitHub.
-- Added lesson schema, expanded tests, and file hashes.
+It is not yet ready for authoritative language claims because qualified Tagalog educator review remains pending.
 
-## V&V Dimensions
+## Scope tested
 
-| Dimension | Result | Notes |
-|---|---:|---|
-| Brand neutrality | Pass | No legacy organization or personal references in public text assets |
-| Learner path clarity | Pass | Understand, retrieve, speak, create, and apply stages are visible |
-| Mobile responsiveness | Pass | Exercised in headless Chromium at a phone viewport |
-| Desktop responsiveness | Pass | Exercised in headless Chromium at a wide viewport |
-| Keyboard navigation | Pass | Tabs support arrows, Home, End, and focus states |
-| Local privacy | Pass | Progress remains local; audio is not uploaded |
-| Offline readiness | Structural pass | Manifest, cache list, and local references validate; deployed service-worker smoke test remains |
-| Content-data separation | Pass | Lesson content is maintained in versioned JSON |
-| CLI correctness | Pass | Validate and study-preview commands tested |
-| Automated tests | Pass | Repository, content, links, and CLI checks pass |
-| PDF rendering | Pass | All final PDF pages rendered and visually inspected |
-| Microphone workflow | Code-reviewed | Live microphone permission and recording need a real-device smoke test |
-| Formal language certification | Pending | Requires qualified human review |
-| Real learner validation | Pending | Requires observed use, completion, and feedback |
+- Four-week course loading
+- Week selector
+- Course roadmap
+- Vocabulary rendering
+- Category grouping
+- Adaptive review reveal and rating
+- Typed-practice generation
+- Quiz structure
+- Speaking controls
+- Dynamic builder generation
+- Mission structure
+- Resource rendering
+- Local progress fallback
+- Desktop layout
+- Mobile layout
+- Custom-domain preservation
+- Offline precache configuration
+- Private-link exclusion
 
-## UX Risks That Remain
+## Automated results
 
-1. Browser speech voices differ in accent and quality.
-2. Microphone support and permission behavior vary across browsers.
-3. Local storage can be cleared by the learner; export is therefore important.
-4. The review scheduler is intentionally simple and requires learner testing.
-5. Week 1 alone cannot prove long-term course retention or engagement.
-6. The current V&V environment blocked direct local-site navigation, so interactive browser tests used an in-memory Chromium harness with the production HTML, CSS, JavaScript, and lesson data. A deployed GitHub Pages smoke test remains required.
+| Test | Result |
+|---|---:|
+| Repository validator | PASS |
+| Python content tests | 19/19 PASS |
+| JavaScript syntax | PASS |
+| Service-worker syntax | PASS |
+| Service-worker registration behavior | PASS (Node VM: complete and loading document states) |
+| Lesson JSON Schema | 4/4 PASS |
+| Manifest hashes | PASS |
+| Active lessons | 4 |
+| Vocabulary records | 168 |
+| Native quiz questions | 40 |
+| Builders | 8 |
+| Missions | 8 |
+| Private/admin links excluded from public repo | PASS |
 
-## Validation Plan
+## Browser interaction exercise
 
-Run a small pilot with at least five new learners:
+A Chromium interaction harness successfully completed:
 
-1. Ask each learner to complete the first session without coaching.
-2. Record time to first successful spoken introduction.
-3. Capture where they hesitate or abandon the flow.
-4. Retest recall after one day and seven days.
-5. Ask whether they would return, recommend it, or use a second lesson.
-6. Collect fluent-speaker review of accepted answers and audio examples.
+- Loaded eight roadmap entries
+- Loaded Week 1 by default
+- Switched to Week 2
+- Rendered 38 Week 2 vocabulary rows
+- Revealed and rated an adaptive-review item
+- Produced a typed-recall prompt
+- Switched to Week 4
+- Generated a market-dialogue builder output
+- Rendered desktop and mobile screenshots
+- Confirmed mobile document width matched the 390-pixel viewport
+- Produced no browser console or page errors
 
-## Proof to Capture
+The UI harness used an in-memory browser fixture because this execution environment blocks browser navigation to local servers. Separately, the normal local HTTP server returned HTTP 200 with correct content types for the application shell, course data, Week 4 data, manifest, service worker, and Week 1 PDF. Service-worker registration behavior was executed in a Node VM for both already-loaded and still-loading document states. Full offline reload remains a live-domain gate.
 
-- Session completion rate
-- Quiz improvement between first and second attempt
-- Number of phrases reaching mastery level 2 or higher
-- One-day and seven-day recall
-- Successful introduction created and spoken
-- Learner quotations about clarity and confidence
-- Pull requests or issue reports from contributors
+## Accessibility checks
 
-## Release Decision
+- Skip link included
+- Semantic headings used
+- Tablist roles and keyboard behavior implemented
+- Visible focus treatment included
+- Buttons meet minimum target height
+- Form labels associated with controls
+- Live feedback regions included
+- Responsive layout avoids horizontal mobile overflow
+- Dark mode supported
+- Print mode supported
 
-Publish as an open Week 1 beta, not as the world’s best or a complete certified course. Earn stronger claims through learner retention, instructor review, expanding lesson coverage, and repeatable proof.
+## Remaining real-world gates
+
+- Test microphone permission and playback on iOS Safari, Android Chrome, and desktop Chrome
+- Test PWA installation from the live HTTPS domain
+- Test full offline reload after first visit
+- Test external media links from the live domain
+- Complete qualified Tagalog educator review
+- Complete a five-learner adult beta
+- Verify one-day and seven-day recall
+
+## Product judgment
+
+The course now functions as a reusable learning system rather than a Week 1 worksheet site.
+
+The next highest-value work is not adding cosmetic features. It is:
+
+1. Educator review
+2. Learner beta
+3. Correction capture
+4. Delayed-recall proof
+5. Weeks 5–8 source acquisition
+
+## Independent-review remediation
+
+The v3.0.1 patch closes the two beta-blocking findings from the independent review:
+
+- Service-worker registration now handles pages whose `load` event has already fired.
+- Speech synthesis caches asynchronously loaded voices and visibly warns when no Filipino voice is installed.
+
+It also adds cache-version release gating, CI-enforced JSON Schema validation, current license branding, standard assimilated number spellings, a dynamic sticky-header scroll offset, and documented spelling conventions.
+
+Remaining human gates: qualified educator review, source-rights confirmation, live-device PWA/microphone/offline testing, and learner beta evidence.

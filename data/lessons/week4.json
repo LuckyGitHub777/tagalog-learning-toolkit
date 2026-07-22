@@ -1,0 +1,863 @@
+{
+  "version": "3.0.1",
+  "id": "week4",
+  "week": 4,
+  "title": "Tagalog Week 4: Numbers, People, and the Market",
+  "short_title": "Numbers, Relationships, and Fruit",
+  "subtitle": "Count, ask prices, buy fruit, and introduce people in your life.",
+  "description": "A market-and-relationships week combining numbers, fruit, prices, and social introductions.",
+  "language": "Tagalog / Filipino",
+  "content_status": "Beta — educator review recommended.",
+  "objectives": [
+    "Count from one to twenty and recognize common tens.",
+    "Name common fruits and relationship words.",
+    "Ask how many and how much.",
+    "Use number linkers in phrases such as limang mangga.",
+    "Role-play a simple market exchange or introduce people in your life."
+  ],
+  "vocabulary": [
+    {
+      "id": "one",
+      "category": "Numbers 1–10",
+      "tagalog": "Isa",
+      "english": "One",
+      "accepted": [
+        "isa"
+      ]
+    },
+    {
+      "id": "two",
+      "category": "Numbers 1–10",
+      "tagalog": "Dalawa",
+      "english": "Two",
+      "accepted": [
+        "dalawa"
+      ]
+    },
+    {
+      "id": "three",
+      "category": "Numbers 1–10",
+      "tagalog": "Tatlo",
+      "english": "Three",
+      "accepted": [
+        "tatlo"
+      ]
+    },
+    {
+      "id": "four",
+      "category": "Numbers 1–10",
+      "tagalog": "Apat",
+      "english": "Four",
+      "accepted": [
+        "apat"
+      ]
+    },
+    {
+      "id": "five",
+      "category": "Numbers 1–10",
+      "tagalog": "Lima",
+      "english": "Five",
+      "accepted": [
+        "lima"
+      ]
+    },
+    {
+      "id": "six",
+      "category": "Numbers 1–10",
+      "tagalog": "Anim",
+      "english": "Six",
+      "accepted": [
+        "anim"
+      ]
+    },
+    {
+      "id": "seven",
+      "category": "Numbers 1–10",
+      "tagalog": "Pito",
+      "english": "Seven",
+      "accepted": [
+        "pito"
+      ]
+    },
+    {
+      "id": "eight",
+      "category": "Numbers 1–10",
+      "tagalog": "Walo",
+      "english": "Eight",
+      "accepted": [
+        "walo"
+      ]
+    },
+    {
+      "id": "nine",
+      "category": "Numbers 1–10",
+      "tagalog": "Siyam",
+      "english": "Nine",
+      "accepted": [
+        "siyam"
+      ]
+    },
+    {
+      "id": "ten",
+      "category": "Numbers 1–10",
+      "tagalog": "Sampu",
+      "english": "Ten",
+      "accepted": [
+        "sampu"
+      ]
+    },
+    {
+      "id": "eleven",
+      "category": "Numbers 11–20",
+      "tagalog": "Labing-isa",
+      "english": "Eleven",
+      "accepted": [
+        "labing-isa"
+      ],
+      "note": "Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "twelve",
+      "category": "Numbers 11–20",
+      "tagalog": "Labindalawa",
+      "english": "Twelve",
+      "accepted": [
+        "labindalawa"
+      ],
+      "note": "Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "thirteen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labintatlo",
+      "english": "Thirteen",
+      "accepted": [
+        "labintatlo"
+      ],
+      "note": "Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "fourteen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labing-apat",
+      "english": "Fourteen",
+      "accepted": [
+        "labing-apat"
+      ],
+      "note": "Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "fifteen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labinlima",
+      "english": "Fifteen",
+      "accepted": [
+        "labinlima"
+      ],
+      "note": "Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "sixteen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labing-anim",
+      "english": "Sixteen",
+      "accepted": [
+        "labing-anim"
+      ],
+      "note": "Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "seventeen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labimpito",
+      "english": "Seventeen",
+      "accepted": [
+        "labimpito"
+      ],
+      "note": "Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "eighteen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labingwalo",
+      "english": "Eighteen",
+      "accepted": [
+        "labingwalo"
+      ],
+      "note": "Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "nineteen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labinsiyam",
+      "english": "Nineteen",
+      "accepted": [
+        "labinsiyam"
+      ],
+      "note": "Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "twenty",
+      "category": "Numbers 11–20",
+      "tagalog": "Dalawampu",
+      "english": "Twenty",
+      "accepted": [
+        "dalawampu"
+      ]
+    },
+    {
+      "id": "thirty",
+      "category": "Tens",
+      "tagalog": "Tatlumpu",
+      "english": "Thirty",
+      "accepted": [
+        "tatlumpu"
+      ]
+    },
+    {
+      "id": "forty",
+      "category": "Tens",
+      "tagalog": "Apatnapu",
+      "english": "Forty",
+      "accepted": [
+        "apatnapu"
+      ]
+    },
+    {
+      "id": "fifty",
+      "category": "Tens",
+      "tagalog": "Limampu",
+      "english": "Fifty",
+      "accepted": [
+        "limampu"
+      ]
+    },
+    {
+      "id": "sixty",
+      "category": "Tens",
+      "tagalog": "Animnapu",
+      "english": "Sixty",
+      "accepted": [
+        "animnapu"
+      ]
+    },
+    {
+      "id": "seventy",
+      "category": "Tens",
+      "tagalog": "Pitumpu",
+      "english": "Seventy",
+      "accepted": [
+        "pitumpu"
+      ]
+    },
+    {
+      "id": "eighty",
+      "category": "Tens",
+      "tagalog": "Walumpu",
+      "english": "Eighty",
+      "accepted": [
+        "walumpu"
+      ]
+    },
+    {
+      "id": "ninety",
+      "category": "Tens",
+      "tagalog": "Siyamnapu",
+      "english": "Ninety",
+      "accepted": [
+        "siyamnapu"
+      ]
+    },
+    {
+      "id": "hundred",
+      "category": "Tens",
+      "tagalog": "Isang daan",
+      "english": "One hundred",
+      "accepted": [
+        "isang daan"
+      ]
+    },
+    {
+      "id": "friend",
+      "category": "Relationships",
+      "tagalog": "Kaibigan",
+      "english": "Friend",
+      "accepted": [
+        "kaibigan"
+      ]
+    },
+    {
+      "id": "coworker",
+      "category": "Relationships",
+      "tagalog": "Katrabaho",
+      "english": "Coworker",
+      "accepted": [
+        "katrabaho"
+      ]
+    },
+    {
+      "id": "colleague",
+      "category": "Relationships",
+      "tagalog": "Kasamahan",
+      "english": "Colleague or companion",
+      "accepted": [
+        "kasamahan"
+      ]
+    },
+    {
+      "id": "acquaintance",
+      "category": "Relationships",
+      "tagalog": "Kakilala",
+      "english": "Acquaintance",
+      "accepted": [
+        "kakilala"
+      ]
+    },
+    {
+      "id": "neighbor",
+      "category": "Relationships",
+      "tagalog": "Kapitbahay",
+      "english": "Neighbor",
+      "accepted": [
+        "kapitbahay"
+      ]
+    },
+    {
+      "id": "partner",
+      "category": "Relationships",
+      "tagalog": "Kasintahan",
+      "english": "Romantic partner",
+      "accepted": [
+        "kasintahan"
+      ]
+    },
+    {
+      "id": "spouse",
+      "category": "Relationships",
+      "tagalog": "Asawa",
+      "english": "Spouse",
+      "accepted": [
+        "asawa"
+      ]
+    },
+    {
+      "id": "compatriot",
+      "category": "Relationships",
+      "tagalog": "Kababayan",
+      "english": "Person from the same country, town, or community",
+      "accepted": [
+        "kababayan"
+      ]
+    },
+    {
+      "id": "mango",
+      "category": "Fruits",
+      "tagalog": "Mangga",
+      "english": "Mango",
+      "accepted": [
+        "mangga"
+      ]
+    },
+    {
+      "id": "orange-fruit",
+      "category": "Fruits",
+      "tagalog": "Dalandan",
+      "english": "Orange fruit",
+      "accepted": [
+        "dalandan"
+      ],
+      "note": "Dalandan names a citrus fruit; kahel is used for the color orange in Week 2."
+    },
+    {
+      "id": "grapes",
+      "category": "Fruits",
+      "tagalog": "Ubas",
+      "english": "Grapes",
+      "accepted": [
+        "ubas"
+      ]
+    },
+    {
+      "id": "pineapple",
+      "category": "Fruits",
+      "tagalog": "Pinya",
+      "english": "Pineapple",
+      "accepted": [
+        "pinya"
+      ]
+    },
+    {
+      "id": "watermelon",
+      "category": "Fruits",
+      "tagalog": "Pakwan",
+      "english": "Watermelon",
+      "accepted": [
+        "pakwan"
+      ]
+    },
+    {
+      "id": "pear",
+      "category": "Fruits",
+      "tagalog": "Peras",
+      "english": "Pear",
+      "accepted": [
+        "peras"
+      ]
+    },
+    {
+      "id": "papaya",
+      "category": "Fruits",
+      "tagalog": "Papaya",
+      "english": "Papaya",
+      "accepted": [
+        "papaya"
+      ]
+    },
+    {
+      "id": "calamansi",
+      "category": "Fruits",
+      "tagalog": "Kalamansi",
+      "english": "Calamansi",
+      "accepted": [
+        "kalamansi"
+      ]
+    },
+    {
+      "id": "how-much",
+      "category": "Market Questions",
+      "tagalog": "Magkano ang mangga?",
+      "english": "How much is the mango?",
+      "accepted": [
+        "magkano ang mangga",
+        "magkano ang mangga?"
+      ]
+    },
+    {
+      "id": "how-many",
+      "category": "Market Questions",
+      "tagalog": "Ilang mangga?",
+      "english": "How many mangoes?",
+      "accepted": [
+        "ilang mangga",
+        "ilang mangga?"
+      ]
+    },
+    {
+      "id": "want-five",
+      "category": "Market Answers",
+      "tagalog": "Limang mangga ang gusto ko.",
+      "english": "I want five mangoes.",
+      "accepted": [
+        "limang mangga ang gusto ko",
+        "limang mangga ang gusto ko."
+      ]
+    },
+    {
+      "id": "twenty-pesos",
+      "category": "Market Answers",
+      "tagalog": "Dalawampung piso.",
+      "english": "Twenty pesos.",
+      "accepted": [
+        "dalawampung piso",
+        "dalawampung piso."
+      ]
+    },
+    {
+      "id": "how-much-all",
+      "category": "Market Questions",
+      "tagalog": "Magkano lahat?",
+      "english": "How much is everything?",
+      "accepted": [
+        "magkano lahat",
+        "magkano lahat?"
+      ]
+    },
+    {
+      "id": "this-friend",
+      "category": "Relationships in Sentences",
+      "tagalog": "Ito si Maria. Kaibigan ko siya.",
+      "english": "This is Maria. She is my friend.",
+      "accepted": [
+        "ito si maria. kaibigan ko siya",
+        "ito si maria. kaibigan ko siya."
+      ]
+    },
+    {
+      "id": "really",
+      "category": "Useful Expressions",
+      "tagalog": "Talaga?",
+      "english": "Really?",
+      "accepted": [
+        "talaga",
+        "talaga?"
+      ]
+    },
+    {
+      "id": "of-course",
+      "category": "Useful Expressions",
+      "tagalog": "Siyempre.",
+      "english": "Of course.",
+      "accepted": [
+        "siyempre",
+        "siyempre."
+      ]
+    },
+    {
+      "id": "correct",
+      "category": "Useful Expressions",
+      "tagalog": "Tama.",
+      "english": "Correct.",
+      "accepted": [
+        "tama",
+        "tama."
+      ]
+    },
+    {
+      "id": "incorrect",
+      "category": "Useful Expressions",
+      "tagalog": "Mali.",
+      "english": "Incorrect.",
+      "accepted": [
+        "mali",
+        "mali."
+      ]
+    },
+    {
+      "id": "okay-go",
+      "category": "Useful Expressions",
+      "tagalog": "Sige.",
+      "english": "Okay or go ahead.",
+      "accepted": [
+        "sige",
+        "sige."
+      ]
+    },
+    {
+      "id": "wait",
+      "category": "Useful Expressions",
+      "tagalog": "Sandali.",
+      "english": "Wait a moment.",
+      "accepted": [
+        "sandali",
+        "sandali."
+      ]
+    },
+    {
+      "id": "great",
+      "category": "Useful Expressions",
+      "tagalog": "Ayos!",
+      "english": "Great!",
+      "accepted": [
+        "ayos",
+        "ayos!"
+      ]
+    },
+    {
+      "id": "no-problem",
+      "category": "Useful Expressions",
+      "tagalog": "Walang problema.",
+      "english": "No problem.",
+      "accepted": [
+        "walang problema",
+        "walang problema."
+      ]
+    }
+  ],
+  "grammar_notes": [
+    {
+      "title": "Ilan or ilang",
+      "body": "Ilan asks how many by itself. Ilang comes before a noun.",
+      "examples": [
+        {
+          "tagalog": "Ilan?",
+          "english": "How many?"
+        },
+        {
+          "tagalog": "Ilang mangga?",
+          "english": "How many mangoes?"
+        }
+      ]
+    },
+    {
+      "title": "Number linkers",
+      "body": "A number often connects to the noun with -ng or na. This creates forms such as limang mangga and dalawampung piso.",
+      "examples": [
+        {
+          "tagalog": "Limang mangga",
+          "english": "Five mangoes"
+        },
+        {
+          "tagalog": "Dalawampung piso",
+          "english": "Twenty pesos"
+        }
+      ]
+    },
+    {
+      "title": "Introducing a relationship",
+      "body": "Use Ito si + name to introduce a person, followed by relationship + ko siya.",
+      "examples": [
+        {
+          "tagalog": "Ito si Ana. Kaibigan ko siya.",
+          "english": "This is Ana. She is my friend."
+        },
+        {
+          "tagalog": "Ito si Leo. Katrabaho ko siya.",
+          "english": "This is Leo. He is my coworker."
+        }
+      ]
+    }
+  ],
+  "sentence_patterns": [
+    {
+      "title": "Ask a price",
+      "pattern": "Magkano ang [prutas]?",
+      "english": "How much is the [fruit]?"
+    },
+    {
+      "title": "Ask a quantity",
+      "pattern": "Ilang [bagay]?",
+      "english": "How many [things]?"
+    },
+    {
+      "title": "Introduce a person",
+      "pattern": "Ito si [pangalan]. [Ugnayan] ko siya.",
+      "english": "This is [name]. They are my [relationship]."
+    }
+  ],
+  "builders": [
+    {
+      "id": "market-dialogue",
+      "title": "Build a market exchange",
+      "description": "Create a short fruit-buying dialogue.",
+      "template": "Mamimili: Kumusta po! Pabili po ng {{fruit}}.\nTindero: Ilan ang gusto mo?\nMamimili: {{quantity}} {{fruit}} po.\nMamimili: Magkano po?\nTindero: {{price}} piso bawat isa.\nMamimili: Sige po. Salamat!",
+      "fields": [
+        {
+          "name": "fruit",
+          "label": "Fruit",
+          "type": "select",
+          "options": [
+            "mangga",
+            "saging",
+            "mansanas",
+            "dalandan",
+            "ubas",
+            "pinya",
+            "papaya"
+          ]
+        },
+        {
+          "name": "quantity",
+          "label": "Quantity phrase",
+          "type": "select",
+          "options": [
+            "Dalawang",
+            "Tatlong",
+            "Apat na",
+            "Limang",
+            "Anim na"
+          ]
+        },
+        {
+          "name": "price",
+          "label": "Price",
+          "type": "select",
+          "options": [
+            "sampung",
+            "dalawampung",
+            "tatlumpung",
+            "limampung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "people-introduction",
+      "title": "Introduce someone in your life",
+      "description": "Use a relationship and an adjective.",
+      "template": "Ito si {{name}}. {{relationship}} ko siya. {{adjective}} siya.",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "placeholder": "Maria"
+        },
+        {
+          "name": "relationship",
+          "label": "Relationship",
+          "type": "select",
+          "options": [
+            "Kaibigan",
+            "Katrabaho",
+            "Kasamahan",
+            "Kakilala",
+            "Kapitbahay",
+            "Kababayan"
+          ]
+        },
+        {
+          "name": "adjective",
+          "label": "Adjective",
+          "type": "select",
+          "options": [
+            "Mabait",
+            "Matalino",
+            "Masipag",
+            "Masayahin",
+            "Palakaibigan",
+            "Matulungin",
+            "Tahimik",
+            "Nakakatawa"
+          ]
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What is walo?",
+      "choices": [
+        "Six",
+        "Seven",
+        "Eight",
+        "Nine"
+      ],
+      "answer": 2,
+      "explanation": "Walo means eight."
+    },
+    {
+      "question": "Which word means thirty?",
+      "choices": [
+        "Dalawampu",
+        "Tatlumpu",
+        "Apatnapu",
+        "Limampu"
+      ],
+      "answer": 1,
+      "explanation": "Tatlumpu means thirty."
+    },
+    {
+      "question": "What does kapitbahay mean?",
+      "choices": [
+        "Coworker",
+        "Neighbor",
+        "Spouse",
+        "Friend"
+      ],
+      "answer": 1,
+      "explanation": "Kapitbahay means neighbor."
+    },
+    {
+      "question": "Which fruit is mangga?",
+      "choices": [
+        "Mango",
+        "Papaya",
+        "Pineapple",
+        "Pear"
+      ],
+      "answer": 0,
+      "explanation": "Mangga means mango."
+    },
+    {
+      "question": "How do you ask 'How much is the mango?'",
+      "choices": [
+        "Ilang mangga?",
+        "Magkano ang mangga?",
+        "Ano ang mangga?",
+        "Nasaan ang mangga?"
+      ],
+      "answer": 1,
+      "explanation": "Magkano asks the price."
+    },
+    {
+      "question": "What does 'Dalawampung piso' mean?",
+      "choices": [
+        "Twelve pesos",
+        "Twenty pesos",
+        "Thirty pesos",
+        "One hundred pesos"
+      ],
+      "answer": 1,
+      "explanation": "Dalawampu becomes dalawampung before piso."
+    },
+    {
+      "question": "Which sentence means 'I want five mangoes'?",
+      "choices": [
+        "Limang mangga ang gusto ko.",
+        "Lima ang mangga ko ba.",
+        "Gusto mangga lima.",
+        "May limang kaibigan."
+      ],
+      "answer": 0,
+      "explanation": "The number takes a linker before the noun."
+    },
+    {
+      "question": "What does kababayan mean?",
+      "choices": [
+        "A stranger",
+        "A relative",
+        "Someone from the same country, town, or community",
+        "A romantic partner"
+      ],
+      "answer": 2,
+      "explanation": "Kababayan marks a shared place or community origin."
+    },
+    {
+      "question": "Which expression means 'Wait a moment'?",
+      "choices": [
+        "Talaga?",
+        "Sige.",
+        "Sandali.",
+        "Ayos!"
+      ],
+      "answer": 2,
+      "explanation": "Sandali means wait a moment."
+    },
+    {
+      "question": "How do you say 'This is Maria. She is my friend.'?",
+      "choices": [
+        "Ito si Maria. Kaibigan ko siya.",
+        "Maria ang kaibigan ito.",
+        "Siya Maria ko kaibigan.",
+        "May Maria ang kaibigan."
+      ],
+      "answer": 0,
+      "explanation": "Ito si + name introduces a person; kaibigan ko siya states the relationship."
+    }
+  ],
+  "missions": [
+    {
+      "title": "Market role-play",
+      "description": "Pretend to buy at least five fruits from a market.",
+      "steps": [
+        "Open with a polite greeting.",
+        "Ask for at least five fruits.",
+        "Use Ilan or ilang for quantity.",
+        "Ask the price with Magkano.",
+        "Ask Magkano lahat? and close politely."
+      ],
+      "example": "Pabili po ng mangga. Ilan ang gusto mo? Limang mangga po. Magkano po? Dalawampung piso bawat isa."
+    },
+    {
+      "title": "Introduce five people",
+      "description": "Introduce five people using relationship words and adjectives.",
+      "steps": [
+        "Use Ito si + name.",
+        "Use five different relationship words.",
+        "Describe each person with one adjective.",
+        "Practice the full set aloud.",
+        "End with Salamat po! Paalam!"
+      ],
+      "example": "Ito si Maria. Kaibigan ko siya. Mabait siya."
+    }
+  ],
+  "resources": [
+    {
+      "title": "Makukulay na Prutas",
+      "type": "Song practice",
+      "url": "https://www.youtube.com/watch?v=oFU5DbU0TW4",
+      "description": "Optional listening practice for fruits and colors."
+    }
+  ],
+  "source_status": "Transformed from Week 4 memorization, homework, challenge, and workbook references. The week title was broadened because the source materials also teach numbers, prices, and relationships."
+}

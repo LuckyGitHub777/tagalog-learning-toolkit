@@ -1,0 +1,82 @@
+{
+  "version": "3.0.1",
+  "title": "Tagalog Academy",
+  "domain": "tagalog.academy",
+  "description": "A privacy-first, mastery-oriented Tagalog course for adult learners.",
+  "course_outcome": "Use practical Tagalog for introductions, preferences, home life, quantities, relationships, and simple market conversations.",
+  "weeks": [
+    {
+      "id": "week1",
+      "number": 1,
+      "title": "Introductions and Family",
+      "status": "available",
+      "file": "data/lessons/week1.json",
+      "summary": "Greet, introduce yourself, and describe family."
+    },
+    {
+      "id": "week2",
+      "number": 2,
+      "title": "Colors and Food",
+      "status": "available",
+      "file": "data/lessons/week2.json",
+      "summary": "Describe colors and share food preferences."
+    },
+    {
+      "id": "week3",
+      "number": 3,
+      "title": "Objects and Places at Home",
+      "status": "available",
+      "file": "data/lessons/week3.json",
+      "summary": "Ask and answer where people and things are."
+    },
+    {
+      "id": "week4",
+      "number": 4,
+      "title": "Numbers, Relationships, and Fruit",
+      "status": "available",
+      "file": "data/lessons/week4.json",
+      "summary": "Count, ask prices, buy fruit, and introduce people."
+    },
+    {
+      "id": "week5",
+      "number": 5,
+      "title": "Coming next",
+      "status": "planned",
+      "summary": "Content source not yet provided."
+    },
+    {
+      "id": "week6",
+      "number": 6,
+      "title": "Coming next",
+      "status": "planned",
+      "summary": "Content source not yet provided."
+    },
+    {
+      "id": "week7",
+      "number": 7,
+      "title": "Coming next",
+      "status": "planned",
+      "summary": "Content source not yet provided."
+    },
+    {
+      "id": "week8",
+      "number": 8,
+      "title": "Coming next",
+      "status": "planned",
+      "summary": "Content source not yet provided."
+    }
+  ],
+  "mastery_model": {
+    "recognize": "Understand the phrase when you see or hear it.",
+    "recall": "Produce the Tagalog without looking.",
+    "speak": "Say it aloud with confidence.",
+    "apply": "Use it in an original sentence or mission.",
+    "review": "Return after a delay and remember it again."
+  },
+  "privacy": {
+    "accounts": false,
+    "tracking": false,
+    "cloud_audio": false,
+    "storage": "Progress is stored locally in the learner's browser."
+  }
+}

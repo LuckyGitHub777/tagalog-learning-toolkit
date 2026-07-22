@@ -43,7 +43,7 @@ def footer(canvas, doc):
     canvas.line(0.55*inch, 0.48*inch, 7.95*inch, 0.48*inch)
     canvas.setFont('Helvetica', 7)
     canvas.setFillColor(MUTED)
-    canvas.drawString(0.55*inch, 0.29*inch, 'Tagalog Learning Toolkit · Week 1')
+    canvas.drawString(0.55*inch, 0.29*inch, 'Tagalog Academy · Week 1')
     canvas.drawRightString(7.95*inch, 0.29*inch, f'Page {doc.page}')
     canvas.restoreState()
 
@@ -81,7 +81,7 @@ def build_study():
 
     story = title_block('TAGALOG WEEK 1 STUDY GUIDE', 'Introductions, greetings, feelings, school, work, and family')
     story += [Paragraph('Learning Outcomes', styles['H1x'])]
-    for outcome in DATA['learning_outcomes']:
+    for outcome in DATA['objectives']:
         story.append(Paragraph(f'• {outcome}', styles['Bodyx']))
     for category in ('Greetings', 'Feelings', 'Introductions'):
         story += [Spacer(1,5), Paragraph(category, styles['H1x']), table_for(grouped[category])]
@@ -183,7 +183,7 @@ def build_answer():
         'Accept Kumusta? and common Kamusta? when spelling conventions allow.',
         'Accept Ayos lang ako. and Okay lang ako.',
         'For a field of study, Nag-aaral ako ng ____ is the primary model in this lesson.',
-        'Stressed ako. is familiar Taglish; Nai-stress ako. is the primary study form.',
+        'Na-stress ako. is the primary study form; Stressed ako. is familiar Taglish, and nai-stress ako may also appear.',
         'Kuya and Ate can also function as respectful forms of address, but this lesson teaches older brother and older sister.',
         'Tiyo/Tiya and Tito/Tita are recognized variants for uncle and aunt.',
         'Bunso means the youngest child or sibling, not any younger sibling.'

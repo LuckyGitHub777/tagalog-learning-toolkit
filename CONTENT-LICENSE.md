@@ -1,11 +1,23 @@
-Creative Commons Attribution 4.0 International
+# Content License
 
-The original educational text and lesson data in this repository are licensed
-under the Creative Commons Attribution 4.0 International License.
+## Software
 
-You are free to share and adapt the material for any purpose, including
-commercial use, provided that appropriate credit is given, a link to the
-license is provided, and changes are indicated. No additional restrictions may
-be applied that legally restrict others from doing anything the license permits.
+The application code is licensed under the MIT License in `LICENSE`.
 
-Official license text: https://creativecommons.org/licenses/by/4.0/legalcode
+## Educational content
+
+The lesson wording, quizzes, builders, missions, and editorial notes in this repository are separate from the software license.
+
+Until the publisher confirms ownership and selects an explicit public-content license, educational content should be treated as:
+
+**Copyright © 2026 Tagalog Academy. All rights reserved.**
+
+The repository does not grant permission to republish third-party recordings, songs, slides, forms, or source documents.
+
+## External resources
+
+External resources are linked, not copied or hosted. Their owners control their availability, terms, and permitted uses.
+
+## Source curriculum
+
+Original course files, live meeting links, and homework-submission forms are intentionally excluded from the public repository. The public lesson experience is a transformed educational implementation rather than a mirror of the source workbook.

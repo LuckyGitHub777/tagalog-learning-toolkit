@@ -1,0 +1,607 @@
+{
+  "version": "3.0.1",
+  "id": "week3",
+  "week": 3,
+  "title": "Tagalog Week 3: At Home",
+  "short_title": "Objects and Places at Home",
+  "subtitle": "Name household objects and say where people and things are located.",
+  "description": "A practical location lesson using objects and rooms around the home.",
+  "language": "Tagalog / Filipino",
+  "content_status": "Beta — educator review recommended.",
+  "objectives": [
+    "Name common household objects and rooms.",
+    "Ask where an object or person is.",
+    "Answer location questions with nasa.",
+    "Describe an object using a basic adjective linker.",
+    "Give a short tour of a room or home."
+  ],
+  "vocabulary": [
+    {
+      "id": "spoon",
+      "category": "Household Objects",
+      "tagalog": "Kutsara",
+      "english": "Spoon",
+      "accepted": [
+        "kutsara"
+      ]
+    },
+    {
+      "id": "fork",
+      "category": "Household Objects",
+      "tagalog": "Tinidor",
+      "english": "Fork",
+      "accepted": [
+        "tinidor"
+      ]
+    },
+    {
+      "id": "knife",
+      "category": "Household Objects",
+      "tagalog": "Kutsilyo",
+      "english": "Knife",
+      "accepted": [
+        "kutsilyo"
+      ]
+    },
+    {
+      "id": "plate",
+      "category": "Household Objects",
+      "tagalog": "Plato / Pinggan",
+      "english": "Plate",
+      "accepted": [
+        "plato",
+        "pinggan"
+      ]
+    },
+    {
+      "id": "bowl",
+      "category": "Household Objects",
+      "tagalog": "Mangkok",
+      "english": "Bowl",
+      "accepted": [
+        "mangkok"
+      ]
+    },
+    {
+      "id": "glass",
+      "category": "Household Objects",
+      "tagalog": "Baso",
+      "english": "Glass",
+      "accepted": [
+        "baso"
+      ]
+    },
+    {
+      "id": "cup",
+      "category": "Household Objects",
+      "tagalog": "Tasa",
+      "english": "Cup",
+      "accepted": [
+        "tasa"
+      ]
+    },
+    {
+      "id": "bottle",
+      "category": "Household Objects",
+      "tagalog": "Bote",
+      "english": "Bottle",
+      "accepted": [
+        "bote"
+      ]
+    },
+    {
+      "id": "bed",
+      "category": "Household Objects",
+      "tagalog": "Kama",
+      "english": "Bed",
+      "accepted": [
+        "kama"
+      ]
+    },
+    {
+      "id": "pillow",
+      "category": "Household Objects",
+      "tagalog": "Unan",
+      "english": "Pillow",
+      "accepted": [
+        "unan"
+      ]
+    },
+    {
+      "id": "blanket",
+      "category": "Household Objects",
+      "tagalog": "Kumot",
+      "english": "Blanket",
+      "accepted": [
+        "kumot"
+      ]
+    },
+    {
+      "id": "toothbrush",
+      "category": "Household Objects",
+      "tagalog": "Sipilyo",
+      "english": "Toothbrush",
+      "accepted": [
+        "sipilyo"
+      ]
+    },
+    {
+      "id": "towel",
+      "category": "Household Objects",
+      "tagalog": "Tuwalya",
+      "english": "Towel",
+      "accepted": [
+        "tuwalya"
+      ]
+    },
+    {
+      "id": "mirror",
+      "category": "Household Objects",
+      "tagalog": "Salamin",
+      "english": "Mirror",
+      "accepted": [
+        "salamin"
+      ],
+      "note": "Salamin can also mean eyeglasses; context matters."
+    },
+    {
+      "id": "soap",
+      "category": "Household Objects",
+      "tagalog": "Sabon",
+      "english": "Soap",
+      "accepted": [
+        "sabon"
+      ]
+    },
+    {
+      "id": "kitchen",
+      "category": "Places at Home",
+      "tagalog": "Kusina",
+      "english": "Kitchen",
+      "accepted": [
+        "kusina"
+      ]
+    },
+    {
+      "id": "living-room",
+      "category": "Places at Home",
+      "tagalog": "Sala",
+      "english": "Living room",
+      "accepted": [
+        "sala"
+      ]
+    },
+    {
+      "id": "bedroom",
+      "category": "Places at Home",
+      "tagalog": "Kwarto",
+      "english": "Bedroom or room",
+      "accepted": [
+        "kwarto",
+        "kuwarto"
+      ]
+    },
+    {
+      "id": "bathroom",
+      "category": "Places at Home",
+      "tagalog": "Banyo",
+      "english": "Bathroom",
+      "accepted": [
+        "banyo"
+      ]
+    },
+    {
+      "id": "garage",
+      "category": "Places at Home",
+      "tagalog": "Garahe",
+      "english": "Garage",
+      "accepted": [
+        "garahe"
+      ]
+    },
+    {
+      "id": "garden",
+      "category": "Places at Home",
+      "tagalog": "Hardin",
+      "english": "Garden",
+      "accepted": [
+        "hardin"
+      ]
+    },
+    {
+      "id": "where-spoon",
+      "category": "Location Questions",
+      "tagalog": "Nasaan ang kutsara?",
+      "english": "Where is the spoon?",
+      "accepted": [
+        "nasaan ang kutsara",
+        "nasaan ang kutsara?"
+      ]
+    },
+    {
+      "id": "where-bed",
+      "category": "Location Questions",
+      "tagalog": "Nasaan ang kama?",
+      "english": "Where is the bed?",
+      "accepted": [
+        "nasaan ang kama",
+        "nasaan ang kama?"
+      ]
+    },
+    {
+      "id": "where-person",
+      "category": "Location Questions",
+      "tagalog": "Nasaan si Maria?",
+      "english": "Where is Maria?",
+      "accepted": [
+        "nasaan si maria",
+        "nasaan si maria?"
+      ]
+    },
+    {
+      "id": "in-kitchen",
+      "category": "Location Answers",
+      "tagalog": "Nasa kusina ang kutsara.",
+      "english": "The spoon is in the kitchen.",
+      "accepted": [
+        "nasa kusina ang kutsara",
+        "nasa kusina ang kutsara."
+      ]
+    },
+    {
+      "id": "in-bedroom",
+      "category": "Location Answers",
+      "tagalog": "Nasa kwarto ang kama.",
+      "english": "The bed is in the bedroom.",
+      "accepted": [
+        "nasa kwarto ang kama",
+        "nasa kuwarto ang kama",
+        "nasa kwarto ang kama.",
+        "nasa kuwarto ang kama."
+      ]
+    },
+    {
+      "id": "person-office",
+      "category": "Location Answers",
+      "tagalog": "Nasa opisina si Maria.",
+      "english": "Maria is in the office.",
+      "accepted": [
+        "nasa opisina si maria",
+        "nasa opisina si maria."
+      ]
+    },
+    {
+      "id": "this-room",
+      "category": "Possession",
+      "tagalog": "Kwarto ko ito.",
+      "english": "This is my room.",
+      "accepted": [
+        "kwarto ko ito",
+        "kuwarto ko ito",
+        "kwarto ko ito.",
+        "kuwarto ko ito."
+      ]
+    },
+    {
+      "id": "this-backpack",
+      "category": "Possession",
+      "tagalog": "Backpack ko ito.",
+      "english": "This is my backpack.",
+      "accepted": [
+        "backpack ko ito",
+        "backpack ko ito."
+      ]
+    },
+    {
+      "id": "big",
+      "category": "Describing Objects",
+      "tagalog": "Malaki",
+      "english": "Big",
+      "accepted": [
+        "malaki"
+      ]
+    },
+    {
+      "id": "small",
+      "category": "Describing Objects",
+      "tagalog": "Maliit",
+      "english": "Small",
+      "accepted": [
+        "maliit"
+      ]
+    },
+    {
+      "id": "long",
+      "category": "Describing Objects",
+      "tagalog": "Mahaba",
+      "english": "Long",
+      "accepted": [
+        "mahaba"
+      ]
+    },
+    {
+      "id": "thick",
+      "category": "Describing Objects",
+      "tagalog": "Makapal",
+      "english": "Thick",
+      "accepted": [
+        "makapal"
+      ]
+    }
+  ],
+  "grammar_notes": [
+    {
+      "title": "Nasaan and nasa",
+      "body": "Use nasaan to ask where someone or something is. Use nasa + place to answer.",
+      "examples": [
+        {
+          "tagalog": "Nasaan ang tasa?",
+          "english": "Where is the cup?"
+        },
+        {
+          "tagalog": "Nasa kusina ang tasa.",
+          "english": "The cup is in the kitchen."
+        },
+        {
+          "tagalog": "Nasaan si Ana?",
+          "english": "Where is Ana?"
+        },
+        {
+          "tagalog": "Nasa sala si Ana.",
+          "english": "Ana is in the living room."
+        }
+      ]
+    },
+    {
+      "title": "Ang versus si",
+      "body": "Use ang with common nouns and si with a personal name.",
+      "examples": [
+        {
+          "tagalog": "Nasaan ang kutsara?",
+          "english": "Where is the spoon?"
+        },
+        {
+          "tagalog": "Nasaan si Miguel?",
+          "english": "Where is Miguel?"
+        }
+      ]
+    },
+    {
+      "title": "Possession with ko",
+      "body": "Ko can mark something as mine in simple identity statements.",
+      "examples": [
+        {
+          "tagalog": "Kwarto ko ito.",
+          "english": "This is my room."
+        },
+        {
+          "tagalog": "Tasa ko ito.",
+          "english": "This is my cup."
+        }
+      ]
+    }
+  ],
+  "sentence_patterns": [
+    {
+      "title": "Ask for an object",
+      "pattern": "Nasaan ang [bagay]?",
+      "english": "Where is the [object]?"
+    },
+    {
+      "title": "Give an object location",
+      "pattern": "Nasa [lugar] ang [bagay].",
+      "english": "The [object] is in the [place]."
+    },
+    {
+      "title": "Ask for a person",
+      "pattern": "Nasaan si [pangalan]?",
+      "english": "Where is [name]?"
+    }
+  ],
+  "builders": [
+    {
+      "id": "location-builder",
+      "title": "Build a location question and answer",
+      "description": "Choose an object and a room.",
+      "template": "Nasaan ang {{object}}?\nNasa {{place}} ang {{object}}.",
+      "fields": [
+        {
+          "name": "object",
+          "label": "Object",
+          "type": "select",
+          "options": [
+            "kutsara",
+            "plato",
+            "tasa",
+            "kama",
+            "unan",
+            "sabon",
+            "sipilyo",
+            "tuwalya",
+            "bote"
+          ]
+        },
+        {
+          "name": "place",
+          "label": "Place",
+          "type": "select",
+          "options": [
+            "kusina",
+            "sala",
+            "kwarto",
+            "banyo",
+            "garahe",
+            "hardin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-location",
+      "title": "Build a person-location exchange",
+      "description": "Practice si with a name.",
+      "template": "Nasaan si {{name}}?\nNasa {{place}} si {{name}}.",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "placeholder": "Ana"
+        },
+        {
+          "name": "place",
+          "label": "Place",
+          "type": "text",
+          "placeholder": "sala"
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What does kutsara mean?",
+      "choices": [
+        "Fork",
+        "Spoon",
+        "Knife",
+        "Plate"
+      ],
+      "answer": 1,
+      "explanation": "Kutsara means spoon."
+    },
+    {
+      "question": "Which word means bathroom?",
+      "choices": [
+        "Kusina",
+        "Kwarto",
+        "Banyo",
+        "Hardin"
+      ],
+      "answer": 2,
+      "explanation": "Banyo means bathroom."
+    },
+    {
+      "question": "How do you ask 'Where is the bed?'",
+      "choices": [
+        "Nasaan ang kama?",
+        "Ano ang kama?",
+        "Saan kama ang?",
+        "May kama ba?"
+      ],
+      "answer": 0,
+      "explanation": "Nasaan ang + object asks for its location."
+    },
+    {
+      "question": "Which sentence means 'The soap is in the bathroom'?",
+      "choices": [
+        "Nasa kusina ang sabon.",
+        "Nasa banyo ang sabon.",
+        "Nasaan ang sabon?",
+        "Banyo ko ang sabon."
+      ],
+      "answer": 1,
+      "explanation": "Nasa + place + ang + object gives a location."
+    },
+    {
+      "question": "How do you ask where a named person is?",
+      "choices": [
+        "Nasaan ang Maria?",
+        "Nasaan si Maria?",
+        "Saan ang si Maria?",
+        "May Maria ba?"
+      ],
+      "answer": 1,
+      "explanation": "Use si before a personal name."
+    },
+    {
+      "question": "What does tuwalya mean?",
+      "choices": [
+        "Towel",
+        "Blanket",
+        "Pillow",
+        "Mirror"
+      ],
+      "answer": 0,
+      "explanation": "Tuwalya means towel."
+    },
+    {
+      "question": "Which place means garden?",
+      "choices": [
+        "Garahe",
+        "Sala",
+        "Hardin",
+        "Banyo"
+      ],
+      "answer": 2,
+      "explanation": "Hardin means garden."
+    },
+    {
+      "question": "What does 'Kwarto ko ito' mean?",
+      "choices": [
+        "Where is my room?",
+        "This is my room.",
+        "My room is big.",
+        "The room is here."
+      ],
+      "answer": 1,
+      "explanation": "Ko marks possession: my room."
+    },
+    {
+      "question": "Which phrase means 'big glass'?",
+      "choices": [
+        "Malaki baso",
+        "Malaking baso",
+        "Malaki na baso",
+        "Baso ng malaki"
+      ],
+      "answer": 1,
+      "explanation": "Malaki takes -ng before the noun."
+    },
+    {
+      "question": "Which answer matches 'Nasaan ang unan?'",
+      "choices": [
+        "Nasa kwarto ang unan.",
+        "Kwarto ang nasaan unan.",
+        "Unan si kwarto.",
+        "May unan ang nasaan."
+      ],
+      "answer": 0,
+      "explanation": "Nasa kwarto ang unan is a complete location answer."
+    }
+  ],
+  "missions": [
+    {
+      "title": "One-minute house tour",
+      "description": "Give a simple tour of a room or home.",
+      "steps": [
+        "Introduce at least three places.",
+        "Name at least five objects.",
+        "Ask three Nasaan ang...? questions.",
+        "Answer each question with Nasa... ang....",
+        "End with Salamat!"
+      ],
+      "example": "Ito ang kusina. Nasa kusina ang plato. Nasaan ang tasa? Nasa kusina ang tasa."
+    },
+    {
+      "title": "Find it",
+      "description": "Choose five household objects and practice asking and answering where each one is.",
+      "steps": [
+        "Choose five different objects.",
+        "Ask Nasaan ang...? for each item.",
+        "Answer with a different room when possible.",
+        "Say the exchange aloud twice.",
+        "Try one person-location example with si."
+      ],
+      "example": "Nasaan ang kutsilyo? Nasa kusina ang kutsilyo."
+    }
+  ],
+  "resources": [
+    {
+      "title": "Tong Tong Tong Pakitong-kitong",
+      "type": "Song practice",
+      "url": "https://www.youtube.com/watch?v=N3pJwFYIpDk",
+      "description": "Optional listening and rhythm practice."
+    }
+  ],
+  "source_status": "Transformed from Week 3 memorization, homework, challenge, and lesson-slide materials. One linked slide deck was labeled for kids and is treated as a supporting source, not as the adult-course authority."
+}

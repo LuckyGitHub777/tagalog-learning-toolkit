@@ -1,30 +1,54 @@
 # Roadmap
 
-## Now: Week 1 Beta
+## 3.0.1 — Complete
 
-- Publish the progressive web app.
-- Run the automated quality gate.
-- Obtain fluent-speaker or educator review.
-- Pilot with new learners.
-- Capture completion, recall, and usability proof.
+- Independent V&V remediation
+- Reliable service-worker registration
+- Transparent browser-voice fallback
+- CI-enforced lesson schema
+- Number-orthography correction
+- Release cache-bust gate
 
-## Next: Repeatable Course Engine
+## 3.0.0 — Complete
 
-- Add a lesson index and reusable lesson selector.
-- Add Week 2 without duplicating application code.
-- Add reviewed audio recorded by multiple fluent speakers.
-- Add minimal-pair and rhythm practice.
-- Add dialogue scenarios and listening checks.
-- Add contributor guidance for regional and register notes.
+- Four-week curriculum foundation
+- Multi-week course dashboard
+- Adaptive review by week
+- Native quizzes and builders
+- Weekly missions
+- PWA and custom-domain configuration
+- Public/private source separation
 
-## Later: Durable Learning Platform
+## 3.1.0 — Educator Review and Resource Parity
 
-- Add optional account sync only after privacy and demand are validated.
-- Add instructor assignment and feedback workflows.
-- Add community-reviewed content packs.
-- Add accessible captions and pronunciation diagrams.
-- Add evidence dashboards based on consented, non-identifying pilot data.
+- Generate reviewed printable guides and practice sheets for Weeks 2–4
 
-## Guardrail
+- Qualified Tagalog educator review
+- Accepted-answer expansion
+- Pronunciation and stress guidance
+- Register and regional-variation notes
+- Correction log with reviewer decisions
 
-Do not build a backend, marketplace, or artificial-intelligence tutor until learners repeatedly complete lessons and ask for those capabilities.
+## 3.2.0 — Listening
+
+- Short original listening clips
+- Listening-comprehension questions
+- Transcript reveal
+- Slow and natural playback
+- Rights-cleared original audio
+
+## 3.3.0 — Mastery Analytics
+
+- On-device mastery heatmap
+- Delayed-recall checkpoints
+- Week readiness score
+- Mistake categories
+- Printable progress summary
+
+## 4.0.0 — Full Eight-Week Course
+
+- Weeks 5–8 source curriculum
+- Capstone conversation project
+- Complete vocabulary library
+- Cross-week cumulative review
+- Course completion evidence
