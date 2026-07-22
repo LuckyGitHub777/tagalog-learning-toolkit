@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "3.0.1",
   "title": "Tagalog Week 1: Introductions and Family",
   "vocabulary": [
     {
@@ -112,10 +112,12 @@
     {
       "id": "stressed",
       "category": "Feelings",
-      "tagalog": "Nai-stress ako.",
+      "tagalog": "Na-stress ako.",
       "english": "I am stressed.",
-      "note": "Stressed ako is common Taglish.",
+      "note": "Stressed ako is common Taglish; nai-stress ako also appears in use. Educator review remains open.",
       "accepted": [
+        "na-stress ako",
+        "na-stress ako.",
         "nai-stress ako",
         "nai-stress ako.",
         "stressed ako",
@@ -542,15 +544,205 @@
       "explanation": "Ako si + name introduces yourself."
     }
   ],
-  "id": "week1-introductions-family",
+  "id": "week1",
   "description": "A foundational lesson for greetings, feelings, introductions, school, work, family, and simple descriptions.",
-  "learning_outcomes": [
+  "language": "fil-PH",
+  "content_status": "Human review recommended before formal classroom adoption.",
+  "week": 1,
+  "short_title": "Introductions and Family",
+  "subtitle": "Greet people, introduce yourself, describe how you feel, and talk about family.",
+  "objectives": [
     "Greet someone and state how you feel.",
     "Introduce yourself and say where you are from.",
     "Describe where and what you study or where you work.",
     "Name common family roles.",
     "Describe a person with a simple adjective-first sentence."
   ],
-  "language": "fil-PH",
-  "content_status": "Human review recommended before formal classroom adoption."
+  "grammar_notes": [
+    {
+      "title": "Introducing yourself",
+      "body": "Use Ako si + name for a personal name. Use Taga- + place + ako to say where you are from.",
+      "examples": [
+        {
+          "tagalog": "Ako si Maya.",
+          "english": "I am Maya."
+        },
+        {
+          "tagalog": "Taga-Cebu ako.",
+          "english": "I am from Cebu."
+        }
+      ]
+    },
+    {
+      "title": "Describing a person",
+      "body": "A natural beginner pattern is adjective + si + person.",
+      "examples": [
+        {
+          "tagalog": "Mabait si Nanay.",
+          "english": "Mother is kind."
+        },
+        {
+          "tagalog": "Masipag si Tatay.",
+          "english": "Father is hardworking."
+        }
+      ]
+    },
+    {
+      "title": "Respectful speech",
+      "body": "Po and opo add respect. Use them with elders, teachers, customers, and people you do not know well.",
+      "examples": [
+        {
+          "tagalog": "Opo.",
+          "english": "Yes, respectfully."
+        },
+        {
+          "tagalog": "Hindi po.",
+          "english": "No, respectfully."
+        }
+      ]
+    }
+  ],
+  "sentence_patterns": [
+    {
+      "title": "Introduce yourself",
+      "pattern": "Ako si [pangalan].",
+      "english": "I am [name]."
+    },
+    {
+      "title": "Say where you are from",
+      "pattern": "Taga-[lugar] ako.",
+      "english": "I am from [place]."
+    },
+    {
+      "title": "Describe a person",
+      "pattern": "[Pang-uri] si [tao].",
+      "english": "[Adjective] describes [person]."
+    }
+  ],
+  "builders": [
+    {
+      "id": "self-introduction",
+      "title": "Build a self-introduction",
+      "description": "Create a short introduction you can read aloud.",
+      "template": "Kumusta! Ako si {{name}}. Taga-{{place}} ako. {{feeling}} ako. {{role}} ako. Salamat! Paalam!",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "placeholder": "Maya"
+        },
+        {
+          "name": "place",
+          "label": "Place",
+          "type": "text",
+          "placeholder": "Cebu"
+        },
+        {
+          "name": "feeling",
+          "label": "Feeling",
+          "type": "select",
+          "options": [
+            "Masaya",
+            "Ayos lang",
+            "Pagod",
+            "Nasasabik"
+          ]
+        },
+        {
+          "name": "role",
+          "label": "Role or occupation",
+          "type": "text",
+          "placeholder": "Estudyante"
+        }
+      ]
+    },
+    {
+      "id": "family-description",
+      "title": "Describe a family member",
+      "description": "Use a relationship, name, and adjective.",
+      "template": "Ito si {{name}}. {{relationship}} ko siya. {{adjective}} siya.",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "placeholder": "Rosa"
+        },
+        {
+          "name": "relationship",
+          "label": "Relationship",
+          "type": "select",
+          "options": [
+            "Nanay",
+            "Tatay",
+            "Kuya",
+            "Ate",
+            "Lola",
+            "Lolo",
+            "Pinsan"
+          ]
+        },
+        {
+          "name": "adjective",
+          "label": "Adjective",
+          "type": "select",
+          "options": [
+            "Mabait",
+            "Masipag",
+            "Matalino",
+            "Masayahin",
+            "Palakaibigan",
+            "Nakakatawa"
+          ]
+        }
+      ]
+    }
+  ],
+  "missions": [
+    {
+      "title": "One-minute self-introduction",
+      "description": "Record or rehearse a one-minute introduction in Tagalog.",
+      "steps": [
+        "Greet the listener.",
+        "Say your name.",
+        "Say where you are from.",
+        "Mention your work, studies, or interests.",
+        "End with thanks and a goodbye."
+      ],
+      "example": "Kumusta! Ako si Maya. Taga-Cebu ako. Estudyante ako. Mahilig ako sa musika. Salamat! Paalam!"
+    },
+    {
+      "title": "Introduce your family",
+      "description": "Introduce at least three people using names, relationships, and adjectives.",
+      "steps": [
+        "Start with Ito ang pamilya ko.",
+        "Introduce at least three people.",
+        "Use one adjective for each person.",
+        "End with Salamat! Paalam!"
+      ],
+      "example": "Ito si Ana. Ate ko siya. Matalino siya."
+    }
+  ],
+  "resources": [
+    {
+      "title": "Nasaan si Tatay/Nanay",
+      "type": "Song practice",
+      "url": "https://www.youtube.com/watch?v=5O-MfkUr0ic",
+      "description": "Optional family listening practice and a preview of the Nasaan pattern taught in Week 3."
+    },
+    {
+      "title": "Week 1 study guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Week-1-Study-Guide.pdf",
+      "description": "Printable vocabulary and sentence guide."
+    },
+    {
+      "title": "Week 1 practice",
+      "type": "Download",
+      "url": "downloads/Tagalog-Week-1-Practice.pdf",
+      "description": "Printable practice worksheet."
+    }
+  ],
+  "source_status": "Transformed from the Week 1 curriculum materials; educator review recommended."
 }

@@ -1,150 +1,115 @@
 #!/usr/bin/env python3
-"""Small dependency-free companion CLI for the Tagalog Learning Toolkit."""
+"""Local tools for Tagalog Academy.
+
+Commands:
+  python tagalog.py validate
+  python tagalog.py serve --port 8000
+  python tagalog.py study --week 2 --count 10
+"""
+
 from __future__ import annotations
 
 import argparse
 import json
 import random
+import subprocess
 import sys
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
-from typing import Any
 
 ROOT = Path(__file__).resolve().parent
-LESSON_PATH = ROOT / "data" / "lessons" / "week1.json"
+LESSON_DIR = ROOT / "data" / "lessons"
 
 
-def load_lesson(path: Path = LESSON_PATH) -> dict[str, Any]:
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except FileNotFoundError as exc:
-        raise SystemExit(f"Lesson not found: {path}") from exc
-    except json.JSONDecodeError as exc:
-        raise SystemExit(f"Invalid JSON in {path}: {exc}") from exc
+def load_lesson(week: int) -> dict:
+    path = LESSON_DIR / f"week{week}.json"
+    if not path.exists():
+        raise SystemExit(f"Week {week} is not available.")
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
-def validate_lesson(data: dict[str, Any]) -> list[str]:
-    errors: list[str] = []
-    required = {"version", "id", "title", "vocabulary", "adjectives", "quiz"}
-    missing = sorted(required - data.keys())
-    if missing:
-        errors.append(f"Missing top-level keys: {', '.join(missing)}")
-
-    vocabulary = data.get("vocabulary", [])
-    ids: list[str] = []
-    for index, item in enumerate(vocabulary):
-        for key in ("id", "category", "tagalog", "english", "accepted"):
-            if key not in item:
-                errors.append(f"vocabulary[{index}] is missing {key}")
-        if "id" in item:
-            ids.append(str(item["id"]))
-        if not isinstance(item.get("accepted", []), list):
-            errors.append(f"vocabulary[{index}].accepted must be a list")
-    duplicates = sorted({item_id for item_id in ids if ids.count(item_id) > 1})
-    if duplicates:
-        errors.append(f"Duplicate vocabulary IDs: {', '.join(duplicates)}")
-
-    for index, item in enumerate(data.get("quiz", [])):
-        choices = item.get("choices", [])
-        answer = item.get("answer")
-        if not isinstance(choices, list) or len(choices) < 2:
-            errors.append(f"quiz[{index}] must have at least two choices")
-        if not isinstance(answer, int) or not 0 <= answer < len(choices):
-            errors.append(f"quiz[{index}] has an out-of-range answer index")
-
-    required_terms = {"mother", "father", "older-brother", "older-sister", "youngest", "cousin"}
-    missing_terms = sorted(required_terms - set(ids))
-    if missing_terms:
-        errors.append(f"Missing required family terms: {', '.join(missing_terms)}")
-    return errors
-
-
-def cmd_validate(_: argparse.Namespace) -> int:
-    data = load_lesson()
-    errors = validate_lesson(data)
-    if errors:
-        for error in errors:
-            print(f"ERROR: {error}", file=sys.stderr)
-        return 1
-    print(
-        f"PASS: {len(data['vocabulary'])} vocabulary items, "
-        f"{len(data['adjectives'])} adjectives, and {len(data['quiz'])} quiz questions validated."
+def validate() -> int:
+    result = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "validate_repo.py")],
+        cwd=ROOT,
+        check=False,
     )
-    return 0
+    schema_code = 0
+    try:
+        import jsonschema  # noqa: F401
+    except ImportError:
+        print("Schema validation skipped locally; install requirements-dev.txt to run it. CI always enforces it.")
+    else:
+        schema = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "validate_schema.py")],
+            cwd=ROOT,
+            check=False,
+        )
+        schema_code = schema.returncode
+
+    tests = subprocess.run(
+        [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"],
+        cwd=ROOT,
+        check=False,
+    )
+    return 0 if result.returncode == 0 and schema_code == 0 and tests.returncode == 0 else 1
 
 
-def cmd_serve(args: argparse.Namespace) -> int:
-    handler = lambda *a, **kw: SimpleHTTPRequestHandler(*a, directory=str(ROOT), **kw)  # noqa: E731
-    server = ThreadingHTTPServer((args.host, args.port), handler)
-    print(f"Serving Tagalog Learning Toolkit at http://{args.host}:{args.port}")
+def serve(port: int) -> None:
+    class Handler(SimpleHTTPRequestHandler):
+        def end_headers(self) -> None:
+            self.send_header("Cache-Control", "no-cache")
+            super().end_headers()
+
+    server = ThreadingHTTPServer(("127.0.0.1", port), Handler)
+    print(f"Tagalog Academy is running at http://127.0.0.1:{port}")
     print("Press Ctrl+C to stop.")
     try:
         server.serve_forever()
     except KeyboardInterrupt:
         print("\nStopped.")
-    finally:
-        server.server_close()
-    return 0
 
 
-def study_items(data: dict[str, Any]) -> list[dict[str, Any]]:
-    return [
-        item for item in data["vocabulary"]
-        if item.get("accepted") and "____" not in item.get("tagalog", "")
+def study(week: int, count: int) -> None:
+    lesson = load_lesson(week)
+    candidates = [
+        item for item in lesson["vocabulary"]
+        if item.get("tagalog") and "____" not in item["tagalog"]
     ]
+    random.shuffle(candidates)
 
-
-def cmd_study(args: argparse.Namespace) -> int:
-    data = load_lesson()
-    items = study_items(data)
-    rng = random.Random(args.seed)
-    rng.shuffle(items)
-    selected = items[: min(args.count, len(items))]
-    if args.preview or not sys.stdin.isatty():
-        for number, item in enumerate(selected, 1):
-            print(f"{number:>2}. {item['english']} -> {item['tagalog']}")
-        return 0
-
-    score = 0
-    print(f"\n{data['title']} — terminal recall session\n")
-    for number, item in enumerate(selected, 1):
-        input(f"{number}/{len(selected)}  {item['english']}\nPress Enter to reveal: ")
-        print(f"Answer: {item['tagalog']}")
-        response = input("Did you recall it? [y/N] ").strip().lower()
-        if response in {"y", "yes"}:
-            score += 1
-        print()
-    print(f"Session score: {score}/{len(selected)}")
-    return 0
-
-
-def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
-        prog="tagalog.py",
-        description="Validate, serve, or study the Tagalog Learning Toolkit.",
-    )
-    subparsers = parser.add_subparsers(dest="command", required=True)
-
-    validate = subparsers.add_parser("validate", help="Validate lesson content")
-    validate.set_defaults(func=cmd_validate)
-
-    serve = subparsers.add_parser("serve", help="Run the website locally")
-    serve.add_argument("--host", default="127.0.0.1")
-    serve.add_argument("--port", default=8000, type=int)
-    serve.set_defaults(func=cmd_serve)
-
-    study = subparsers.add_parser("study", help="Run a terminal recall session")
-    study.add_argument("--count", type=int, default=10)
-    study.add_argument("--seed", type=int, default=None)
-    study.add_argument("--preview", action="store_true", help="Print prompts and answers without interaction")
-    study.set_defaults(func=cmd_study)
-    return parser
+    for index, item in enumerate(candidates[:count], start=1):
+        print(f"\n{index}. {item['english']}")
+        input("   Press Enter to reveal...")
+        print(f"   {item['tagalog']}")
+        if item.get("note"):
+            print(f"   Note: {item['note']}")
 
 
 def main() -> int:
-    parser = build_parser()
+    parser = argparse.ArgumentParser(description="Tagalog Academy local tools")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    subparsers.add_parser("validate", help="Run repository validation and tests")
+
+    serve_parser = subparsers.add_parser("serve", help="Serve the website locally")
+    serve_parser.add_argument("--port", type=int, default=8000)
+
+    study_parser = subparsers.add_parser("study", help="Run a terminal recall session")
+    study_parser.add_argument("--week", type=int, default=1, choices=range(1, 5))
+    study_parser.add_argument("--count", type=int, default=10)
+
     args = parser.parse_args()
-    return int(args.func(args))
+
+    if args.command == "validate":
+        return validate()
+    if args.command == "serve":
+        serve(args.port)
+        return 0
+    if args.command == "study":
+        study(args.week, max(1, args.count))
+        return 0
+    return 1
 
 
 if __name__ == "__main__":

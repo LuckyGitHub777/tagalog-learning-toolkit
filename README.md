@@ -1,105 +1,109 @@
-# Tagalog Learning Toolkit
+# Tagalog Academy
 
-A privacy-first, offline-ready Tagalog learning experience designed for GitHub Pages.
+**Tagalog Academy** is a privacy-first, mastery-oriented Tagalog course published at **https://tagalog.academy**.
 
-The website is the primary learner product. A small Python companion supports local serving, validation, and optional terminal practice.
+The application transforms a multi-week adult-learning curriculum into a reusable learning system:
 
-![Desktop preview](docs/images/desktop-preview.png)
+**Learn → Retrieve → Speak → Build → Apply → Review**
 
-## Why This Delivery Model
+## Current release
 
-### Primary: Progressive Web App
+Version **3.0.1** includes four active weeks:
 
-The browser is the best front door because learners can begin immediately on a phone, tablet, or computer without installing Python. The site supports:
+1. Introductions and family
+2. Colors and food
+3. Objects and places at home
+4. Numbers, relationships, fruit, and market language
 
-- Structured lessons and searchable phrases
-- Adaptive review based on local mastery records
-- Typed retrieval practice and randomized quiz order
-- Browser speech playback
-- Private, session-only voice recording for self-comparison
-- Sentence builders and autosaved application work
-- Progress export and import
-- Offline use after the first successful visit
-- Installation as an app where the browser supports it
+Weeks 5–8 remain visibly planned until their source curriculum is available.
 
-### Companion: Python CLI
+## Learner experience
 
-The CLI is useful for repository maintainers, teachers, developers, and terminal-focused learners. It is intentionally secondary.
+- Searchable vocabulary grouped by topic
+- Device-generated speech playback with a visible warning when no Filipino voice is installed
+- Adaptive review with Again, Hard, and Good ratings
+- Typed English-to-Tagalog recall
+- Ten-question quiz for each week
+- Private microphone recording for self-comparison
+- Dynamic sentence and dialogue builders
+- Weekly real-life missions
+- Local progress storage with export and import
+- Installable, offline-ready Progressive Web App
+- No account, analytics, advertising, or cloud audio upload
 
-```bash
-python tagalog.py validate
-python tagalog.py serve --port 8000
-python tagalog.py study --count 10
-```
+## Run locally
 
-## Start Locally
+Do not double-click `index.html`. The app loads JSON lesson files and must be served over HTTP.
 
 ```bash
 python tagalog.py serve
 ```
 
-Open `http://127.0.0.1:8000`.
-
-## Validate
-
-```bash
-python scripts/validate_repo.py
-python -m unittest discover -s tests -v
-```
-
-## Publish With GitHub Pages
-
-1. Create a repository.
-2. Upload the contents of this folder to the repository root.
-3. Open **Settings > Pages**.
-4. Select **Deploy from a branch**.
-5. Select the `main` branch and `/ (root)` folder.
-6. Save and wait for the public URL.
-
-The `.nojekyll` file prevents unnecessary Jekyll processing.
-
-## Repository Structure
+Then open:
 
 ```text
-.
-├── index.html                     # Learner-facing progressive web app
-├── manifest.webmanifest           # Installable app metadata
-├── service-worker.js              # Offline cache
-├── tagalog.py                     # Optional Python companion
-├── assets/
-│   ├── css/styles.css
-│   ├── js/app.js
-│   └── icons/
-├── data/
-│   ├── lesson.schema.json
-│   └── lessons/week1.json
-├── downloads/                     # Neutral print-ready PDFs
-├── scripts/validate_repo.py
-├── tests/test_content.py
-├── PRODUCT-ARCHITECTURE.md
-├── CONTENT-NOTES.md
-├── PRIVACY.md
-├── PUBLISHING-CHECKLIST.md
-├── UX-VV-REPORT.md
-└── ROADMAP.md
+http://127.0.0.1:8000
 ```
 
-## Product Principles
+Validate the package:
 
-1. **Useful language first.** Every feature should help learners understand, retrieve, speak, create, or apply language.
-2. **Human judgment stays visible.** Speech playback and recording support practice; they do not pretend to certify pronunciation.
-3. **Private by default.** No account, analytics, advertising, or cloud storage is required.
-4. **Website first.** The web experience serves everyone; Python supports maintainers and optional terminal learning.
-5. **Content is data.** New lessons should be added through the lesson schema rather than copied into application code.
-6. **Proof before scale.** Expand only after observing learner completion, repeat use, and content-review quality.
+```bash
+python tagalog.py validate
+```
 
-## Licensing
+Run a terminal recall session:
 
-- Source code: MIT License (`LICENSE`)
-- Original educational content in this repository: Creative Commons Attribution 4.0 (`CONTENT-LICENSE.md`)
+```bash
+python tagalog.py study --week 2 --count 10
+```
 
-Review the licenses before publishing under an organization or incorporating outside materials.
+## Repository architecture
 
-## Important Language Note
+```text
+index.html                 Application structure
+assets/css/styles.css      Responsive visual system
+assets/js/app.js           Course, practice, progress, and PWA behavior
+data/course.json           Course roadmap
+data/lessons/week1.json    Week 1 lesson data
+data/lessons/week2.json    Week 2 lesson data
+data/lessons/week3.json    Week 3 lesson data
+data/lessons/week4.json    Week 4 lesson data
+service-worker.js          Offline caching
+manifest.webmanifest       Installable-app metadata
+scripts/validate_repo.py   Repository quality gate
+scripts/validate_schema.py Lesson-schema quality gate
+requirements-dev.txt       CI and contributor validation dependency
+tests/                     Automated content and application-logic tests
+```
 
-This package has undergone structural and technical review. A qualified Tagalog educator or fluent reviewer should still approve expanded curriculum, accepted-answer rules, register choices, and regional usage before formal classroom certification.
+## Updating the live site
+
+The `main` branch is the approved public version. GitHub Pages serves that branch at `tagalog.academy`.
+
+Recommended workflow:
+
+1. Create a feature branch.
+2. Change the lesson data or application files.
+3. Run `python tagalog.py validate`.
+4. Preview locally.
+5. Open a pull request.
+6. Merge into `main`.
+7. Verify the GitHub Pages deployment and live domain.
+
+## Content governance
+
+The public lesson wording is neutral and does not include live-class administration links, student-submission forms, or school branding.
+
+The curriculum should receive final review from a qualified Tagalog educator before it is described as authoritative. See:
+
+- `CONTENT-NOTES.md`
+- `CURRICULUM-TRANSFORMATION.md`
+- `PUBLISHING-CHECKLIST.md`
+
+## Privacy
+
+Progress is stored in the learner's browser. Voice recordings stay in the active browser session and are not uploaded by this application. See `PRIVACY.md`.
+
+## License
+
+The software is licensed under the MIT License. Educational content is governed separately in `CONTENT-LICENSE.md`.

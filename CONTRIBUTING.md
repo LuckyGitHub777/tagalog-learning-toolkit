@@ -1,32 +1,64 @@
 # Contributing
 
-## Content Changes
+## Contribution priorities
 
-Every language change should document:
+1. Correct language
+2. Clear learner outcome
+3. Privacy
+4. Accessibility
+5. Repeatability
+6. Technical simplicity
 
-1. Current phrase
-2. Proposed phrase
-3. Learner problem being solved
-4. Register or regional implications
-5. Fluent-speaker or educator review note
-6. Updated accepted answers and tests
+## Lesson changes
 
-## Technical Changes
+Edit the appropriate JSON file in `data/lessons/`.
 
-- Keep the core learner experience dependency-free unless a strong need is proven.
-- Preserve keyboard navigation and visible focus states.
-- Keep learner data local by default.
-- Do not add tracking scripts.
-- Add lessons through the JSON schema instead of hard-coding content.
-- Run validation and tests before opening a pull request.
+Every lesson should include:
 
-## Pull Request Proof
+- At least four objectives
+- Substantial vocabulary grouped by category
+- At least two grammar notes
+- At least two builders
+- Exactly ten quiz questions
+- At least two missions
+- Source and review status
 
-Include:
+## Before opening a pull request
 
-- What changed
-- Why it improves a learner outcome
-- Desktop and mobile screenshots for visible changes
-- Keyboard and screen-reader considerations
-- Validation and test results
-- Human language review status when content changes
+```bash
+python -m pip install -r requirements-dev.txt
+python tagalog.py validate
+python scripts/validate_schema.py
+python tagalog.py serve
+```
+
+Test:
+
+- Desktop and mobile
+- Keyboard navigation
+- Week switching
+- Vocabulary search
+- Review
+- Typing
+- Quiz
+- Speaking playback
+- Builders
+- Mission completion
+- Progress export/import
+- Offline reload
+
+## Language corrections
+
+A correction should explain:
+
+- Existing wording
+- Proposed wording
+- Why it is more accurate or natural
+- Register or regional considerations
+- Source or reviewer
+
+Do not replace one valid variant with another merely because it is personally preferred.
+
+## Schema enforcement
+
+`data/lesson.schema.json` is enforced in continuous integration through `scripts/validate_schema.py`. Update the schema and lesson files together when the content contract changes.

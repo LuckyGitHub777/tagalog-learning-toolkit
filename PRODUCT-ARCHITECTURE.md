@@ -1,61 +1,85 @@
 # Product Architecture
 
-## Delivery Decision
+## Product decision
 
-**Use the progressive web app as the learner-facing product. Use Python as a companion tool, not the primary interface.**
+The learner-facing product is a Progressive Web App.
 
-| Surface | Primary user | Best use | Decision |
-|---|---|---|---|
-| Progressive web app | General learners | Learning, practice, speaking, builders, application work | Primary |
-| Python CLI | Maintainers and terminal users | Validation, local serving, lightweight recall | Companion |
-| Printable PDFs | Learners and teachers | Offline worksheets, classroom handouts, review | Supporting |
-| Structured JSON | Contributors and future tooling | Reusable lesson content | Core data layer |
+Python is a companion layer for local serving, validation, tests, and optional terminal review. It is not the primary interface.
 
-## Experience Loop
+## Learning engine
+
+Each week uses the same outcome sequence:
 
 ```text
-Understand -> Retrieve -> Speak -> Create -> Apply -> Review again
+Understand
+→ Retrieve
+→ Speak
+→ Build
+→ Complete a mission
+→ Review after a delay
 ```
 
-## Technical Layers
+## Data model
 
-1. **Content layer** - versioned lesson JSON and schema.
-2. **Learning layer** - search, adaptive review, typing, quiz, speaking, builders, application work.
-3. **Persistence layer** - local browser storage with export and import.
-4. **Offline layer** - service worker and app manifest.
-5. **Quality layer** - Python validation, unit tests, manifest hashes, browser V&V.
-6. **Distribution layer** - GitHub repository, GitHub Pages, downloadable PDFs.
+`data/course.json` defines the roadmap.
 
-## Adaptive Review Model
+Each `data/lessons/weekN.json` file defines:
 
-Each practice phrase stores:
+- Objectives
+- Vocabulary
+- Grammar notes
+- Sentence patterns
+- Builders
+- Quiz
+- Missions
+- External resources
+- Content status
 
-- Mastery level from 0 to 5
-- Number of reviews
-- Last review time
-- Next review time
+This makes lesson expansion a content operation rather than a new website build.
 
-Ratings update the review interval:
+## Progress model
 
-- **Again** - lower mastery and return soon
-- **Hard** - preserve low mastery and return tomorrow
-- **Good** - increase mastery and lengthen the interval
+Progress is stored by week under localStorage keys beginning with:
 
-This is a transparent, lightweight scheduling model. It is not presented as a scientifically optimized memory algorithm.
+```text
+tagalog-academy.progress.
+```
 
-## Privacy Boundary
+The week score combines:
 
-The application intentionally avoids:
+- Familiar vocabulary
+- Typed recall
+- Review mastery
+- Quiz score
+- Lesson completion
+- Mission completion
 
-- User accounts
-- Remote databases
-- Advertising
-- Tracking scripts
-- Cloud audio upload
-- Automated pronunciation grading claims
+## Public/private boundary
 
-Microphone recordings exist only in the active browser session.
+Public repository:
 
-## Scaling Rule
+- Neutral transformed lessons
+- Native quizzes
+- Native builders
+- Optional public song links
+- Printable neutral Week 1 resources
 
-Add future lessons by creating new JSON lesson files that conform to `data/lesson.schema.json`. Do not duplicate the whole website for every week.
+Excluded:
+
+- Zoom links
+- Homework upload forms
+- Student information
+- Branded source files
+- Unreviewed administrative material
+
+## Deployment
+
+GitHub Pages serves the root of `main`.
+
+The root `CNAME` preserves:
+
+```text
+tagalog.academy
+```
+
+The service worker precaches the four active weeks and core application assets.

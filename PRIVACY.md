@@ -1,36 +1,42 @@
-# Privacy Model
+# Privacy
 
-## Default Behavior
+Tagalog Academy is designed to work without an account.
 
-The Tagalog Learning Toolkit does not require an account, remote database, analytics script, advertising network, or cloud storage service.
+## Stored locally
 
-## Data Stored in the Browser
+The application may store the following in the learner's browser:
 
-The website may store the following locally:
+- Selected week
+- Familiar vocabulary IDs
+- Review ratings and due dates
+- Typed-practice completions
+- Best quiz score
+- Lesson and mission completion
+- Theme preference
 
-- Lesson completion
-- Quiz best score
-- Typing items answered correctly
-- Familiar-phrase marks
-- Review mastery levels and due dates
-- Sentence-builder drafts
-- Week 1 application-work answers
-- Appearance preference
+Learners may export, import, or reset this progress.
 
-This information stays in the browser unless the learner explicitly exports a progress file.
+## Microphone
 
-## Audio
+Microphone access is requested only when the learner selects **Record yourself**.
 
-The speaking tool requests microphone permission only when the learner presses **Record yourself**. Recorded audio is held in the active browser session for playback and is not uploaded by this application. Reloading or closing the page may remove the recording.
+The recording:
 
-## Export and Import
+- Remains in the active browser session
+- Is played back through a local object URL
+- Is not uploaded by this application
+- Disappears when the session or page data is cleared
 
-Export creates a JSON file containing local learning progress. The learner controls where that file is stored and whether it is imported elsewhere.
+## Not included
 
-## Reset
+This application contains no built-in:
 
-The **Reset everything** control removes the toolkit's saved progress from local browser storage. Browser settings may also clear local data.
+- Analytics
+- Advertising
+- Account system
+- Cloud database
+- Student submission form
+- Live-class meeting link
+- Third-party tracking script
 
-## Deployment Guardrail
-
-Contributors should not add tracking, remote storage, or third-party audio processing without documenting the new data flow, updating this file, and obtaining clear learner consent.
+External resource websites have their own privacy practices.
