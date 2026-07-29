@@ -1,0 +1,73 @@
+name: Bug report
+description: Report a reproducible problem with the website, learning flow, installation, or downloads.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Tagalog Academy. Do not include passwords, private learner data, or sensitive recordings.
+  - type: input
+    id: page
+    attributes:
+      label: Page or lesson
+      description: Where did the problem occur?
+      placeholder: "Example: People and Family - Practice"
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: What happened?
+      description: Describe the behavior you observed.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide the smallest repeatable sequence.
+      placeholder: |
+        1. Open...
+        2. Select...
+        3. Enter...
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device category
+      options:
+        - Desktop or laptop
+        - Android phone or tablet
+        - iPhone or iPad
+        - Installed web app
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: "Example: Chrome 152"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Additional evidence
+      description: Screenshots or console messages may help. Remove private information first.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues for the same problem.
+          required: true
+        - label: This report contains no credentials, student information, or confidential materials.
+          required: true

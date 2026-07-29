@@ -1,0 +1,18 @@
+# Default ownership
+* @LuckyGitHub777
+
+# Learning engine and content
+/assets/js/ @LuckyGitHub777
+/data/lessons/ @LuckyGitHub777
+/service-worker.js @LuckyGitHub777
+/tagalog.py @LuckyGitHub777
+
+# Public pages and governance
+/index.html @LuckyGitHub777
+/privacy.html @LuckyGitHub777
+/language-notes.html @LuckyGitHub777
+/content-use.html @LuckyGitHub777
+/.github/ @LuckyGitHub777
+/SECURITY.md @LuckyGitHub777
+/CONTENT-LICENSE.md @LuckyGitHub777
+/LANGUAGE-GUIDE.md @LuckyGitHub777

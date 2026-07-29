@@ -1,236 +1,283 @@
-#!/usr/bin/env python3
-"""Validate the public Tagalog Academy repository using the Python standard library."""
-
-from __future__ import annotations
-
+from pathlib import Path
+from urllib.parse import urlsplit
 import json
 import re
-from html.parser import HTMLParser
-from pathlib import Path
-from urllib.parse import urlparse
+import unicodedata
 
 ROOT = Path(__file__).resolve().parents[1]
-REQUIRED = [
-    "index.html",
-    "README.md",
-    "CNAME",
-    ".nojekyll",
-    "manifest.webmanifest",
-    "service-worker.js",
-    "requirements-dev.txt",
-    "assets/css/styles.css",
-    "assets/js/app.js",
-    "data/course.json",
-    "data/lesson.schema.json",
-    "data/lessons/week1.json",
-    "data/lessons/week2.json",
-    "data/lessons/week3.json",
-    "data/lessons/week4.json",
-    "scripts/validate_schema.py",
-    "tests/test_app_logic.mjs",
-    "VV-REMEDIATION-v3.0.1.md",
-]
-TEXT_SUFFIXES = {".html", ".css", ".js", ".json", ".md", ".txt", ".yml", ".yaml", ".webmanifest", ".mjs"}
-BANNED_PUBLIC_TEXT = [
-    "Jeepney School",
-    "JeepneySchool",
-    "us06web.zoom.us",
-    "docs.google.com/forms",
-    "forms.gle/",
-]
-STANDARD_11_TO_19 = {
-    "eleven": "Labing-isa",
-    "twelve": "Labindalawa",
-    "thirteen": "Labintatlo",
-    "fourteen": "Labing-apat",
-    "fifteen": "Labinlima",
-    "sixteen": "Labing-anim",
-    "seventeen": "Labimpito",
-    "eighteen": "Labingwalo",
-    "nineteen": "Labinsiyam",
+VERSION = '4.0.0'
+PUBLIC_PAGES = ['index.html', '404.html', 'privacy.html', 'language-notes.html', 'content-use.html']
+REMOVED_HISTORY = {
+    'CHANGELOG.md',
+    'CONTENT-NOTES.md',
+    'CURRICULUM-TRANSFORMATION.md',
+    'PUBLISHING-CHECKLIST.md',
+    'RELEASE-NOTES.md',
+    'ROADMAP.md',
+    'VV-REPORT-v4.0.0.md',
 }
+errors: list[str] = []
 
 
-class LinkParser(HTMLParser):
-    def __init__(self) -> None:
-        super().__init__()
-        self.links: list[str] = []
-
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        values = dict(attrs)
-        for attr in ("href", "src"):
-            value = values.get(attr)
-            if value:
-                self.links.append(value)
-
-
-def fail(message: str, errors: list[str]) -> None:
+def fail(message: str) -> None:
     errors.append(message)
 
 
-def load_json(path: Path, errors: list[str]) -> dict:
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
-        fail(f"Could not parse {path.relative_to(ROOT)}: {exc}", errors)
-        return {}
+def norm(value: object) -> str:
+    text = ''.join(
+        char for char in unicodedata.normalize('NFD', str(value).lower())
+        if unicodedata.category(char) != 'Mn'
+    )
+    text = re.sub(r'[“”‘’\'"!?.,;:()\[\]{}]', '', text)
+    text = re.sub(r'[-–—]', ' ', text)
+    return re.sub(r'\s+', ' ', text).strip()
 
 
-def validate_lesson(path: Path, expected_version: str, errors: list[str]) -> dict:
-    data = load_json(path, errors)
-    required = [
-        "version", "id", "week", "title", "objectives", "vocabulary",
-        "grammar_notes", "builders", "quiz", "missions", "resources",
-    ]
-    for key in required:
-        if key not in data:
-            fail(f"{path.name}: missing key {key}", errors)
-
-    if data.get("version") != expected_version:
-        fail(f"{path.name}: version must match course version {expected_version}", errors)
-
-    vocabulary = data.get("vocabulary", [])
-    ids = [item.get("id") for item in vocabulary]
-    if len(vocabulary) < 25:
-        fail(f"{path.name}: expected at least 25 vocabulary records", errors)
-    if len(ids) != len(set(ids)):
-        fail(f"{path.name}: duplicate vocabulary IDs", errors)
-    if any(not item.get("tagalog") or not item.get("english") or not item.get("category") for item in vocabulary):
-        fail(f"{path.name}: incomplete vocabulary record", errors)
-
-    quiz = data.get("quiz", [])
-    if len(quiz) != 10:
-        fail(f"{path.name}: expected exactly 10 quiz questions", errors)
-    for index, item in enumerate(quiz, start=1):
-        choices = item.get("choices", [])
-        answer = item.get("answer")
-        if len(choices) < 3:
-            fail(f"{path.name}: quiz {index} needs at least 3 choices", errors)
-        if len(choices) != len(set(choices)):
-            fail(f"{path.name}: quiz {index} has duplicate choices", errors)
-        if not isinstance(answer, int) or answer < 0 or answer >= len(choices):
-            fail(f"{path.name}: quiz {index} has invalid answer index", errors)
-
-    if len(data.get("builders", [])) < 2:
-        fail(f"{path.name}: expected at least 2 builders", errors)
-    if len(data.get("missions", [])) < 2:
-        fail(f"{path.name}: expected at least 2 missions", errors)
-
-    for resource in data.get("resources", []):
-        url = resource.get("url", "")
-        if not url:
-            fail(f"{path.name}: resource missing URL", errors)
-        elif url.startswith(("http://", "https://")):
-            if urlparse(url).scheme != "https":
-                fail(f"{path.name}: external resource must use HTTPS: {url}", errors)
-        elif not (ROOT / url).exists():
-            fail(f"{path.name}: missing internal resource {url}", errors)
-
-    return data
+def exercise_prompt(item: dict) -> str:
+    return item.get('exercise_english') or item['english']
 
 
-def main() -> int:
-    errors: list[str] = []
+def read(rel: str) -> str:
+    return (ROOT / rel).read_text(encoding='utf-8')
 
-    for relative in REQUIRED:
-        if not (ROOT / relative).exists():
-            fail(f"Missing required file: {relative}", errors)
 
-    cname = ROOT / "CNAME"
-    if cname.exists() and cname.read_text(encoding="utf-8").strip() != "tagalog.academy":
-        fail("CNAME must contain tagalog.academy", errors)
+required = [
+    '.gitattributes', 'index.html', '404.html', 'privacy.html', 'language-notes.html', 'content-use.html',
+    'robots.txt', 'sitemap.xml', 'CNAME', '.nojekyll', 'manifest.webmanifest',
+    'service-worker.js', 'SECURITY.md', 'README.md', 'LANGUAGE-GUIDE.md',
+    'CONTENT-LICENSE.md', 'PRODUCT-ARCHITECTURE.md',
+    'data/catalog.json', 'data/lesson.schema.json',
+    'scripts/build_site.py', 'scripts/validate_repo.py', 'scripts/validate_schema.py',
+    'scripts/validate_manifest.py', 'scripts/validate_github_templates.py',
+    'tests/test_core.mjs', 'tests/test_service_worker.mjs',
+    '.github/workflows/ci.yml', '.github/workflows/pages.yml', '.github/dependabot.yml',
+    '.github/CODEOWNERS', '.github/PULL_REQUEST_TEMPLATE.md',
+    '.github/ISSUE_TEMPLATE/bug-report.yml',
+    '.github/ISSUE_TEMPLATE/language-correction.yml',
+    '.github/ISSUE_TEMPLATE/content-rights.yml',
+    '.github/ISSUE_TEMPLATE/config.yml',
+]
+for rel in required:
+    if not (ROOT / rel).exists():
+        fail(f'Missing {rel}')
 
-    course_path = ROOT / "data" / "course.json"
-    course = load_json(course_path, errors) if course_path.exists() else {}
-    version = course.get("version", "")
-    if not re.fullmatch(r"\d+\.\d+\.\d+", version):
-        fail("Course version must use semantic versioning", errors)
+# Cross-platform Git policy: LF for text and explicit binary handling.
+attributes_path = ROOT / '.gitattributes'
+if attributes_path.exists():
+    attributes = attributes_path.read_text(encoding='utf-8')
+    if '* text=auto eol=lf' not in attributes:
+        fail('.gitattributes must enforce LF for repository text')
+    for pattern in ['*.pdf binary', '*.png binary', '*.ico binary']:
+        if pattern not in attributes:
+            fail(f'.gitattributes missing binary rule: {pattern}')
 
-    available = [week for week in course.get("weeks", []) if week.get("status") == "available"]
-    if len(available) != 4:
-        fail("Course must expose exactly four available weeks", errors)
+for rel in REMOVED_HISTORY:
+    if (ROOT / rel).exists():
+        fail(f'Internal history file must not ship: {rel}')
 
-    lessons: dict[str, dict] = {}
-    for week in available:
-        file_path = ROOT / week.get("file", "")
-        if not file_path.exists():
-            fail(f"Course points to missing lesson: {week.get('file')}", errors)
+if (ROOT / 'CNAME').read_text(encoding='utf-8').strip() != 'tagalog.academy':
+    fail('CNAME must contain tagalog.academy')
+
+catalog = json.loads(read('data/catalog.json'))
+if catalog.get('version') != VERSION:
+    fail('Catalog version mismatch')
+if len(catalog.get('lessons', [])) != 9:
+    fail('Expected 9 lessons')
+
+seen: set[str] = set()
+total = 0
+for meta in catalog.get('lessons', []):
+    path = ROOT / meta['file']
+    if not path.exists():
+        fail(f'Missing lesson {meta["file"]}')
+        continue
+    lesson = json.loads(path.read_text(encoding='utf-8'))
+    if lesson.get('version') != VERSION:
+        fail(f'Lesson version mismatch for {meta["id"]}')
+    if lesson.get('id') != meta['id'] or lesson.get('order') != meta['order']:
+        fail(f'Catalog mismatch for {meta["id"]}')
+    if lesson.get('content_status') != 'Published':
+        fail(f'Lesson must use published status: {meta["id"]}')
+
+    prompts: list[str] = []
+    for item in lesson.get('vocabulary', []):
+        total += 1
+        item_id = item['id']
+        if item_id in seen:
+            fail(f'Duplicate vocabulary id {item_id}')
+        seen.add(item_id)
+        if '/' in item['tagalog']:
+            fail(f'Slash-separated teaching form: {item_id}')
+        accepted = item.get('accepted', [])
+        if any('/' in form for form in accepted):
+            fail(f'Slash accepted form: {item_id}')
+        if item.get('practice'):
+            if norm(item['tagalog']) not in accepted:
+                fail(f'Displayed answer not accepted: {item_id}')
+            explanation = item.get('explanation', '').strip()
+            if not explanation:
+                fail(f'Practice explanation missing: {item_id}')
+            if re.search(r'[.!?][”’\"\']\.', explanation) or '..' in explanation:
+                fail(f'Malformed explanation punctuation: {item_id}')
+            prompts.append(norm(exercise_prompt(item)))
+
+    if len(prompts) != len(set(prompts)):
+        fail(f'Ambiguous exercise prompt in {lesson["id"]}')
+
+    expected_page = f'#page={lesson["order"] + 1}'
+    resources = lesson.get('resources', [])
+    if len(resources) != 3:
+        fail(f'Expected three lesson-specific resources in {lesson["id"]}')
+    for resource in resources:
+        if re.match(r'https?://', resource['url']):
+            fail(f'External resource in lesson {lesson["id"]}')
+        if expected_page not in resource['url']:
+            fail(f'Resource does not deep-link to lesson page in {lesson["id"]}: {resource["title"]}')
+
+if total != 246:
+    fail(f'Expected 246 vocabulary records, found {total}')
+
+# Public learner pages: complete design/security baseline and no Markdown destinations.
+public_security_tokens = [
+    'Content-Security-Policy', 'strict-origin-when-cross-origin',
+    'assets/js/theme.js', 'theme-color', 'apple-touch-icon', 'favicon.svg',
+]
+unfinished_public_copy = [
+    'privacy-first', 'public beta', 'educator review pending', 'review remains open',
+    'not authoritative', 'not certified', 'not complete', 'coming soon',
+    'work in progress', 'under construction', 'choose a learning week',
+    'course roadmap', 'jeepney school',
+]
+for rel in PUBLIC_PAGES:
+    html = read(rel)
+    for token in public_security_tokens:
+        if token not in html:
+            fail(f'{rel} missing public security/theme baseline: {token}')
+    if re.search(r'href=["\'][^"\']+\.md(?:[#?][^"\']*)?["\']', html, flags=re.I):
+        fail(f'Public page links directly to Markdown: {rel}')
+    lower = html.lower()
+    for phrase in unfinished_public_copy:
+        if phrase in lower:
+            fail(f'Unfinished or legacy public copy in {rel}: {phrase}')
+
+index = read('index.html')
+if 'id="next-lesson"' not in index:
+    fail('Next-lesson control missing')
+for token in ['rel="canonical"', 'og:title', 'twitter:card', 'apple-touch-icon', 'Content-Security-Policy']:
+    if token not in index:
+        fail(f'Missing launch metadata: {token}')
+if 'PRIVACY.md' in index or 'CONTENT-NOTES.md' in index:
+    fail('Learner footer must use polished HTML information pages')
+if 'github.com/' in index.lower():
+    fail('Learner interface must not navigate away to repository chrome')
+
+# Validate internal links from public pages.
+for rel in PUBLIC_PAGES:
+    html = read(rel)
+    for href in re.findall(r'href=["\']([^"\']+)["\']', html, flags=re.I):
+        if href.startswith(('http://', 'https://', 'mailto:', 'tel:', '#')):
             continue
-        lessons[week.get("id", file_path.stem)] = validate_lesson(file_path, version, errors)
+        target = urlsplit(href).path.lstrip('/')
+        if not target:
+            target = 'index.html'
+        if not (ROOT / target).exists():
+            fail(f'Broken public link in {rel}: {href}')
 
-    week4 = lessons.get("week4", {})
-    number_map = {item.get("id"): item.get("tagalog") for item in week4.get("vocabulary", [])}
-    for item_id, spelling in STANDARD_11_TO_19.items():
-        if number_map.get(item_id) != spelling:
-            fail(f"week4.json: {item_id} must display as {spelling}", errors)
+css = read('assets/css/styles.css')
+if ':focus-visible' not in css or 'var(--brand-2)' not in css.split(':focus-visible', 1)[1].split('}', 1)[0]:
+    fail('Focus ring must use high-contrast brand color')
+if 'prefers-reduced-motion' not in css:
+    fail('Reduced-motion support missing')
+if '.lesson-card.is-complete' not in css:
+    fail('Completed lesson state missing')
+if '.information-shell' not in css or '.information-card' not in css or '.appearance-toggle' not in css:
+    fail('Final information-page or compact appearance styling missing')
 
-    parser = LinkParser()
-    index_path = ROOT / "index.html"
-    if index_path.exists():
-        parser.feed(index_path.read_text(encoding="utf-8"))
-    for link in parser.links:
-        if link.startswith(("#", "mailto:", "tel:", "http://", "https://", "data:")):
-            continue
-        clean = link.split("#", 1)[0].split("?", 1)[0]
-        if clean and not (ROOT / clean).exists():
-            fail(f"index.html references missing local file: {clean}", errors)
+app = read('assets/js/app.js')
+if 'validateRawProgress' not in app or 'Nothing was changed' not in app:
+    fail('Safe import validation missing')
+if '<button type="button" class="lesson-card' not in app:
+    fail('Lesson cards must be native buttons')
+if "$('#continue-learning').addEventListener('click', continueLearning)" not in app:
+    fail('Continue learning must advance learning state')
+if '${item.practice ? `<button type="button" class="icon-button' not in app:
+    fail('Familiar control must be limited to persistent practice records')
+if '.sort(() => Math.random() - .5)' in app:
+    fail('Biased random-sort shuffle remains in app')
+if 'mergeItemProgress' not in app or 'v4ItemMigrationComplete' not in app:
+    fail('Item-only legacy progress migration missing')
+for token in ['Done ✓', 'marked done', 'Mark lesson done']:
+    if token not in app:
+        fail(f'Final lesson-state wording missing: {token}')
+if 'Complete ✓' in app or 'marked complete' in app:
+    fail('Conflicting completion wording remains')
 
-    for path in ROOT.rglob("*"):
-        if not path.is_file() or path.suffix.lower() not in TEXT_SUFFIXES:
-            continue
-        text = path.read_text(encoding="utf-8", errors="replace")
-        for banned in BANNED_PUBLIC_TEXT:
-            if banned.lower() in text.lower():
-                fail(f"Public repository contains excluded text '{banned}' in {path.relative_to(ROOT)}", errors)
+core = read('assets/js/core.js')
+if '.sort(() => Math.random() - .5)' in core:
+    fail('Biased random-sort shuffle remains in core')
+for token in ['exerciseEnglish', 'shuffle', 'mergeItemProgress', 'sourceId']:
+    if token not in core:
+        fail(f'Core learning invariant support missing: {token}')
 
-    app_js = (ROOT / "assets/js/app.js").read_text(encoding="utf-8") if (ROOT / "assets/js/app.js").exists() else ""
-    for required_code in (
-        "document.readyState === 'complete'",
-        "addEventListener('load', register, {once: true})",
-        "voiceschanged",
-        "No Filipino voice is installed on this device",
-        "getBoundingClientRect().height",
-    ):
-        if required_code not in app_js:
-            fail(f"app.js is missing required V&V remediation: {required_code}", errors)
-    if "offsetTop - 92" in app_js:
-        fail("app.js still contains the hardcoded panel scroll offset", errors)
+sw = read('service-worker.js')
+if f'tagalog-academy-v{VERSION}' not in sw:
+    fail('Service-worker cache version mismatch')
+if 'const fresh = await update' not in sw or "new Response('Unavailable', {status: 503})" not in sw:
+    fail('Service-worker offline fallback is not guaranteed to return a Response')
+if 'clients.claim' in sw or 'skipWaiting' in sw:
+    fail('Service worker must not replace the active version mid-session')
+for rel in ['privacy.html', 'language-notes.html', 'content-use.html']:
+    if repr('/' + rel) not in sw and repr(rel) not in sw:
+        fail(f'Service-worker shell missing {rel}')
 
-    sw = (ROOT / "service-worker.js").read_text(encoding="utf-8") if (ROOT / "service-worker.js").exists() else ""
-    for required_cache in ("data/course.json", "week1.json", "week2.json", "week3.json", "week4.json"):
-        if required_cache not in sw:
-            fail(f"Service worker does not cache {required_cache}", errors)
-    expected_cache = f"tagalog-academy-v{version}"
-    if expected_cache not in sw:
-        fail(f"Service-worker cache name must match {expected_cache}", errors)
+# Pull-request CI and deploy-gated GitHub Pages workflow.
+ci = read('.github/workflows/ci.yml')
+pages = read('.github/workflows/pages.yml')
+for workflow_name, workflow in [('CI', ci), ('Pages', pages)]:
+    for action in ['checkout', 'setup-python', 'setup-node']:
+        if not re.search(rf'actions/{action}@[0-9a-f]{{40}}', workflow):
+            fail(f'{workflow_name}: {action} action is not SHA-pinned')
+    if 'node-version: "24"' not in workflow:
+        fail(f'{workflow_name}: Node.js runtime version is not pinned')
+    for command in [
+        'validate_repo.py', 'validate_schema.py', 'validate_github_templates.py',
+        'validate_manifest.py', 'test_core.mjs', 'test_service_worker.mjs',
+    ]:
+        if command not in workflow:
+            fail(f'{workflow_name} missing {command}')
 
-    license_text = (ROOT / "LICENSE").read_text(encoding="utf-8") if (ROOT / "LICENSE").exists() else ""
-    if "Tagalog Academy contributors" not in license_text:
-        fail("LICENSE must use current Tagalog Academy branding", errors)
+for action in ['configure-pages', 'upload-pages-artifact', 'deploy-pages']:
+    if not re.search(rf'actions/{action}@[0-9a-f]{{40}}', pages):
+        fail(f'Pages: {action} action is not SHA-pinned')
+for token in ['needs: validate', 'pages: write', 'id-token: write', 'python scripts/build_site.py', 'path: _site']:
+    if token not in pages:
+        fail(f'Pages deployment gate missing: {token}')
+if 'push:' not in pages or 'branches: [main]' not in pages:
+    fail('Pages workflow must deploy only from main')
 
-    workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8") if (ROOT / ".github/workflows/ci.yml").exists() else ""
-    if "scripts/validate_schema.py" not in workflow or "requirements-dev.txt" not in workflow:
-        fail("CI must install dev requirements and enforce lesson schema validation", errors)
+# The public artifact is intentionally HTML/assets only.
+build_script = read('scripts/build_site.py')
+if "suffix.lower() == '.md'" not in build_script:
+    fail('Public site builder must reject Markdown files')
+for token in ["'privacy.html'", "'language-notes.html'", "'content-use.html'"]:
+    if token not in build_script:
+        fail(f'Public site builder missing {token}')
 
-    vv_report = (ROOT / "UX-VV-REPORT.md").read_text(encoding="utf-8") if (ROOT / "UX-VV-REPORT.md").exists() else ""
-    if "Workbook links mapped | 37" in vv_report:
-        fail("UX V&V report still contains the unsubstantiated workbook-link count", errors)
+# Repository and lesson data must not contain private operational references.
+private_patterns = ['zoom.us', 'forms.gle', 'docs.google.com/forms', '@jeepneyschool', '#jeepneyschool']
+for path in ROOT.rglob('*'):
+    if not path.is_file() or '_site' in path.parts or '__pycache__' in path.parts:
+        continue
+    if path.suffix.lower() in {'.png', '.pdf', '.ico'} or path.name == 'validate_repo.py':
+        continue
+    text = path.read_text(encoding='utf-8', errors='ignore').lower()
+    for pattern in private_patterns:
+        if pattern in text:
+            fail(f'Private or legacy source reference {pattern} in {path.relative_to(ROOT)}')
 
-    if errors:
-        print("VALIDATION FAILED")
-        for error in errors:
-            print(f"- {error}")
-        return 1
-
-    print("VALIDATION PASSED")
-    print(f"- release version {version}")
-    print("- 4 available weeks")
-    print("- lesson data, quizzes, builders, missions, and resources validated")
-    print("- independent P1/P2 remediation checks passed")
-    print("- private class administration links excluded")
-    print("- custom domain, cache version, and offline assets configured")
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+if errors:
+    print('VALIDATION FAILED')
+    for error in errors:
+        print('-', error)
+    raise SystemExit(1)
+print(f'VALIDATION PASS: {len(catalog["lessons"])} lessons, {total} vocabulary records')

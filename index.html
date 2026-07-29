@@ -3,267 +3,183 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Tagalog Academy is a privacy-first, mastery-oriented Tagalog course with adaptive review, speaking practice, sentence builders, and weekly missions.">
-  <meta name="theme-color" content="#102f46">
-  <title>Tagalog Academy</title>
+  <meta name="description" content="Learn practical Tagalog through short lessons, recall practice, speaking, and real conversation patterns.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self' blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="theme-color" content="#123b55">
+  <link rel="canonical" href="https://tagalog.academy/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tagalog.academy/">
+  <meta property="og:title" content="Tagalog Academy">
+  <meta property="og:description" content="A guided path to practical Tagalog.">
+  <meta property="og:image" content="https://tagalog.academy/assets/images/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tagalog Academy">
+  <meta name="twitter:description" content="A guided path to practical Tagalog.">
+  <meta name="twitter:image" content="https://tagalog.academy/assets/images/social-card.png">
+  <title>Tagalog Academy — Learn practical Tagalog</title>
+  <script src="assets/js/theme.js"></script>
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to learning content</a>
-  <p id="app-feedback" class="global-feedback" role="status" aria-live="assertive" hidden></p>
+  <a class="skip-link" href="#main">Skip to learning</a>
+  <div id="global-feedback" class="global-feedback" role="status" aria-live="assertive" hidden>
+    <span id="global-feedback-text"></span>
+    <button id="retry-load" type="button" class="text-button" hidden>Try again</button>
+  </div>
 
   <header class="site-header">
     <a class="wordmark" href="#top" aria-label="Tagalog Academy home">
       <span class="wordmark-mark" aria-hidden="true">TA</span>
-      <span>
-        <strong>Tagalog Academy</strong>
-        <small>Master what you can actually use</small>
-      </span>
+      <span><strong>Tagalog Academy</strong><small>Learn it. Recall it. Use it.</small></span>
     </a>
     <div class="header-actions">
       <button id="install-app" class="button button-quiet" type="button" hidden>Install</button>
-      <button id="theme-toggle" class="button button-quiet" type="button" aria-pressed="false">Dark mode</button>
+      <button id="theme-toggle" class="button button-quiet appearance-toggle" type="button" aria-label="Appearance: System. Activate to change.">System</button>
     </div>
   </header>
 
   <main id="main" class="page-shell">
     <section id="top" class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy-block">
-        <p id="week-eyebrow" class="eyebrow">Course dashboard</p>
-        <h1 id="hero-title">Learn Tagalog by using it.</h1>
-        <p id="hero-copy" class="hero-copy">Move from recognition to recall, speaking, original sentences, and real-life missions.</p>
-
-        <div class="week-picker">
-          <label for="week-select">Choose a learning week</label>
-          <select id="week-select" aria-describedby="week-help"></select>
-          <p id="week-help" class="helper">Your progress is stored privately in this browser.</p>
-        </div>
-
+      <div>
+        <p class="eyebrow">Practical Tagalog</p>
+        <h1 id="hero-title">Speak Tagalog with confidence.</h1>
+        <p class="hero-copy">Build useful vocabulary, strengthen recall, and turn each lesson into real conversation.</p>
         <div class="hero-actions">
-          <button class="button" type="button" data-open-panel="practice">Start today’s review</button>
-          <button class="button button-secondary" type="button" data-open-panel="learn">Open the lesson</button>
+          <button id="continue-learning" class="button" type="button">Continue learning</button>
+          <button class="button button-secondary" type="button" data-scroll-to="lesson-path">Explore lessons</button>
         </div>
-
-        <ul class="trust-list" aria-label="Product promises">
-          <li>No account</li>
-          <li>No tracking</li>
-          <li>Works offline after first visit</li>
-        </ul>
       </div>
-
-      <aside class="dashboard-card" aria-label="Learning dashboard">
-        <div class="dashboard-topline">
-          <span class="status-dot" aria-hidden="true"></span>
-          <span id="dashboard-status">Loading course…</span>
-        </div>
+      <aside class="dashboard-card" aria-label="Current learning progress">
+        <p class="eyebrow">Current lesson</p>
+        <h2 id="dashboard-title">Loading…</h2>
+        <p id="dashboard-summary"></p>
         <div class="metric-grid">
-          <div><strong id="due-count">0</strong><span>Due now</span></div>
-          <div><strong id="mastery-count">0%</strong><span>Phrase mastery</span></div>
-          <div><strong id="best-quiz">—</strong><span>Best quiz</span></div>
+          <div><strong id="session-count">0</strong><span>to practice</span></div>
+          <div><strong id="best-quiz">—</strong><span>best quiz</span></div>
         </div>
-        <div class="progress-wrap">
-          <div class="progress-label-row">
-            <span id="progress-label">0% week progress</span>
-            <span id="known-count">0 familiar</span>
-          </div>
-          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="progress-label">
-            <div id="progress-fill"></div>
-          </div>
-        </div>
+        <div class="progress-label-row"><span id="progress-label">Lesson progress</span><strong id="progress-value">0%</strong></div>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="progress-label"><div id="progress-fill"></div></div>
       </aside>
     </section>
 
-    <section class="roadmap-section" aria-labelledby="roadmap-title">
-      <div class="section-heading compact-heading">
-        <div><p class="eyebrow">Path to mastery</p><h2 id="roadmap-title">Course roadmap</h2></div>
-        <p>Four transformed weeks are available now. Later weeks stay locked until their source curriculum is defined.</p>
+    <section id="lesson-path" class="lesson-path" aria-labelledby="lesson-path-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Learning path</p><h2 id="lesson-path-title">Choose a lesson</h2></div>
+        <p>Follow the path in order or open the topic you need.</p>
       </div>
-      <div id="course-roadmap" class="roadmap-grid"></div>
+      <div id="lesson-grid" class="lesson-grid"></div>
     </section>
 
-    <nav class="tab-list" role="tablist" aria-label="Learning sections">
-      <button id="tab-learn" class="tab is-active" type="button" role="tab" aria-selected="true" aria-controls="learn" tabindex="0" data-panel="learn">Learn</button>
-      <button id="tab-practice" class="tab" type="button" role="tab" aria-selected="false" aria-controls="practice" tabindex="-1" data-panel="practice">Practice</button>
-      <button id="tab-speak" class="tab" type="button" role="tab" aria-selected="false" aria-controls="speak" tabindex="-1" data-panel="speak">Speak</button>
-      <button id="tab-build" class="tab" type="button" role="tab" aria-selected="false" aria-controls="build" tabindex="-1" data-panel="build">Build</button>
-      <button id="tab-mission" class="tab" type="button" role="tab" aria-selected="false" aria-controls="mission" tabindex="-1" data-panel="mission">Mission</button>
-      <button id="tab-resources" class="tab" type="button" role="tab" aria-selected="false" aria-controls="resources" tabindex="-1" data-panel="resources">Resources</button>
-    </nav>
-
-    <section id="learn" class="panel is-active" role="tabpanel" aria-labelledby="tab-learn" tabindex="0">
-      <div class="section-heading">
-        <div><p class="eyebrow">Understand</p><h2 id="lesson-title">Core lesson</h2></div>
-        <p id="lesson-subtitle">Search, listen, and mark phrases as familiar.</p>
+    <section class="lesson-shell" aria-labelledby="active-lesson-title">
+      <div class="lesson-header">
+        <div>
+          <p id="lesson-position" class="eyebrow">Lesson</p>
+          <h2 id="active-lesson-title">Loading lesson…</h2>
+          <p id="active-lesson-summary"></p>
+        </div>
+        <label class="lesson-select" for="lesson-select"><span>Open a lesson</span><select id="lesson-select"></select></label>
       </div>
 
-      <div id="learning-objectives" class="objective-grid"></div>
+      <nav class="tab-list" role="tablist" aria-label="Lesson sections">
+        <button id="tab-learn" class="tab is-active" type="button" role="tab" aria-selected="true" aria-controls="learn" tabindex="0" data-panel="learn">Learn</button>
+        <button id="tab-practice" class="tab" type="button" role="tab" aria-selected="false" aria-controls="practice" tabindex="-1" data-panel="practice">Practice</button>
+        <button id="tab-speak" class="tab" type="button" role="tab" aria-selected="false" aria-controls="speak" tabindex="-1" data-panel="speak">Speak</button>
+        <button id="tab-use" class="tab" type="button" role="tab" aria-selected="false" aria-controls="use" tabindex="-1" data-panel="use">Use</button>
+      </nav>
 
-      <div class="toolbar">
-        <label class="search-field" for="phrase-search">
-          <span>Search this week</span>
-          <input id="phrase-search" type="search" placeholder="Search Tagalog or English">
-        </label>
-        <label class="select-field" for="category-filter">
-          <span>Category</span>
-          <select id="category-filter"><option value="all">All categories</option></select>
-        </label>
-      </div>
-
-      <div id="lesson-groups" class="lesson-groups" aria-live="polite"></div>
-
-      <div class="subsection">
-        <div class="section-heading compact-heading">
-          <div><p class="eyebrow">Structure</p><h2>Grammar and sentence patterns</h2></div>
-          <p>Use these as tools, not as rules to memorize in isolation.</p>
+      <section id="learn" class="panel is-active" role="tabpanel" aria-labelledby="tab-learn" tabindex="0">
+        <div id="objectives" class="objective-grid"></div>
+        <div class="toolbar">
+          <label class="search-field" for="phrase-search"><span>Search phrases</span><input id="phrase-search" type="search" placeholder="Tagalog or English"></label>
+          <label class="select-field" for="category-filter"><span>Topic</span><select id="category-filter"><option value="all">All topics</option></select></label>
         </div>
-        <div id="grammar-notes" class="card-grid"></div>
-        <div id="sentence-patterns" class="pattern-grid"></div>
-      </div>
-
-      <button id="mark-lesson" class="button" type="button">Mark lesson complete</button>
-    </section>
-
-    <section id="practice" class="panel" role="tabpanel" aria-labelledby="tab-practice" tabindex="0" hidden>
-      <div class="section-heading">
-        <div><p class="eyebrow">Retrieve</p><h2>Adaptive daily review</h2></div>
-        <p>Weak and due phrases appear first. Rate each item so the queue improves.</p>
-      </div>
-
-      <article class="review-card">
-        <div class="card-heading">
-          <div><p class="eyebrow">Daily session</p><h3>Recall before revealing</h3></div>
-          <span id="review-counter">0 / 0</span>
+        <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
+        <div id="lesson-groups" class="lesson-groups"></div>
+        <div class="subsection">
+          <div class="section-heading compact-heading"><div><p class="eyebrow">Patterns</p><h3>How the language works</h3></div></div>
+          <div id="grammar-notes" class="card-grid"></div>
+          <div id="patterns" class="pattern-grid"></div>
         </div>
-        <p id="review-direction" class="review-direction">English → Tagalog</p>
-        <p id="review-prompt" class="review-prompt">Loading…</p>
-        <div id="review-answer" class="review-answer" hidden>
-          <strong lang="fil"></strong>
-          <span></span>
+        <div class="lesson-actions">
+          <button id="mark-lesson" class="button" type="button">Mark lesson complete</button>
+          <button id="next-lesson" class="button button-secondary" type="button" hidden></button>
         </div>
-        <div id="review-controls" class="inline-actions">
-          <button id="review-reveal" class="button" type="button">Reveal answer</button>
-          <button id="review-speak" class="button button-secondary" type="button">Hear phrase</button>
-        </div>
-        <div id="review-ratings" class="rating-grid" hidden>
-          <button class="rating-button" type="button" data-rating="again"><strong>Again</strong><span>Review soon</span></button>
-          <button class="rating-button" type="button" data-rating="hard"><strong>Hard</strong><span>Review tomorrow</span></button>
-          <button class="rating-button" type="button" data-rating="good"><strong>Good</strong><span>Increase interval</span></button>
-        </div>
-        <p id="review-feedback" class="feedback" aria-live="polite"></p>
-      </article>
+      </section>
 
-      <div class="practice-grid">
-        <article class="practice-card">
-          <div class="card-heading">
-            <div><p class="eyebrow">Typing</p><h3>Produce the phrase</h3></div>
-            <span id="typing-count"></span>
-          </div>
-          <p id="typing-prompt" class="large-prompt"></p>
-          <label for="typing-answer">Type the Tagalog answer</label>
-          <input id="typing-answer" type="text" autocomplete="off" autocapitalize="sentences" spellcheck="false">
-          <div class="inline-actions">
-            <button id="typing-check" class="button" type="button">Check</button>
-            <button id="typing-reveal" class="button button-secondary" type="button">Reveal</button>
-            <button id="typing-next" class="button button-quiet" type="button">Next</button>
-          </div>
-          <p id="typing-feedback" class="feedback" aria-live="polite"></p>
-        </article>
-
-        <article class="quiz-card">
-          <div class="card-heading">
-            <div><p class="eyebrow">Check</p><h3>Ten-question quiz</h3></div>
-            <span id="quiz-progress">Question 1 of 10</span>
-          </div>
-          <form id="quiz-form">
-            <fieldset>
-              <legend id="quiz-question"></legend>
-              <div id="quiz-choices" class="choice-list"></div>
-            </fieldset>
-            <div class="inline-actions">
-              <button id="quiz-submit" class="button" type="submit">Check answer</button>
-              <button id="quiz-next" class="button button-secondary" type="button" hidden>Next question</button>
+      <section id="practice" class="panel" role="tabpanel" aria-labelledby="tab-practice" tabindex="0" hidden>
+        <div class="practice-grid">
+          <article class="practice-card review-card">
+            <div class="card-heading"><div><p class="eyebrow">Recall</p><h3>Practice what is due</h3></div><span id="review-counter">0 / 0</span></div>
+            <p id="review-direction" class="review-direction">English → Tagalog</p>
+            <p id="review-prompt" class="review-prompt" tabindex="-1">Loading…</p>
+            <div id="review-answer" class="review-answer" hidden><strong lang="fil"></strong><span></span></div>
+            <div id="review-controls" class="inline-actions">
+              <button id="review-reveal" class="button" type="button">Reveal</button>
+              <button id="review-speak" class="button button-secondary" type="button">Hear it</button>
             </div>
-          </form>
-          <p id="quiz-feedback" class="feedback" aria-live="polite"></p>
-          <div id="quiz-result" class="result-card" hidden></div>
-        </article>
-      </div>
-    </section>
+            <div id="review-ratings" class="rating-grid" hidden>
+              <button class="rating-button" type="button" data-rating="again"><strong>Again</strong><span>Review soon</span></button>
+              <button class="rating-button" type="button" data-rating="hard"><strong>Hard</strong><span>Tomorrow</span></button>
+              <button class="rating-button" type="button" data-rating="good"><strong>Good</strong><span>Later</span></button>
+            </div>
+            <p id="review-feedback" class="feedback" role="status" aria-live="polite"></p>
+          </article>
 
-    <section id="speak" class="panel" role="tabpanel" aria-labelledby="tab-speak" tabindex="0" hidden>
-      <div class="section-heading">
-        <div><p class="eyebrow">Shadow</p><h2>Listen, imitate, compare</h2></div>
-        <p>Recordings stay in this browser session and are never uploaded. Browser speech is device-generated; without an installed Filipino voice, playback may be inaccurate and should be treated only as a memory cue.</p>
-      </div>
-      <article class="speak-card">
-        <label for="speak-phrase">Choose a phrase</label>
-        <select id="speak-phrase"></select>
-        <div class="shadow-phrase">
-          <strong id="shadow-tagalog" lang="fil"></strong>
-          <span id="shadow-english"></span>
+          <article class="practice-card">
+            <div class="card-heading"><div><p class="eyebrow">Type</p><h3>Produce the Tagalog</h3></div><span id="typing-count"></span></div>
+            <p id="typing-prompt" class="large-prompt"></p>
+            <label for="typing-answer">Your answer</label>
+            <input id="typing-answer" type="text" autocomplete="off" autocapitalize="sentences" spellcheck="false">
+            <div class="inline-actions"><button id="typing-check" class="button" type="button">Check</button><button id="typing-reveal" class="button button-secondary" type="button">Reveal</button><button id="typing-next" class="button button-quiet" type="button">Next</button></div>
+            <p id="typing-feedback" class="feedback" role="status" aria-live="polite"></p>
+          </article>
+
+          <article class="practice-card quiz-card">
+            <div class="card-heading"><div><p class="eyebrow">Check</p><h3>Quick quiz</h3></div><span id="quiz-progress"></span></div>
+            <form id="quiz-form"><fieldset><legend id="quiz-question"></legend><div id="quiz-choices" class="choice-list"></div></fieldset><div class="inline-actions"><button id="quiz-submit" class="button" type="submit">Check</button><button id="quiz-next" class="button button-secondary" type="button" hidden>Next</button></div></form>
+            <p id="quiz-feedback" class="feedback" role="status" aria-live="polite"></p>
+            <div id="quiz-result" class="result-card" hidden></div>
+          </article>
         </div>
-        <div class="inline-actions">
-          <button id="speak-slow" class="button button-secondary" type="button">Hear slowly</button>
-          <button id="speak-normal" class="button" type="button">Hear normally</button>
-          <button id="record-start" class="button button-quiet" type="button">Record yourself</button>
-          <button id="record-stop" class="button button-danger" type="button" hidden>Stop recording</button>
+      </section>
+
+      <section id="speak" class="panel" role="tabpanel" aria-labelledby="tab-speak" tabindex="0" hidden>
+        <div class="section-heading"><div><p class="eyebrow">Listen and repeat</p><h3>Speaking practice</h3></div><p>Browser voices vary. When no Filipino voice is installed, playback is only a memory cue and may sound inaccurate.</p></div>
+        <div class="speak-grid">
+          <article class="practice-card">
+            <label for="speak-phrase">Choose a phrase</label><select id="speak-phrase"></select>
+            <div class="shadow-card"><strong id="shadow-tagalog" lang="fil"></strong><span id="shadow-english"></span></div>
+            <div class="inline-actions"><button id="speak-normal" class="button" type="button">Play</button><button id="speak-slow" class="button button-secondary" type="button">Play slowly</button></div>
+            <p id="speech-status" class="feedback" role="status" aria-live="polite"></p>
+          </article>
+          <article class="practice-card">
+            <h3>Record yourself</h3><p>Record, listen, and compare. The recording stays in this browser session.</p>
+            <div class="inline-actions"><button id="record-start" class="button" type="button">Start recording</button><button id="record-stop" class="button button-secondary" type="button" disabled>Stop</button></div>
+            <audio id="recording-playback" controls hidden></audio>
+            <p id="record-status" class="feedback" role="status" aria-live="polite"></p>
+          </article>
         </div>
-        <p id="record-status" class="feedback" aria-live="polite">Listen once, then repeat without reading.</p>
-        <audio id="record-playback" controls hidden></audio>
-      </article>
-    </section>
+      </section>
 
-    <section id="build" class="panel" role="tabpanel" aria-labelledby="tab-build" tabindex="0" hidden>
-      <div class="section-heading">
-        <div><p class="eyebrow">Create</p><h2>Build original Tagalog</h2></div>
-        <p>Move from memorized phrases to language that belongs to you.</p>
-      </div>
-      <div id="builder-grid" class="builder-grid"></div>
-    </section>
-
-    <section id="mission" class="panel" role="tabpanel" aria-labelledby="tab-mission" tabindex="0" hidden>
-      <div class="section-heading">
-        <div><p class="eyebrow">Apply</p><h2>Weekly mission</h2></div>
-        <p>Completion means using Tagalog in a finished outcome—not merely opening the lesson.</p>
-      </div>
-      <div id="mission-grid" class="mission-grid"></div>
-      <button id="mark-mission" class="button" type="button">Mark mission complete</button>
-    </section>
-
-    <section id="resources" class="panel" role="tabpanel" aria-labelledby="tab-resources" tabindex="0" hidden>
-      <div class="section-heading">
-        <div><p class="eyebrow">Support</p><h2>Resources and progress</h2></div>
-        <p>External media opens in a new tab. Tagalog Academy does not copy or host third-party media.</p>
-      </div>
-      <div id="resource-grid" class="resource-grid"></div>
-
-      <div class="data-card">
-        <h3>Your private progress</h3>
-        <p>Progress stays on this device unless you export it.</p>
-        <div class="inline-actions">
-          <button id="export-progress" class="button button-secondary" type="button">Export progress</button>
-          <label class="button button-quiet file-button">Import progress<input id="import-progress" type="file" accept="application/json"></label>
-          <button id="reset-week" class="button button-danger" type="button">Reset this week</button>
-          <button id="print-lesson" class="button button-quiet" type="button">Print lesson</button>
+      <section id="use" class="panel" role="tabpanel" aria-labelledby="tab-use" tabindex="0" hidden>
+        <div class="section-heading"><div><p class="eyebrow">Create and apply</p><h3>Use the lesson</h3></div><p>Build your own language, then complete the practical challenge.</p></div>
+        <div id="builder-grid" class="builder-grid"></div>
+        <article class="mission-card"><p class="eyebrow">Challenge</p><h3 id="mission-title"></h3><p id="mission-description"></p><ol id="mission-steps"></ol><div class="example-box"><strong>Example</strong><p id="mission-example" lang="fil"></p></div><button id="mark-mission" class="button" type="button">Mark challenge complete</button></article>
+        <div class="subsection"><div class="section-heading compact-heading"><div><p class="eyebrow">Downloads</p><h3>Study away from the screen</h3></div></div><div id="resource-grid" class="resource-grid"></div></div>
+        <div class="progress-tools">
+          <h3>Your progress</h3><p>Your progress is saved in this browser. Export a backup before switching devices or clearing browser data.</p>
+          <div class="inline-actions"><button id="export-progress" class="button" type="button">Export backup</button><label class="button button-secondary file-button">Import backup<input id="import-progress" type="file" accept="application/json"></label><button id="reset-all" class="button button-danger" type="button">Reset all progress</button></div>
+          <p id="data-feedback" class="feedback" role="status" aria-live="polite"></p>
         </div>
-        <p id="data-feedback" class="feedback" aria-live="polite"></p>
-      </div>
-
-      <aside class="content-status">
-        <h3>Content status</h3>
-        <p id="content-status"></p>
-        <p>Language conventions should receive final review from a qualified Tagalog educator before the course is described as authoritative.</p>
-      </aside>
+      </section>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p><strong>Tagalog Academy</strong> · Open, privacy-first learning at <a href="https://tagalog.academy">tagalog.academy</a></p>
-    <p>Practice creates confidence. Review creates retention. Use creates mastery.</p>
-  </footer>
-
-  <script src="assets/js/app.js" defer></script>
+  <footer class="site-footer"><strong>Tagalog Academy</strong><nav aria-label="Footer"><a href="/privacy.html">Privacy</a><a href="/language-notes.html">Language guide</a><a href="/content-use.html">Content use</a></nav></footer>
+  <script type="module" src="assets/js/app.js"></script>
 </body>
 </html>

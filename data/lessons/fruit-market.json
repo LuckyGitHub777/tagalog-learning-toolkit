@@ -1,0 +1,396 @@
+{
+  "version": "4.0.0",
+  "id": "fruit-market",
+  "order": 7,
+  "title": "Fruit and the Market",
+  "short_title": "Fruit and the Market",
+  "summary": "Name fruit and complete a simple market exchange.",
+  "content_status": "Published",
+  "objectives": [
+    "Name common fruits.",
+    "Ask the price.",
+    "Ask how many someone wants.",
+    "Complete a polite buying exchange."
+  ],
+  "vocabulary": [
+    {
+      "id": "mango",
+      "category": "Fruits",
+      "tagalog": "Mangga",
+      "english": "Mango",
+      "accepted": [
+        "mangga"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Mangga” means “Mango.”"
+    },
+    {
+      "id": "orange-fruit",
+      "category": "Fruits",
+      "tagalog": "Dalandan",
+      "english": "Orange fruit",
+      "accepted": [
+        "dalandan"
+      ],
+      "note": "Dalandan names a citrus fruit; kahel is used for the color orange in the Colors and Preferences lesson.",
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Dalandan” means “Orange fruit.” Dalandan names a citrus fruit; kahel is used for the color orange in the Colors and Preferences lesson."
+    },
+    {
+      "id": "grapes",
+      "category": "Fruits",
+      "tagalog": "Ubas",
+      "english": "Grapes",
+      "accepted": [
+        "ubas"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Ubas” means “Grapes.”"
+    },
+    {
+      "id": "pineapple",
+      "category": "Fruits",
+      "tagalog": "Pinya",
+      "english": "Pineapple",
+      "accepted": [
+        "pinya"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Pinya” means “Pineapple.”"
+    },
+    {
+      "id": "watermelon",
+      "category": "Fruits",
+      "tagalog": "Pakwan",
+      "english": "Watermelon",
+      "accepted": [
+        "pakwan"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Pakwan” means “Watermelon.”"
+    },
+    {
+      "id": "pear",
+      "category": "Fruits",
+      "tagalog": "Peras",
+      "english": "Pear",
+      "accepted": [
+        "peras"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Peras” means “Pear.”"
+    },
+    {
+      "id": "papaya",
+      "category": "Fruits",
+      "tagalog": "Papaya",
+      "english": "Papaya",
+      "accepted": [
+        "papaya"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Papaya” means “Papaya.”"
+    },
+    {
+      "id": "calamansi",
+      "category": "Fruits",
+      "tagalog": "Kalamansi",
+      "english": "Calamansi",
+      "accepted": [
+        "kalamansi"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kalamansi” means “Calamansi.”"
+    },
+    {
+      "id": "how-much",
+      "category": "Market Questions",
+      "tagalog": "Magkano ang mangga?",
+      "english": "How much is the mango?",
+      "accepted": [
+        "magkano ang mangga"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Magkano ang mangga?” to ask “How much is the mango?”"
+    },
+    {
+      "id": "how-many",
+      "category": "Market Questions",
+      "tagalog": "Ilang mangga?",
+      "english": "How many mangoes?",
+      "accepted": [
+        "ilang mangga"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ilang mangga?” to ask “How many mangoes?”"
+    },
+    {
+      "id": "want-five",
+      "category": "Market Answers",
+      "tagalog": "Limang mangga ang gusto ko.",
+      "english": "I want five mangoes.",
+      "accepted": [
+        "limang mangga ang gusto ko"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Limang mangga ang gusto ko.” to say “I want five mangoes.”"
+    },
+    {
+      "id": "twenty-pesos",
+      "category": "Market Answers",
+      "tagalog": "Dalawampung piso.",
+      "english": "Twenty pesos.",
+      "accepted": [
+        "dalawampung piso"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Dalawampung piso.” to say “Twenty pesos.”"
+    },
+    {
+      "id": "how-much-all",
+      "category": "Market Questions",
+      "tagalog": "Magkano lahat?",
+      "english": "How much is everything?",
+      "accepted": [
+        "magkano lahat"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Magkano lahat?” to ask “How much is everything?”"
+    },
+    {
+      "id": "really",
+      "category": "Useful Expressions",
+      "tagalog": "Talaga?",
+      "english": "Really?",
+      "accepted": [
+        "talaga"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Talaga?” to ask “Really?”"
+    },
+    {
+      "id": "of-course",
+      "category": "Useful Expressions",
+      "tagalog": "Siyempre.",
+      "english": "Of course.",
+      "accepted": [
+        "siyempre"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Siyempre.” means “Of course.”"
+    },
+    {
+      "id": "correct",
+      "category": "Useful Expressions",
+      "tagalog": "Tama.",
+      "english": "Correct.",
+      "accepted": [
+        "tama"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Tama.” means “Correct.”"
+    },
+    {
+      "id": "incorrect",
+      "category": "Useful Expressions",
+      "tagalog": "Mali.",
+      "english": "Incorrect.",
+      "accepted": [
+        "mali"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Mali.” means “Incorrect.”"
+    },
+    {
+      "id": "okay-go",
+      "category": "Useful Expressions",
+      "tagalog": "Sige.",
+      "english": "Okay or go ahead.",
+      "accepted": [
+        "sige"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Sige.” means “Okay or go ahead.”"
+    },
+    {
+      "id": "wait",
+      "category": "Useful Expressions",
+      "tagalog": "Sandali.",
+      "english": "Wait a moment.",
+      "accepted": [
+        "sandali"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Sandali.” means “Wait a moment.”"
+    },
+    {
+      "id": "great",
+      "category": "Useful Expressions",
+      "tagalog": "Ayos!",
+      "english": "Great!",
+      "accepted": [
+        "ayos"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Ayos!” means “Great.”"
+    },
+    {
+      "id": "no-problem",
+      "category": "Useful Expressions",
+      "tagalog": "Walang problema.",
+      "english": "No problem.",
+      "accepted": [
+        "walang problema"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Walang problema.” to say “No problem.”"
+    }
+  ],
+  "grammar_notes": [
+    {
+      "title": "Price",
+      "body": "Use “Magkano ang…?” to ask the price of one item and “Magkano lahat?” to ask the total."
+    },
+    {
+      "title": "Politeness",
+      "body": "Use “po” in a respectful exchange."
+    },
+    {
+      "title": "Dalandan and kahel",
+      "body": "Dalandan names a citrus fruit; kahel is a color term."
+    }
+  ],
+  "patterns": [
+    {
+      "title": "Ask a price",
+      "tagalog": "Magkano ang [prutas]?",
+      "english": "How much is the [fruit]?"
+    },
+    {
+      "title": "Buy something",
+      "tagalog": "Pabili po ng [prutas].",
+      "english": "I would like to buy [fruit], please."
+    }
+  ],
+  "builders": [
+    {
+      "id": "market-dialogue",
+      "title": "Build a market exchange",
+      "description": "Create a short fruit-buying dialogue.",
+      "template": "Mamimili: Kumusta po! Pabili po ng {{fruit}}.\nTindero: Ilan ang gusto mo?\nMamimili: {{quantity}} {{fruit}} po.\nMamimili: Magkano po?\nTindero: {{price}} piso bawat isa.\nMamimili: Sige po. Salamat!",
+      "fields": [
+        {
+          "name": "fruit",
+          "label": "Fruit",
+          "type": "select",
+          "options": [
+            "mangga",
+            "saging",
+            "mansanas",
+            "dalandan",
+            "ubas",
+            "pinya",
+            "papaya"
+          ]
+        },
+        {
+          "name": "quantity",
+          "label": "Quantity phrase",
+          "type": "select",
+          "options": [
+            "Dalawang",
+            "Tatlong",
+            "Apat na",
+            "Limang",
+            "Anim na"
+          ]
+        },
+        {
+          "name": "price",
+          "label": "Price",
+          "type": "select",
+          "options": [
+            "sampung",
+            "dalawampung",
+            "tatlumpung",
+            "limampung"
+          ]
+        }
+      ]
+    }
+  ],
+  "mission": {
+    "title": "Market conversation",
+    "description": "Practice a short buyer-and-seller exchange.",
+    "steps": [
+      "Greet politely.",
+      "Ask to buy a fruit.",
+      "State a quantity.",
+      "Ask the price.",
+      "Thank the seller."
+    ],
+    "example": "Pabili po ng mangga. Limang mangga po. Magkano po? Salamat!"
+  },
+  "resources": [
+    {
+      "title": "Beginner guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Beginner-Guide.pdf#page=8",
+      "description": "Open the vocabulary and patterns for Fruit and the Market."
+    },
+    {
+      "title": "Practice pack",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Practice-Pack.pdf#page=8",
+      "description": "Open the printable practice for Fruit and the Market."
+    },
+    {
+      "title": "Answer guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Answer-Guide.pdf#page=8",
+      "description": "Check the suggested answers for Fruit and the Market."
+    }
+  ]
+}

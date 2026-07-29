@@ -1,0 +1,72 @@
+{
+  "version": "4.0.0",
+  "title": "Tagalog Academy",
+  "domain": "tagalog.academy",
+  "description": "A guided path to practical Tagalog.",
+  "outcome": "Understand and use practical Tagalog for introductions, people, preferences, home life, buying, time, and daily routines.",
+  "lessons": [
+    {
+      "id": "greetings-introductions",
+      "order": 1,
+      "title": "Greetings and Introductions",
+      "summary": "Greet people, introduce yourself, and talk about how you feel.",
+      "file": "data/lessons/greetings-introductions.json"
+    },
+    {
+      "id": "people-family",
+      "order": 2,
+      "title": "People and Family",
+      "summary": "Name family relationships and describe people clearly.",
+      "file": "data/lessons/people-family.json"
+    },
+    {
+      "id": "colors-preferences",
+      "order": 3,
+      "title": "Colors and Preferences",
+      "summary": "Name colors and express what you like or dislike.",
+      "file": "data/lessons/colors-preferences.json"
+    },
+    {
+      "id": "food-drinks",
+      "order": 4,
+      "title": "Food and Drinks",
+      "summary": "Name everyday food and drinks and talk about preferences.",
+      "file": "data/lessons/food-drinks.json"
+    },
+    {
+      "id": "home-location",
+      "order": 5,
+      "title": "Home and Location",
+      "summary": "Name household objects and say where people and things are.",
+      "file": "data/lessons/home-location.json"
+    },
+    {
+      "id": "numbers-quantities",
+      "order": 6,
+      "title": "Numbers and Quantities",
+      "summary": "Count, recognize common tens, and ask how many.",
+      "file": "data/lessons/numbers-quantities.json"
+    },
+    {
+      "id": "fruit-market",
+      "order": 7,
+      "title": "Fruit and the Market",
+      "summary": "Name fruit and complete a simple market exchange.",
+      "file": "data/lessons/fruit-market.json"
+    },
+    {
+      "id": "days-time",
+      "order": 8,
+      "title": "Days and Time",
+      "summary": "Talk about days, time, and a simple schedule.",
+      "file": "data/lessons/days-time.json"
+    },
+    {
+      "id": "daily-routine",
+      "order": 9,
+      "title": "Daily Routine",
+      "summary": "Describe completed morning activities in order.",
+      "file": "data/lessons/daily-routine.json"
+    }
+  ]
+}

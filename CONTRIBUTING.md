@@ -1,64 +1,49 @@
 # Contributing
 
-## Contribution priorities
+## Before changing language content
 
-1. Correct language
-2. Clear learner outcome
-3. Privacy
-4. Accessibility
-5. Repeatability
-6. Technical simplicity
+1. Identify the learner problem and learning objective.
+2. Use one canonical Tagalog form per record.
+3. Add alternatives only when register or usage justifies them.
+4. Give records with similar meanings unique `exercise_english` prompts.
+5. Explain register, aspect, regional context, or usage where learners could be misled.
+6. Cite reviewable evidence for language changes.
+7. Confirm that any outside material may be published.
 
-## Lesson changes
+See `LANGUAGE-GUIDE.md` for the Academy's editorial standard.
 
-Edit the appropriate JSON file in `data/lessons/`.
-
-Every lesson should include:
-
-- At least four objectives
-- Substantial vocabulary grouped by category
-- At least two grammar notes
-- At least two builders
-- Exactly ten quiz questions
-- At least two missions
-- Source and review status
-
-## Before opening a pull request
+## Required validation
 
 ```bash
 python -m pip install -r requirements-dev.txt
 python tagalog.py validate
-python scripts/validate_schema.py
-python tagalog.py serve
+node --check assets/js/theme.js
+node --check assets/js/core.js
+node --check assets/js/app.js
+node --check service-worker.js
+node tests/test_core.mjs
+node tests/test_service_worker.mjs
 ```
 
-Test:
+`python tagalog.py validate` runs repository validation, JSON Schema validation, GitHub-template validation, Python tests, and manifest verification.
 
-- Desktop and mobile
-- Keyboard navigation
-- Week switching
-- Vocabulary search
-- Review
-- Typing
-- Quiz
-- Speaking playback
-- Builders
-- Mission completion
-- Progress export/import
-- Offline reload
+Update `MANIFEST.sha256` after every release-tree change. When public shell files change, update the service-worker cache name together with the release version.
 
-## Language corrections
+## Pull requests
 
-A correction should explain:
+Use a feature branch and a pull request. Do not push unreviewed changes directly to `main`.
 
-- Existing wording
-- Proposed wording
-- Why it is more accurate or natural
-- Register or regional considerations
-- Source or reviewer
+Include:
 
-Do not replace one valid variant with another merely because it is personally preferred.
+- the learner or maintenance problem;
+- the smallest useful change;
+- evidence supporting language changes;
+- validation results;
+- screenshots for visible changes;
+- the effect on offline caching and printable materials.
 
-## Schema enforcement
+## Boundaries
 
-`data/lesson.schema.json` is enforced in continuous integration through `scripts/validate_schema.py`. Update the schema and lesson files together when the content contract changes.
+Never commit credentials, private learner data, live meeting details, submission forms, confidential documents, or third-party material that cannot be published.
+
+Report exploitable security vulnerabilities privately under `SECURITY.md`.

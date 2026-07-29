@@ -1,22 +1,20 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://tagalog.academy/data/lesson.schema.json",
-  "title": "Tagalog Academy Lesson",
+  "title": "Tagalog Academy lesson",
   "type": "object",
   "required": [
     "version",
     "id",
-    "week",
+    "order",
     "title",
-    "short_title",
-    "subtitle",
+    "summary",
     "objectives",
     "vocabulary",
     "grammar_notes",
-    "sentence_patterns",
+    "patterns",
     "builders",
-    "quiz",
-    "missions",
+    "mission",
     "resources"
   ],
   "properties": {
@@ -25,31 +23,33 @@
     },
     "id": {
       "type": "string",
-      "pattern": "^week[1-9][0-9]*$"
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
-    "week": {
+    "order": {
       "type": "integer",
       "minimum": 1
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
-    "short_title": {
-      "type": "string"
+    "summary": {
+      "type": "string",
+      "minLength": 1
     },
-    "subtitle": {
+    "content_status": {
       "type": "string"
     },
     "objectives": {
       "type": "array",
-      "minItems": 4,
+      "minItems": 3,
       "items": {
         "type": "string"
       }
     },
     "vocabulary": {
       "type": "array",
-      "minItems": 20,
+      "minItems": 8,
       "items": {
         "type": "object",
         "required": [
@@ -57,7 +57,10 @@
           "category",
           "tagalog",
           "english",
-          "accepted"
+          "accepted",
+          "kind",
+          "register",
+          "practice"
         ],
         "properties": {
           "id": {
@@ -72,36 +75,72 @@
           "english": {
             "type": "string"
           },
-          "note": {
-            "type": "string"
-          },
           "accepted": {
             "type": "array",
             "items": {
               "type": "string"
             }
+          },
+          "kind": {
+            "enum": [
+              "word",
+              "sentence",
+              "question"
+            ]
+          },
+          "register": {
+            "type": "string"
+          },
+          "practice": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": "string"
+          },
+          "exercise_english": {
+            "type": "string",
+            "minLength": 1
+          },
+          "explanation": {
+            "type": "string",
+            "minLength": 1
           }
         }
       }
     },
     "grammar_notes": {
-      "type": "array"
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "body"
+        ]
+      }
     },
-    "sentence_patterns": {
-      "type": "array"
+    "patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "tagalog",
+          "english"
+        ]
+      }
     },
     "builders": {
       "type": "array",
-      "minItems": 2
+      "minItems": 1
     },
-    "quiz": {
-      "type": "array",
-      "minItems": 10,
-      "maxItems": 10
-    },
-    "missions": {
-      "type": "array",
-      "minItems": 2
+    "mission": {
+      "type": "object",
+      "required": [
+        "title",
+        "description",
+        "steps",
+        "example"
+      ]
     },
     "resources": {
       "type": "array"

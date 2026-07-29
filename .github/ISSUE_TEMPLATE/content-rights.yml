@@ -1,0 +1,49 @@
+name: Content rights concern
+description: Identify a copyright, attribution, ownership, or reuse concern without publishing confidential evidence.
+title: "[Rights] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. Do not attach confidential agreements, personal information, unpublished source files, or legal strategy. State only enough to identify the material and the nature of the concern. The maintainer will determine an appropriate private follow-up route when needed.
+  - type: input
+    id: material
+    attributes:
+      label: Material or location
+      description: Identify the lesson, file, phrase, image, or download at issue.
+    validations:
+      required: true
+  - type: dropdown
+    id: concern
+    attributes:
+      label: Type of concern
+      options:
+        - Copyright or ownership
+        - Missing or incorrect attribution
+        - License incompatibility
+        - Trademark or branding
+        - Privacy or personal information
+        - Other rights concern
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Public summary
+      description: Explain the concern without confidential details.
+    validations:
+      required: true
+  - type: input
+    id: public_source
+    attributes:
+      label: Public reference
+      description: Optional public URL or citation that helps identify the issue.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: I understand this issue and its attachments are public.
+          required: true
+        - label: I have not included confidential documents, personal data, or legal advice.
+          required: true

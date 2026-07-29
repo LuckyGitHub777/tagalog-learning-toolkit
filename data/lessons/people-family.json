@@ -1,0 +1,645 @@
+{
+  "version": "4.0.0",
+  "id": "people-family",
+  "order": 2,
+  "title": "People and Family",
+  "short_title": "People and Family",
+  "summary": "Name family relationships and describe people clearly.",
+  "content_status": "Published",
+  "objectives": [
+    "Name common family members.",
+    "Use relationship words for people in your life.",
+    "Describe a person with an adjective.",
+    "Introduce someone by name."
+  ],
+  "vocabulary": [
+    {
+      "id": "mother-nanay",
+      "category": "Family",
+      "tagalog": "Nanay",
+      "english": "Mother",
+      "note": "Common everyday form.",
+      "accepted": [
+        "nanay"
+      ],
+      "register": "everyday",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Mother (everyday)",
+      "explanation": "“Nanay” means “Mother.” Common everyday form."
+    },
+    {
+      "id": "mother-ina",
+      "category": "Family",
+      "tagalog": "Ina",
+      "english": "Mother",
+      "note": "Formal or literary form.",
+      "accepted": [
+        "ina"
+      ],
+      "register": "formal",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Mother (formal)",
+      "explanation": "“Ina” means “Mother.” Formal or literary form."
+    },
+    {
+      "id": "father-tatay",
+      "category": "Family",
+      "tagalog": "Tatay",
+      "english": "Father",
+      "note": "Common everyday form.",
+      "accepted": [
+        "tatay"
+      ],
+      "register": "everyday",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Father (everyday)",
+      "explanation": "“Tatay” means “Father.” Common everyday form."
+    },
+    {
+      "id": "father-ama",
+      "category": "Family",
+      "tagalog": "Ama",
+      "english": "Father",
+      "note": "Formal or literary form.",
+      "accepted": [
+        "ama"
+      ],
+      "register": "formal",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Father (formal)",
+      "explanation": "“Ama” means “Father.” Formal or literary form."
+    },
+    {
+      "id": "older-brother",
+      "category": "Family",
+      "tagalog": "Kuya",
+      "english": "Older brother",
+      "note": "Also used respectfully for an older male.",
+      "accepted": [
+        "kuya"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kuya” means “Older brother.” Also used respectfully for an older male."
+    },
+    {
+      "id": "older-sister",
+      "category": "Family",
+      "tagalog": "Ate",
+      "english": "Older sister",
+      "note": "Also used respectfully for an older female.",
+      "accepted": [
+        "ate"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Ate” means “Older sister.” Also used respectfully for an older female."
+    },
+    {
+      "id": "youngest",
+      "category": "Family",
+      "tagalog": "Bunso",
+      "english": "Youngest child or sibling",
+      "accepted": [
+        "bunso"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Bunso” means “Youngest child or sibling.”"
+    },
+    {
+      "id": "sibling",
+      "category": "Family",
+      "tagalog": "Kapatid",
+      "english": "Sibling",
+      "accepted": [
+        "kapatid"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kapatid” means “Sibling.”"
+    },
+    {
+      "id": "grandfather",
+      "category": "Family",
+      "tagalog": "Lolo",
+      "english": "Grandfather",
+      "accepted": [
+        "lolo"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Lolo” means “Grandfather.”"
+    },
+    {
+      "id": "grandmother",
+      "category": "Family",
+      "tagalog": "Lola",
+      "english": "Grandmother",
+      "accepted": [
+        "lola"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Lola” means “Grandmother.”"
+    },
+    {
+      "id": "uncle-tiyo",
+      "category": "Family",
+      "tagalog": "Tiyo",
+      "english": "Uncle",
+      "note": "Standard form.",
+      "accepted": [
+        "tiyo"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Uncle (standard)",
+      "explanation": "“Tiyo” means “Uncle.” Standard form."
+    },
+    {
+      "id": "uncle-tito",
+      "category": "Family",
+      "tagalog": "Tito",
+      "english": "Uncle",
+      "note": "Very common everyday form.",
+      "accepted": [
+        "tito"
+      ],
+      "register": "everyday",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Uncle (everyday)",
+      "explanation": "“Tito” means “Uncle.” Very common everyday form."
+    },
+    {
+      "id": "aunt-tiya",
+      "category": "Family",
+      "tagalog": "Tiya",
+      "english": "Aunt",
+      "note": "Standard form.",
+      "accepted": [
+        "tiya"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Aunt (standard)",
+      "explanation": "“Tiya” means “Aunt.” Standard form."
+    },
+    {
+      "id": "aunt-tita",
+      "category": "Family",
+      "tagalog": "Tita",
+      "english": "Aunt",
+      "note": "Very common everyday form.",
+      "accepted": [
+        "tita"
+      ],
+      "register": "everyday",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Aunt (everyday)",
+      "explanation": "“Tita” means “Aunt.” Very common everyday form."
+    },
+    {
+      "id": "cousin",
+      "category": "Family",
+      "tagalog": "Pinsan",
+      "english": "Cousin",
+      "accepted": [
+        "pinsan"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Pinsan” means “Cousin.”"
+    },
+    {
+      "id": "friend",
+      "category": "Relationships",
+      "tagalog": "Kaibigan",
+      "english": "Friend",
+      "accepted": [
+        "kaibigan"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kaibigan” means “Friend.”"
+    },
+    {
+      "id": "coworker",
+      "category": "Relationships",
+      "tagalog": "Katrabaho",
+      "english": "Coworker",
+      "accepted": [
+        "katrabaho"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Katrabaho” means “Coworker.”"
+    },
+    {
+      "id": "colleague",
+      "category": "Relationships",
+      "tagalog": "Kasamahan",
+      "english": "Colleague or companion",
+      "accepted": [
+        "kasamahan"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kasamahan” means “Colleague or companion.”"
+    },
+    {
+      "id": "acquaintance",
+      "category": "Relationships",
+      "tagalog": "Kakilala",
+      "english": "Acquaintance",
+      "accepted": [
+        "kakilala"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kakilala” means “Acquaintance.”"
+    },
+    {
+      "id": "neighbor",
+      "category": "Relationships",
+      "tagalog": "Kapitbahay",
+      "english": "Neighbor",
+      "accepted": [
+        "kapitbahay"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kapitbahay” means “Neighbor.”"
+    },
+    {
+      "id": "partner",
+      "category": "Relationships",
+      "tagalog": "Kasintahan",
+      "english": "Romantic partner",
+      "accepted": [
+        "kasintahan"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kasintahan” means “Romantic partner.”"
+    },
+    {
+      "id": "spouse",
+      "category": "Relationships",
+      "tagalog": "Asawa",
+      "english": "Spouse",
+      "accepted": [
+        "asawa"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Asawa” means “Spouse.”"
+    },
+    {
+      "id": "compatriot",
+      "category": "Relationships",
+      "tagalog": "Kababayan",
+      "english": "Person from the same country, town, or community",
+      "accepted": [
+        "kababayan"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kababayan” means “Person from the same country, town, or community.”"
+    },
+    {
+      "id": "this-friend",
+      "category": "Relationships in Sentences",
+      "tagalog": "Ito si Maria. Kaibigan ko siya.",
+      "english": "This is Maria. She is my friend.",
+      "accepted": [
+        "ito si maria kaibigan ko siya"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ito si Maria. Kaibigan ko siya.” to say “This is Maria. She is my friend.”"
+    },
+    {
+      "id": "adj-kind",
+      "category": "Describing People",
+      "tagalog": "Mabait",
+      "english": "Kind",
+      "accepted": [
+        "mabait"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Mabait” means “Kind.”"
+    },
+    {
+      "id": "adj-beautiful",
+      "category": "Describing People",
+      "tagalog": "Maganda",
+      "english": "Beautiful",
+      "accepted": [
+        "maganda"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Maganda” means “Beautiful.”"
+    },
+    {
+      "id": "adj-handsome",
+      "category": "Describing People",
+      "tagalog": "Gwapo",
+      "english": "Handsome",
+      "accepted": [
+        "gwapo"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Gwapo” means “Handsome.”"
+    },
+    {
+      "id": "adj-cheerful",
+      "category": "Describing People",
+      "tagalog": "Masayahin",
+      "english": "Cheerful",
+      "accepted": [
+        "masayahin"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Masayahin” means “Cheerful.”"
+    },
+    {
+      "id": "adj-smart",
+      "category": "Describing People",
+      "tagalog": "Matalino",
+      "english": "Smart",
+      "accepted": [
+        "matalino"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Matalino” means “Smart.”"
+    },
+    {
+      "id": "adj-hardworking",
+      "category": "Describing People",
+      "tagalog": "Masipag",
+      "english": "Hardworking",
+      "accepted": [
+        "masipag"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Masipag” means “Hardworking.”"
+    },
+    {
+      "id": "adj-funny",
+      "category": "Describing People",
+      "tagalog": "Nakakatawa",
+      "english": "Funny",
+      "accepted": [
+        "nakakatawa"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Nakakatawa” means “Funny.”"
+    },
+    {
+      "id": "adj-tall",
+      "category": "Describing People",
+      "tagalog": "Matangkad",
+      "english": "Tall",
+      "accepted": [
+        "matangkad"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Matangkad” means “Tall.”"
+    },
+    {
+      "id": "adj-good-person",
+      "category": "Describing People",
+      "tagalog": "Mabuti",
+      "english": "Good",
+      "accepted": [
+        "mabuti"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Mabuti” means “Good.”"
+    },
+    {
+      "id": "adj-friendly",
+      "category": "Describing People",
+      "tagalog": "Palakaibigan",
+      "english": "Friendly",
+      "accepted": [
+        "palakaibigan"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Palakaibigan” means “Friendly.”"
+    },
+    {
+      "id": "adj-helpful",
+      "category": "Describing People",
+      "tagalog": "Matulungin",
+      "english": "Helpful",
+      "accepted": [
+        "matulungin"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Matulungin” means “Helpful.”"
+    },
+    {
+      "id": "adj-quiet",
+      "category": "Describing People",
+      "tagalog": "Tahimik",
+      "english": "Quiet",
+      "accepted": [
+        "tahimik"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Tahimik” means “Quiet.”"
+    }
+  ],
+  "grammar_notes": [
+    {
+      "title": "Personal names",
+      "body": "Use “si” before a person’s name."
+    },
+    {
+      "title": "Relationships",
+      "body": "Use “[relationship] ko siya” to say how someone is related to you."
+    },
+    {
+      "title": "Descriptions",
+      "body": "Use “[adjective] siya” to describe a person."
+    }
+  ],
+  "patterns": [
+    {
+      "title": "Introduce someone",
+      "tagalog": "Ito si [pangalan]. [Ugnayan] ko siya.",
+      "english": "This is [name]. They are my [relationship]."
+    },
+    {
+      "title": "Describe someone",
+      "tagalog": "[Pang-uri] siya.",
+      "english": "They are [adjective]."
+    }
+  ],
+  "builders": [
+    {
+      "id": "family-description",
+      "title": "Describe a family member",
+      "description": "Use a relationship, name, and adjective.",
+      "template": "Ito si {{name}}. {{relationship}} ko siya. {{adjective}} siya.",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "placeholder": "Rosa"
+        },
+        {
+          "name": "relationship",
+          "label": "Relationship",
+          "type": "select",
+          "options": [
+            "Nanay",
+            "Tatay",
+            "Kuya",
+            "Ate",
+            "Lola",
+            "Lolo",
+            "Pinsan"
+          ]
+        },
+        {
+          "name": "adjective",
+          "label": "Adjective",
+          "type": "select",
+          "options": [
+            "Mabait",
+            "Masipag",
+            "Matalino",
+            "Masayahin",
+            "Palakaibigan",
+            "Nakakatawa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "people-introduction",
+      "title": "Introduce someone in your life",
+      "description": "Use a relationship and an adjective.",
+      "template": "Ito si {{name}}. {{relationship}} ko siya. {{adjective}} siya.",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "placeholder": "Maria"
+        },
+        {
+          "name": "relationship",
+          "label": "Relationship",
+          "type": "select",
+          "options": [
+            "Kaibigan",
+            "Katrabaho",
+            "Kasamahan",
+            "Kakilala",
+            "Kapitbahay",
+            "Kababayan"
+          ]
+        },
+        {
+          "name": "adjective",
+          "label": "Adjective",
+          "type": "select",
+          "options": [
+            "Mabait",
+            "Matalino",
+            "Masipag",
+            "Masayahin",
+            "Palakaibigan",
+            "Matulungin",
+            "Tahimik",
+            "Nakakatawa"
+          ]
+        }
+      ]
+    }
+  ],
+  "mission": {
+    "title": "Introduce three people",
+    "description": "Introduce three people in your life.",
+    "steps": [
+      "Say each person’s name.",
+      "Use a relationship word.",
+      "Use one adjective for each person.",
+      "Read the full introduction aloud."
+    ],
+    "example": "Ito si Ana. Ate ko siya. Matalino siya."
+  },
+  "resources": [
+    {
+      "title": "Beginner guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Beginner-Guide.pdf#page=3",
+      "description": "Open the vocabulary and patterns for People and Family."
+    },
+    {
+      "title": "Practice pack",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Practice-Pack.pdf#page=3",
+      "description": "Open the printable practice for People and Family."
+    },
+    {
+      "title": "Answer guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Answer-Guide.pdf#page=3",
+      "description": "Check the suggested answers for People and Family."
+    }
+  ]
+}

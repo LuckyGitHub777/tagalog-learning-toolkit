@@ -1,144 +1,114 @@
-from __future__ import annotations
-
 import json
 import re
 import unittest
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-class TagalogAcademyTests(unittest.TestCase):
+def norm(value):
+    text = ''.join(
+        char for char in unicodedata.normalize('NFD', str(value).lower())
+        if unicodedata.category(char) != 'Mn'
+    )
+    text = re.sub(r'[“”‘’\'"!?.,;:()\[\]{}]', '', text)
+    text = re.sub(r'[-–—]', ' ', text)
+    return re.sub(r'\s+', ' ', text).strip()
+
+
+def exercise_english(item):
+    return item.get('exercise_english') or item['english']
+
+
+class ContentTests(unittest.TestCase):
     @classmethod
-    def setUpClass(cls) -> None:
-        cls.course = json.loads((ROOT / "data/course.json").read_text(encoding="utf-8"))
-        cls.lessons = {
-            week["id"]: json.loads((ROOT / week["file"]).read_text(encoding="utf-8"))
-            for week in cls.course["weeks"]
-            if week["status"] == "available"
-        }
+    def setUpClass(cls):
+        cls.catalog = json.loads((ROOT / 'data/catalog.json').read_text(encoding='utf-8'))
+        cls.lessons = [
+            json.loads((ROOT / meta['file']).read_text(encoding='utf-8'))
+            for meta in cls.catalog['lessons']
+        ]
 
-    def test_release_version_is_consistent(self) -> None:
-        self.assertEqual("3.0.1", self.course["version"])
-        for lesson in self.lessons.values():
-            self.assertEqual(self.course["version"], lesson["version"])
+    def test_nine_ordered_lessons(self):
+        self.assertEqual([lesson['order'] for lesson in self.lessons], list(range(1, 10)))
 
-    def test_four_available_weeks(self) -> None:
-        self.assertEqual(4, len(self.lessons))
+    def test_global_ids_unique(self):
+        ids = [item['id'] for lesson in self.lessons for item in lesson['vocabulary']]
+        self.assertEqual(len(ids), len(set(ids)))
 
-    def test_week_numbers_are_sequential(self) -> None:
-        self.assertEqual([1, 2, 3, 4], [self.lessons[f"week{i}"]["week"] for i in range(1, 5)])
+    def test_displayed_answers_are_accepted(self):
+        for lesson in self.lessons:
+            for item in lesson['vocabulary']:
+                if item['practice']:
+                    self.assertIn(norm(item['tagalog']), item['accepted'], item['id'])
 
-    def test_vocabulary_ids_are_unique_within_each_week(self) -> None:
-        for lesson in self.lessons.values():
-            ids = [item["id"] for item in lesson["vocabulary"]]
-            self.assertEqual(len(ids), len(set(ids)), lesson["id"])
+    def test_practice_prompts_are_unique_within_each_lesson(self):
+        for lesson in self.lessons:
+            prompts = [
+                norm(exercise_english(item))
+                for item in lesson['vocabulary']
+                if item['practice']
+            ]
+            self.assertEqual(
+                len(prompts),
+                len(set(prompts)),
+                f'Ambiguous exercise prompt in {lesson["id"]}',
+            )
 
-    def test_every_week_has_substantial_content(self) -> None:
-        for lesson in self.lessons.values():
-            self.assertGreaterEqual(len(lesson["vocabulary"]), 25, lesson["id"])
-            self.assertGreaterEqual(len(lesson["objectives"]), 4, lesson["id"])
-            self.assertGreaterEqual(len(lesson["grammar_notes"]), 2, lesson["id"])
-            self.assertEqual(10, len(lesson["quiz"]), lesson["id"])
-            self.assertGreaterEqual(len(lesson["builders"]), 2, lesson["id"])
-            self.assertGreaterEqual(len(lesson["missions"]), 2, lesson["id"])
+    def test_no_slash_teaching_forms(self):
+        for lesson in self.lessons:
+            for item in lesson['vocabulary']:
+                self.assertNotIn('/', item['tagalog'], item['id'])
 
-    def test_quiz_answers_are_valid_and_choices_unique(self) -> None:
-        for lesson in self.lessons.values():
-            for item in lesson["quiz"]:
-                self.assertIsInstance(item["answer"], int)
-                self.assertGreaterEqual(item["answer"], 0)
-                self.assertLess(item["answer"], len(item["choices"]))
-                self.assertEqual(len(item["choices"]), len(set(item["choices"])))
+    def test_no_external_learning_dependency(self):
+        for lesson in self.lessons:
+            for resource in lesson['resources']:
+                self.assertFalse(resource['url'].startswith('http'))
 
-    def test_internal_resources_exist(self) -> None:
-        for lesson in self.lessons.values():
-            for resource in lesson["resources"]:
-                url = resource["url"]
-                if not re.match(r"^https://", url):
-                    self.assertTrue((ROOT / url).exists(), url)
+    def test_resources_open_the_current_lesson_page(self):
+        for lesson in self.lessons:
+            expected = f'#page={lesson["order"] + 1}'
+            self.assertEqual(len(lesson['resources']), 3, lesson['id'])
+            for resource in lesson['resources']:
+                self.assertIn(expected, resource['url'], f'{lesson["id"]}: {resource["title"]}')
 
-    def test_public_text_excludes_private_course_operations(self) -> None:
-        corpus = []
-        for path in ROOT.rglob("*"):
-            if path.is_file() and path.suffix.lower() in {".html", ".js", ".css", ".json", ".md", ".yml", ".yaml"}:
-                corpus.append(path.read_text(encoding="utf-8", errors="replace"))
-        text = "\n".join(corpus).lower()
-        self.assertNotIn("us06web.zoom.us", text)
-        self.assertNotIn("docs.google.com/forms", text)
-        self.assertNotIn("jeepneyschool", text.replace(" ", ""))
+    def test_no_public_week_labels(self):
+        for rel in ['index.html', 'README.md', 'data/catalog.json']:
+            text = (ROOT / rel).read_text(encoding='utf-8').lower()
+            self.assertNotRegex(text, r'\bweeks?\b')
 
-    def test_custom_domain_is_preserved(self) -> None:
-        self.assertEqual("tagalog.academy", (ROOT / "CNAME").read_text(encoding="utf-8").strip())
+    def test_routine_aspect_is_explicit(self):
+        lesson = next(item for item in self.lessons if item['id'] == 'daily-routine')
+        completed = [
+            item for item in lesson['vocabulary']
+            if item['category'] == 'Completed actions'
+        ]
+        self.assertTrue(completed)
+        self.assertTrue(all('Completed aspect' in item.get('note', '') for item in completed))
 
-    def test_service_worker_registration_handles_late_initialization(self) -> None:
-        app = (ROOT / "assets/js/app.js").read_text(encoding="utf-8")
-        self.assertIn("document.readyState === 'complete'", app)
-        self.assertIn("addEventListener('load', register, {once: true})", app)
+    def test_lessons_are_published_and_explanations_are_complete(self):
+        for lesson in self.lessons:
+            self.assertEqual(lesson.get('content_status'), 'Published')
+            for item in lesson['vocabulary']:
+                if item.get('practice'):
+                    self.assertTrue(item.get('explanation', '').strip(), item['id'])
 
-    def test_tts_discloses_missing_filipino_voice(self) -> None:
-        app = (ROOT / "assets/js/app.js").read_text(encoding="utf-8")
-        html = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn("voiceschanged", app)
-        self.assertIn("No Filipino voice is installed on this device", app)
-        self.assertIn("without an installed Filipino voice", html)
-        self.assertIn('id="app-feedback"', html)
+    def test_explanations_have_well_formed_punctuation(self):
+        malformed = re.compile(r'[.!?][”’\"\']\.|\.\.')
+        for lesson in self.lessons:
+            for item in lesson['vocabulary']:
+                if item.get('practice'):
+                    explanation = item.get('explanation', '').strip()
+                    self.assertIsNone(malformed.search(explanation), item['id'])
 
-    def test_service_worker_cache_matches_release(self) -> None:
-        sw = (ROOT / "service-worker.js").read_text(encoding="utf-8")
-        self.assertIn(f"tagalog-academy-v{self.course['version']}", sw)
-        for week in range(1, 5):
-            self.assertIn(f"week{week}.json", sw)
-
-    def test_manifest_is_installable(self) -> None:
-        manifest = json.loads((ROOT / "manifest.webmanifest").read_text(encoding="utf-8"))
-        self.assertEqual("standalone", manifest["display"])
-        self.assertEqual("./", manifest["start_url"])
-        self.assertGreaterEqual(len(manifest["icons"]), 2)
-
-    def test_schema_validation_is_enforced_in_ci(self) -> None:
-        workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
-        self.assertIn("requirements-dev.txt", workflow)
-        self.assertIn("scripts/validate_schema.py", workflow)
-        self.assertTrue((ROOT / "requirements-dev.txt").exists())
-
-    def test_license_uses_current_brand(self) -> None:
-        license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
-        self.assertIn("Tagalog Academy contributors", license_text)
-        self.assertNotIn("Tagalog Learning Toolkit contributors", license_text)
-
-    def test_standard_number_spellings(self) -> None:
-        expected = {
-            "eleven": "Labing-isa",
-            "twelve": "Labindalawa",
-            "thirteen": "Labintatlo",
-            "fourteen": "Labing-apat",
-            "fifteen": "Labinlima",
-            "sixteen": "Labing-anim",
-            "seventeen": "Labimpito",
-            "eighteen": "Labingwalo",
-            "nineteen": "Labinsiyam",
-        }
-        actual = {item["id"]: item["tagalog"] for item in self.lessons["week4"]["vocabulary"]}
-        for item_id, spelling in expected.items():
-            self.assertEqual(spelling, actual[item_id])
-
-    def test_spelling_and_borrowed_word_variants_are_accepted(self) -> None:
-        week1 = {item["id"]: item for item in self.lessons["week1"]["vocabulary"]}
-        self.assertEqual("Na-stress ako.", week1["stressed"]["tagalog"])
-        self.assertIn("nai-stress ako", week1["stressed"]["accepted"])
-        week3 = {item["id"]: item for item in self.lessons["week3"]["vocabulary"]}
-        self.assertIn("kuwarto", week3["bedroom"]["accepted"])
-
-    def test_panel_scroll_offset_is_measured_not_hardcoded(self) -> None:
-        app = (ROOT / "assets/js/app.js").read_text(encoding="utf-8")
-        self.assertIn("getBoundingClientRect().height", app)
-        self.assertNotIn("offsetTop - 92", app)
-
-    def test_vv_report_does_not_claim_unshipped_source_count(self) -> None:
-        report = (ROOT / "UX-VV-REPORT.md").read_text(encoding="utf-8")
-        self.assertNotIn("Workbook links mapped | 37", report)
+    def test_public_language_data_has_no_unfinished_status_copy(self):
+        banned = [r'\bpending\b', r'not authoritative', r'not certified', r'review remains open', r'public beta']
+        for lesson in self.lessons:
+            text = str(lesson).lower()
+            for pattern in banned:
+                self.assertIsNone(re.search(pattern, text), pattern)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

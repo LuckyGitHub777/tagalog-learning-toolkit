@@ -1,85 +1,58 @@
 # Product Architecture
 
-## Product decision
+## Product model
 
-The learner-facing product is a Progressive Web App.
+Tagalog Academy is one continuous path of short lessons. The learner sees a current lesson, visible progress, and one clear next action.
 
-Python is a companion layer for local serving, validation, tests, and optional terminal review. It is not the primary interface.
+## Learning loop
 
-## Learning engine
+1. **Learn** - understand the form and meaning.
+2. **Recall** - produce the answer without looking.
+3. **Speak** - listen, repeat, record, and compare.
+4. **Use** - build original language and complete a practical activity.
 
-Each week uses the same outcome sequence:
+## Exercise invariant
 
-```text
-Understand
-→ Retrieve
-→ Speak
-→ Build
-→ Complete a mission
-→ Review after a delay
-```
+Every practice prompt identifies exactly one correct teaching record. When forms share an English meaning, `exercise_english` distinguishes usage or register. Generated quizzes use the same deterministic labels and exclude ambiguous sibling records from distractors.
 
-## Data model
+## Two-layer design
 
-`data/course.json` defines the roadmap.
+### Human layer
 
-Each `data/lessons/weekN.json` file defines:
+A clear, responsive website with minimal controls and plain language.
 
-- Objectives
-- Vocabulary
-- Grammar notes
-- Sentence patterns
-- Builders
-- Quiz
-- Missions
-- External resources
-- Content status
+### Machine-readable layer
 
-This makes lesson expansion a content operation rather than a new website build.
+Stable JSON records containing:
+
+- canonical form;
+- English meaning;
+- deterministic exercise prompt when needed;
+- accepted recall forms;
+- category and usage type;
+- register;
+- note and explanation;
+- lesson order, objectives, patterns, builders, and activities.
+
+## Boundaries
+
+- No account system
+- No learner-data server
+- No analytics dependency
+- No external runtime libraries
+- No live-class administration links
+- No copied recordings or branded source documents
 
 ## Progress model
 
-Progress is stored by week under localStorage keys beginning with:
+Every lesson uses one progress formula across the dashboard and lesson cards. Imported progress is validated before browser storage changes. Legacy progress migrates item-level evidence only and never fabricates completion or quiz scores.
 
-```text
-tagalog-academy.progress.
-```
+## Offline and update model
 
-The week score combines:
+The application shell is cached for resilience. Lesson data uses stale-while-revalidate and always resolves to an HTTP response, even when both cache and network are unavailable.
 
-- Familiar vocabulary
-- Typed recall
-- Review mastery
-- Quiz score
-- Lesson completion
-- Mission completion
+Lesson JSON updates normally appear promptly. HTML, CSS, JavaScript, icons, and other shell updates follow the safer service-worker lifecycle: a new worker does not replace files during an active session. Shell updates may become active only after all open Tagalog Academy tabs are closed and the site is opened again.
 
-## Public/private boundary
+## Publishing model
 
-Public repository:
-
-- Neutral transformed lessons
-- Native quizzes
-- Native builders
-- Optional public song links
-- Printable neutral Week 1 resources
-
-Excluded:
-
-- Zoom links
-- Homework upload forms
-- Student information
-- Branded source files
-- Unreviewed administrative material
-
-## Deployment
-
-GitHub Pages serves the root of `main`.
-
-The root `CNAME` preserves:
-
-```text
-tagalog.academy
-```
-
-The service worker precaches the four active weeks and core application assets.
+Pull requests run the complete validation suite. The Pages workflow runs the same gates on `main`, builds a public-only `_site` directory, uploads that artifact, and deploys only after validation succeeds.

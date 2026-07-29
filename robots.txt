@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tagalog.academy/sitemap.xml

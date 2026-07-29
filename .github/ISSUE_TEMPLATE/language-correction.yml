@@ -1,0 +1,86 @@
+name: Language correction
+description: Propose a correction or clarification to Tagalog wording, meaning, register, spelling, or usage.
+title: "[Language] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Language corrections are high-value contributions. Please distinguish standard usage, common usage, regional variation, and personal preference. Do not upload proprietary course materials.
+  - type: dropdown
+    id: lesson
+    attributes:
+      label: Lesson
+      options:
+        - Greetings and Introductions
+        - People and Family
+        - Colors and Preferences
+        - Food and Drinks
+        - Home and Location
+        - Numbers and Quantities
+        - Fruit and the Market
+        - Days and Time
+        - Daily Routine
+        - Printable materials
+        - Other documentation
+    validations:
+      required: true
+  - type: input
+    id: current
+    attributes:
+      label: Current wording
+      placeholder: "Copy the exact Tagalog or English text."
+    validations:
+      required: true
+  - type: input
+    id: proposed
+    attributes:
+      label: Proposed wording
+    validations:
+      required: true
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Why should it change?
+      description: Explain grammar, spelling, naturalness, register, or learner impact.
+    validations:
+      required: true
+  - type: dropdown
+    id: context
+    attributes:
+      label: Usage context
+      options:
+        - Standard Filipino
+        - Everyday conversation
+        - Formal or literary
+        - Regional usage
+        - Heritage-speaker usage
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Supporting sources
+      description: Cite dictionaries, grammar references, educators, corpus examples, or other reviewable evidence. Do not paste copyrighted course content.
+  - type: dropdown
+    id: background
+    attributes:
+      label: Relevant background
+      options:
+        - Qualified Tagalog or Filipino educator
+        - Fluent or native speaker
+        - Advanced learner
+        - Beginner learner reporting confusion
+        - Researcher or developer
+        - Prefer not to say
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: I understand that language changes require evidence and review before acceptance.
+          required: true
+        - label: I have not included private or proprietary source material.
+          required: true

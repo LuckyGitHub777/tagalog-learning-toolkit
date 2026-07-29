@@ -1,0 +1,439 @@
+{
+  "version": "4.0.0",
+  "id": "colors-preferences",
+  "order": 3,
+  "title": "Colors and Preferences",
+  "short_title": "Colors and Preferences",
+  "summary": "Name colors and express what you like or dislike.",
+  "content_status": "Published",
+  "objectives": [
+    "Name common colors.",
+    "Ask about a favorite color.",
+    "Say what you like.",
+    "Describe the color of an object."
+  ],
+  "vocabulary": [
+    {
+      "id": "red",
+      "category": "Colors",
+      "tagalog": "Pula",
+      "english": "Red",
+      "accepted": [
+        "pula"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Pula” means “Red.”"
+    },
+    {
+      "id": "blue-asul",
+      "category": "Colors",
+      "tagalog": "Asul",
+      "english": "Blue",
+      "accepted": [
+        "asul"
+      ],
+      "note": "Common everyday form.",
+      "register": "everyday",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Blue (common)",
+      "explanation": "“Asul” means “Blue.” Common everyday form."
+    },
+    {
+      "id": "blue-bughaw",
+      "category": "Colors",
+      "tagalog": "Bughaw",
+      "english": "Blue",
+      "accepted": [
+        "bughaw"
+      ],
+      "note": "Native alternative.",
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Blue (native alternative)",
+      "explanation": "“Bughaw” means “Blue.” Native alternative."
+    },
+    {
+      "id": "green-berde",
+      "category": "Colors",
+      "tagalog": "Berde",
+      "english": "Green",
+      "accepted": [
+        "berde"
+      ],
+      "note": "Common everyday form.",
+      "register": "everyday",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Green (common)",
+      "explanation": "“Berde” means “Green.” Common everyday form."
+    },
+    {
+      "id": "green-luntian",
+      "category": "Colors",
+      "tagalog": "Luntian",
+      "english": "Green",
+      "accepted": [
+        "luntian"
+      ],
+      "note": "Native alternative.",
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Green (native alternative)",
+      "explanation": "“Luntian” means “Green.” Native alternative."
+    },
+    {
+      "id": "yellow",
+      "category": "Colors",
+      "tagalog": "Dilaw",
+      "english": "Yellow",
+      "accepted": [
+        "dilaw"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Dilaw” means “Yellow.”"
+    },
+    {
+      "id": "black",
+      "category": "Colors",
+      "tagalog": "Itim",
+      "english": "Black",
+      "accepted": [
+        "itim"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Itim” means “Black.”"
+    },
+    {
+      "id": "white",
+      "category": "Colors",
+      "tagalog": "Puti",
+      "english": "White",
+      "accepted": [
+        "puti"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Puti” means “White.”"
+    },
+    {
+      "id": "purple-lila",
+      "category": "Colors",
+      "tagalog": "Lila",
+      "english": "Purple",
+      "accepted": [
+        "lila"
+      ],
+      "register": "everyday",
+      "note": "Common color term.",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Purple (common)",
+      "explanation": "“Lila” means “Purple.” Common color term."
+    },
+    {
+      "id": "purple-ube",
+      "category": "Colors",
+      "tagalog": "Kulay ube",
+      "english": "Purple",
+      "accepted": [
+        "kulay ube"
+      ],
+      "register": "descriptive",
+      "note": "Literally “ube-colored.”",
+      "kind": "sentence",
+      "practice": true,
+      "exercise_english": "Purple (descriptive alternative)",
+      "explanation": "Use “Kulay ube” to say “Purple.” Literally, it means “ube-colored.”"
+    },
+    {
+      "id": "pink-rosas",
+      "category": "Colors",
+      "tagalog": "Rosas",
+      "english": "Pink",
+      "accepted": [
+        "rosas"
+      ],
+      "register": "everyday",
+      "note": "Common color term.",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Pink (common)",
+      "explanation": "“Rosas” means “Pink.” Common color term."
+    },
+    {
+      "id": "pink-kulay-rosas",
+      "category": "Colors",
+      "tagalog": "Kulay rosas",
+      "english": "Pink",
+      "accepted": [
+        "kulay rosas"
+      ],
+      "register": "descriptive",
+      "note": "Literally “rose-colored.”",
+      "kind": "sentence",
+      "practice": true,
+      "exercise_english": "Pink (descriptive alternative)",
+      "explanation": "Use “Kulay rosas” to say “Pink.” Literally, it means “rose-colored.”"
+    },
+    {
+      "id": "orange-kahel",
+      "category": "Colors",
+      "tagalog": "Kahel",
+      "english": "Orange (color)",
+      "accepted": [
+        "kahel"
+      ],
+      "register": "neutral",
+      "note": "Color term.",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Orange (standard color term)",
+      "explanation": "“Kahel” means “Orange (color).” Color term."
+    },
+    {
+      "id": "orange-dalandan-color",
+      "category": "Colors",
+      "tagalog": "Kulay dalandan",
+      "english": "Orange (color)",
+      "accepted": [
+        "kulay dalandan"
+      ],
+      "register": "descriptive",
+      "note": "Literally “dalandan-colored.”",
+      "kind": "sentence",
+      "practice": true,
+      "exercise_english": "Orange (descriptive alternative)",
+      "explanation": "Use “Kulay dalandan” to say “Orange (color).” Literally, it means “dalandan-colored.”"
+    },
+    {
+      "id": "brown",
+      "category": "Colors",
+      "tagalog": "Kayumanggi",
+      "english": "Brown",
+      "accepted": [
+        "kayumanggi"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kayumanggi” means “Brown.”"
+    },
+    {
+      "id": "gray-kulay-abo",
+      "category": "Colors",
+      "tagalog": "Kulay abo",
+      "english": "Gray",
+      "accepted": [
+        "kulay abo"
+      ],
+      "register": "neutral",
+      "note": "Literally “ash-colored.”",
+      "kind": "sentence",
+      "practice": true,
+      "exercise_english": "Gray (full form)",
+      "explanation": "Use “Kulay abo” to say “Gray.” Literally, it means “ash-colored.”"
+    },
+    {
+      "id": "gray-abo",
+      "category": "Colors",
+      "tagalog": "Abo",
+      "english": "Gray",
+      "accepted": [
+        "abo"
+      ],
+      "register": "everyday",
+      "note": "Short form used for gray.",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Gray (short form)",
+      "explanation": "“Abo” means “Gray.” Short form used for gray."
+    },
+    {
+      "id": "favorite-color-q",
+      "category": "Color Questions",
+      "tagalog": "Ano ang paborito mong kulay?",
+      "english": "What is your favorite color?",
+      "accepted": [
+        "ano ang paborito mong kulay"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ano ang paborito mong kulay?” to ask “What is your favorite color?”"
+    },
+    {
+      "id": "what-color-this",
+      "category": "Color Questions",
+      "tagalog": "Anong kulay ito?",
+      "english": "What color is this?",
+      "accepted": [
+        "anong kulay ito"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Anong kulay ito?” to ask “What color is this?”"
+    },
+    {
+      "id": "what-color-that",
+      "category": "Color Questions",
+      "tagalog": "Anong kulay iyan?",
+      "english": "What color is that?",
+      "accepted": [
+        "anong kulay iyan"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Anong kulay iyan?” to ask “What color is that?”"
+    },
+    {
+      "id": "favorite-color-a",
+      "category": "Color Questions",
+      "tagalog": "Pula ang paborito kong kulay.",
+      "english": "Red is my favorite color.",
+      "accepted": [
+        "pula ang paborito kong kulay"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Pula ang paborito kong kulay.” to say “Red is my favorite color.”"
+    },
+    {
+      "id": "like-color",
+      "category": "Likes and Dislikes",
+      "tagalog": "Gusto ko ng asul.",
+      "english": "I like blue.",
+      "accepted": [
+        "gusto ko ng asul"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Gusto ko ng asul.” to say “I like blue.”"
+    },
+    {
+      "id": "dislike-color",
+      "category": "Likes and Dislikes",
+      "tagalog": "Ayaw ko ng rosas.",
+      "english": "I do not like pink.",
+      "accepted": [
+        "ayaw ko ng rosas"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ayaw ko ng rosas.” to say “I do not like pink.”"
+    },
+    {
+      "id": "do-you-like",
+      "category": "Likes and Dislikes",
+      "tagalog": "Gusto mo ba ng berde?",
+      "english": "Do you like green?",
+      "accepted": [
+        "gusto mo ba ng berde"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Gusto mo ba ng berde?” to ask “Do you like green?”"
+    }
+  ],
+  "grammar_notes": [
+    {
+      "title": "Preferences",
+      "body": "Use “Gusto ko ng…” for something you like or want, and “Ayaw ko ng…” for something you do not like or want."
+    },
+    {
+      "title": "Color linkers",
+      "body": "Some color forms connect with -ng; others use “na”. Learn complete examples rather than guessing."
+    }
+  ],
+  "patterns": [
+    {
+      "title": "Favorite color",
+      "tagalog": "[Kulay] ang paborito kong kulay.",
+      "english": "[Color] is my favorite color."
+    },
+    {
+      "title": "Colored object",
+      "tagalog": "Pulang tasa. / Asul na tasa.",
+      "english": "Red cup. / Blue cup."
+    }
+  ],
+  "builders": [
+    {
+      "id": "color-object",
+      "title": "Describe a colored object",
+      "description": "Practice color + linker + object.",
+      "template": "{{phrase}} ang {{object}} ko.",
+      "fields": [
+        {
+          "name": "phrase",
+          "label": "Color form",
+          "type": "select",
+          "options": [
+            "Pula",
+            "Asul",
+            "Berde",
+            "Dilaw",
+            "Itim",
+            "Puti",
+            "Lila",
+            "Rosas",
+            "Kahel"
+          ]
+        },
+        {
+          "name": "object",
+          "label": "Object",
+          "type": "text",
+          "placeholder": "tasa"
+        }
+      ],
+      "note": "After generating, revise the color with the correct linker: pulang tasa, berdeng tasa, or asul na tasa."
+    }
+  ],
+  "mission": {
+    "title": "Color hunt",
+    "description": "Find and describe five objects around you.",
+    "steps": [
+      "Choose five objects.",
+      "Name each color.",
+      "Say each phrase aloud.",
+      "Choose your favorite object."
+    ],
+    "example": "Pulang tasa ito. Asul na telepono ito."
+  },
+  "resources": [
+    {
+      "title": "Beginner guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Beginner-Guide.pdf#page=4",
+      "description": "Open the vocabulary and patterns for Colors and Preferences."
+    },
+    {
+      "title": "Practice pack",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Practice-Pack.pdf#page=4",
+      "description": "Open the printable practice for Colors and Preferences."
+    },
+    {
+      "title": "Answer guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Answer-Guide.pdf#page=4",
+      "description": "Check the suggested answers for Colors and Preferences."
+    }
+  ]
+}
