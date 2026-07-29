@@ -1,0 +1,473 @@
+{
+  "version": "4.0.0",
+  "id": "numbers-quantities",
+  "order": 6,
+  "title": "Numbers and Quantities",
+  "short_title": "Numbers and Quantities",
+  "summary": "Count, recognize common tens, and ask how many.",
+  "content_status": "Published",
+  "objectives": [
+    "Count from one to twenty.",
+    "Recognize common tens through one hundred.",
+    "Ask how many.",
+    "Use number linkers in short phrases."
+  ],
+  "vocabulary": [
+    {
+      "id": "one",
+      "category": "Numbers 1–10",
+      "tagalog": "Isa",
+      "english": "One",
+      "accepted": [
+        "isa"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Isa” means “One.”"
+    },
+    {
+      "id": "two",
+      "category": "Numbers 1–10",
+      "tagalog": "Dalawa",
+      "english": "Two",
+      "accepted": [
+        "dalawa"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Dalawa” means “Two.”"
+    },
+    {
+      "id": "three",
+      "category": "Numbers 1–10",
+      "tagalog": "Tatlo",
+      "english": "Three",
+      "accepted": [
+        "tatlo"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Tatlo” means “Three.”"
+    },
+    {
+      "id": "four",
+      "category": "Numbers 1–10",
+      "tagalog": "Apat",
+      "english": "Four",
+      "accepted": [
+        "apat"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Apat” means “Four.”"
+    },
+    {
+      "id": "five",
+      "category": "Numbers 1–10",
+      "tagalog": "Lima",
+      "english": "Five",
+      "accepted": [
+        "lima"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Lima” means “Five.”"
+    },
+    {
+      "id": "six",
+      "category": "Numbers 1–10",
+      "tagalog": "Anim",
+      "english": "Six",
+      "accepted": [
+        "anim"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Anim” means “Six.”"
+    },
+    {
+      "id": "seven",
+      "category": "Numbers 1–10",
+      "tagalog": "Pito",
+      "english": "Seven",
+      "accepted": [
+        "pito"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Pito” means “Seven.”"
+    },
+    {
+      "id": "eight",
+      "category": "Numbers 1–10",
+      "tagalog": "Walo",
+      "english": "Eight",
+      "accepted": [
+        "walo"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Walo” means “Eight.”"
+    },
+    {
+      "id": "nine",
+      "category": "Numbers 1–10",
+      "tagalog": "Siyam",
+      "english": "Nine",
+      "accepted": [
+        "siyam"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Siyam” means “Nine.”"
+    },
+    {
+      "id": "ten",
+      "category": "Numbers 1–10",
+      "tagalog": "Sampu",
+      "english": "Ten",
+      "accepted": [
+        "sampu"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Sampu” means “Ten.”"
+    },
+    {
+      "id": "eleven",
+      "category": "Numbers 11–20",
+      "tagalog": "Labing-isa",
+      "english": "Eleven",
+      "accepted": [
+        "labing isa"
+      ],
+      "note": "Standard assimilated spelling used for typed recall.",
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Labing-isa” means “Eleven.” Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "twelve",
+      "category": "Numbers 11–20",
+      "tagalog": "Labindalawa",
+      "english": "Twelve",
+      "accepted": [
+        "labindalawa"
+      ],
+      "note": "Standard assimilated spelling used for typed recall.",
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Labindalawa” means “Twelve.” Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "thirteen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labintatlo",
+      "english": "Thirteen",
+      "accepted": [
+        "labintatlo"
+      ],
+      "note": "Standard assimilated spelling used for typed recall.",
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Labintatlo” means “Thirteen.” Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "fourteen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labing-apat",
+      "english": "Fourteen",
+      "accepted": [
+        "labing apat"
+      ],
+      "note": "Standard assimilated spelling used for typed recall.",
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Labing-apat” means “Fourteen.” Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "fifteen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labinlima",
+      "english": "Fifteen",
+      "accepted": [
+        "labinlima"
+      ],
+      "note": "Standard assimilated spelling used for typed recall.",
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Labinlima” means “Fifteen.” Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "sixteen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labing-anim",
+      "english": "Sixteen",
+      "accepted": [
+        "labing anim"
+      ],
+      "note": "Standard assimilated spelling used for typed recall.",
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Labing-anim” means “Sixteen.” Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "seventeen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labimpito",
+      "english": "Seventeen",
+      "accepted": [
+        "labimpito"
+      ],
+      "note": "Standard assimilated spelling used for typed recall.",
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Labimpito” means “Seventeen.” Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "eighteen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labingwalo",
+      "english": "Eighteen",
+      "accepted": [
+        "labingwalo"
+      ],
+      "note": "Standard assimilated spelling used for typed recall.",
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Labingwalo” means “Eighteen.” Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "nineteen",
+      "category": "Numbers 11–20",
+      "tagalog": "Labinsiyam",
+      "english": "Nineteen",
+      "accepted": [
+        "labinsiyam"
+      ],
+      "note": "Standard assimilated spelling used for typed recall.",
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Labinsiyam” means “Nineteen.” Standard assimilated spelling used for typed recall."
+    },
+    {
+      "id": "twenty",
+      "category": "Numbers 11–20",
+      "tagalog": "Dalawampu",
+      "english": "Twenty",
+      "accepted": [
+        "dalawampu"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Dalawampu” means “Twenty.”"
+    },
+    {
+      "id": "thirty",
+      "category": "Tens",
+      "tagalog": "Tatlumpu",
+      "english": "Thirty",
+      "accepted": [
+        "tatlumpu"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Tatlumpu” means “Thirty.”"
+    },
+    {
+      "id": "forty",
+      "category": "Tens",
+      "tagalog": "Apatnapu",
+      "english": "Forty",
+      "accepted": [
+        "apatnapu"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Apatnapu” means “Forty.”"
+    },
+    {
+      "id": "fifty",
+      "category": "Tens",
+      "tagalog": "Limampu",
+      "english": "Fifty",
+      "accepted": [
+        "limampu"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Limampu” means “Fifty.”"
+    },
+    {
+      "id": "sixty",
+      "category": "Tens",
+      "tagalog": "Animnapu",
+      "english": "Sixty",
+      "accepted": [
+        "animnapu"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Animnapu” means “Sixty.”"
+    },
+    {
+      "id": "seventy",
+      "category": "Tens",
+      "tagalog": "Pitumpu",
+      "english": "Seventy",
+      "accepted": [
+        "pitumpu"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Pitumpu” means “Seventy.”"
+    },
+    {
+      "id": "eighty",
+      "category": "Tens",
+      "tagalog": "Walumpu",
+      "english": "Eighty",
+      "accepted": [
+        "walumpu"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Walumpu” means “Eighty.”"
+    },
+    {
+      "id": "ninety",
+      "category": "Tens",
+      "tagalog": "Siyamnapu",
+      "english": "Ninety",
+      "accepted": [
+        "siyamnapu"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Siyamnapu” means “Ninety.”"
+    },
+    {
+      "id": "hundred",
+      "category": "Tens",
+      "tagalog": "Isang daan",
+      "english": "One hundred",
+      "accepted": [
+        "isang daan"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Isang daan” to say “One hundred.”"
+    }
+  ],
+  "grammar_notes": [
+    {
+      "title": "Assimilated spellings",
+      "body": "The standard forms include labindalawa, labintatlo, labinlima, labimpito, and labinsiyam."
+    },
+    {
+      "title": "Number linkers",
+      "body": "Number words change before nouns: dalawa → dalawang, lima → limang, apat → apat na."
+    }
+  ],
+  "patterns": [
+    {
+      "title": "Ask quantity",
+      "tagalog": "Ilang [bagay]?",
+      "english": "How many [things]?"
+    },
+    {
+      "title": "Answer quantity",
+      "tagalog": "Limang [bagay].",
+      "english": "Five [things]."
+    }
+  ],
+  "builders": [
+    {
+      "id": "quantity-builder",
+      "title": "Build a quantity phrase",
+      "description": "Choose a quantity and an item.",
+      "template": "{{quantity}} {{item}}.",
+      "fields": [
+        {
+          "name": "quantity",
+          "label": "Quantity form",
+          "type": "select",
+          "options": [
+            "Dalawang",
+            "Tatlong",
+            "Apat na",
+            "Limang",
+            "Anim na",
+            "Pitong",
+            "Walong"
+          ]
+        },
+        {
+          "name": "item",
+          "label": "Item",
+          "type": "text",
+          "placeholder": "mangga"
+        }
+      ]
+    }
+  ],
+  "mission": {
+    "title": "Count what you see",
+    "description": "Count objects around you in Tagalog.",
+    "steps": [
+      "Choose five types of objects.",
+      "Count each group.",
+      "Use the linked number form before the noun.",
+      "Say each phrase aloud."
+    ],
+    "example": "Dalawang tasa. Limang libro."
+  },
+  "resources": [
+    {
+      "title": "Beginner guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Beginner-Guide.pdf#page=7",
+      "description": "Open the vocabulary and patterns for Numbers and Quantities."
+    },
+    {
+      "title": "Practice pack",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Practice-Pack.pdf#page=7",
+      "description": "Open the printable practice for Numbers and Quantities."
+    },
+    {
+      "title": "Answer guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Answer-Guide.pdf#page=7",
+      "description": "Check the suggested answers for Numbers and Quantities."
+    }
+  ]
+}

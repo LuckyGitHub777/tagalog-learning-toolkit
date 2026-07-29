@@ -1,0 +1,593 @@
+{
+  "version": "4.0.0",
+  "id": "days-time",
+  "order": 8,
+  "title": "Days and Time",
+  "short_title": "Days and Time",
+  "summary": "Talk about days, time, and a simple schedule.",
+  "content_status": "Published",
+  "objectives": [
+    "Name the seven days.",
+    "Recognize common time words.",
+    "Tell the hour.",
+    "Say when an activity happens."
+  ],
+  "vocabulary": [
+    {
+      "id": "day-lunes",
+      "category": "Days",
+      "tagalog": "Lunes",
+      "english": "Monday",
+      "accepted": [
+        "lunes"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Lunes” means “Monday.”"
+    },
+    {
+      "id": "day-martes",
+      "category": "Days",
+      "tagalog": "Martes",
+      "english": "Tuesday",
+      "accepted": [
+        "martes"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Martes” means “Tuesday.”"
+    },
+    {
+      "id": "day-miyerkules",
+      "category": "Days",
+      "tagalog": "Miyerkules",
+      "english": "Wednesday",
+      "accepted": [
+        "miyerkules"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Miyerkules” means “Wednesday.”"
+    },
+    {
+      "id": "day-huwebes",
+      "category": "Days",
+      "tagalog": "Huwebes",
+      "english": "Thursday",
+      "accepted": [
+        "huwebes"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Huwebes” means “Thursday.”"
+    },
+    {
+      "id": "day-biyernes",
+      "category": "Days",
+      "tagalog": "Biyernes",
+      "english": "Friday",
+      "accepted": [
+        "biyernes"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Biyernes” means “Friday.”"
+    },
+    {
+      "id": "day-sabado",
+      "category": "Days",
+      "tagalog": "Sabado",
+      "english": "Saturday",
+      "accepted": [
+        "sabado"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Sabado” means “Saturday.”"
+    },
+    {
+      "id": "day-linggo",
+      "category": "Days",
+      "tagalog": "Linggo",
+      "english": "Sunday",
+      "accepted": [
+        "linggo"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Linggo” means “Sunday.”"
+    },
+    {
+      "id": "time-araw",
+      "category": "Time words",
+      "tagalog": "Araw",
+      "english": "Day",
+      "accepted": [
+        "araw"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Araw” means “Day.”"
+    },
+    {
+      "id": "time-oras",
+      "category": "Time words",
+      "tagalog": "Oras",
+      "english": "Time",
+      "accepted": [
+        "oras"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Oras” means “Time.”"
+    },
+    {
+      "id": "time-ngayon",
+      "category": "Time words",
+      "tagalog": "Ngayon",
+      "english": "Now; today in context",
+      "accepted": [
+        "ngayon"
+      ],
+      "register": "neutral",
+      "note": "Context determines whether it means “now” or “today.”",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Ngayon” can mean “now” or “today”; the sentence context determines the meaning."
+    },
+    {
+      "id": "time-kahapon",
+      "category": "Time words",
+      "tagalog": "Kahapon",
+      "english": "Yesterday",
+      "accepted": [
+        "kahapon"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Kahapon” means “Yesterday.”"
+    },
+    {
+      "id": "time-bukas",
+      "category": "Time words",
+      "tagalog": "Bukas",
+      "english": "Tomorrow",
+      "accepted": [
+        "bukas"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Bukas” means “Tomorrow.”"
+    },
+    {
+      "id": "time-tuwing",
+      "category": "Time words",
+      "tagalog": "Tuwing",
+      "english": "Every; each",
+      "accepted": [
+        "tuwing"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Tuwing” means “Every; each.”"
+    },
+    {
+      "id": "time-umaga",
+      "category": "Parts of the day",
+      "tagalog": "Umaga",
+      "english": "Morning",
+      "accepted": [
+        "umaga"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Umaga” means “Morning.”"
+    },
+    {
+      "id": "time-hapon",
+      "category": "Parts of the day",
+      "tagalog": "Hapon",
+      "english": "Afternoon",
+      "accepted": [
+        "hapon"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Hapon” means “Afternoon.”"
+    },
+    {
+      "id": "time-gabi",
+      "category": "Parts of the day",
+      "tagalog": "Gabi",
+      "english": "Evening or night",
+      "accepted": [
+        "gabi"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Gabi” means “Evening or night.”"
+    },
+    {
+      "id": "time-tanghali",
+      "category": "Parts of the day",
+      "tagalog": "Tanghali",
+      "english": "Noon",
+      "accepted": [
+        "tanghali"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Tanghali” means “Noon.”"
+    },
+    {
+      "id": "time-hatinggabi",
+      "category": "Parts of the day",
+      "tagalog": "Hatinggabi",
+      "english": "Midnight",
+      "accepted": [
+        "hatinggabi"
+      ],
+      "register": "neutral",
+      "kind": "word",
+      "practice": true,
+      "explanation": "“Hatinggabi” means “Midnight.”"
+    },
+    {
+      "id": "time-1",
+      "category": "Telling time",
+      "tagalog": "Ala una",
+      "english": "1:00",
+      "accepted": [
+        "ala una"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Ala una” to say “1:00.”"
+    },
+    {
+      "id": "time-2",
+      "category": "Telling time",
+      "tagalog": "Alas dos",
+      "english": "2:00",
+      "accepted": [
+        "alas dos"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas dos” to say “2:00.”"
+    },
+    {
+      "id": "time-3",
+      "category": "Telling time",
+      "tagalog": "Alas tres",
+      "english": "3:00",
+      "accepted": [
+        "alas tres"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas tres” to say “3:00.”"
+    },
+    {
+      "id": "time-4",
+      "category": "Telling time",
+      "tagalog": "Alas kuwatro",
+      "english": "4:00",
+      "accepted": [
+        "alas kuwatro"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas kuwatro” to say “4:00.”"
+    },
+    {
+      "id": "time-5",
+      "category": "Telling time",
+      "tagalog": "Alas singko",
+      "english": "5:00",
+      "accepted": [
+        "alas singko"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas singko” to say “5:00.”"
+    },
+    {
+      "id": "time-6",
+      "category": "Telling time",
+      "tagalog": "Alas sais",
+      "english": "6:00",
+      "accepted": [
+        "alas sais"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas sais” to say “6:00.”"
+    },
+    {
+      "id": "time-7",
+      "category": "Telling time",
+      "tagalog": "Alas siyete",
+      "english": "7:00",
+      "accepted": [
+        "alas siyete"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas siyete” to say “7:00.”"
+    },
+    {
+      "id": "time-8",
+      "category": "Telling time",
+      "tagalog": "Alas otso",
+      "english": "8:00",
+      "accepted": [
+        "alas otso"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas otso” to say “8:00.”"
+    },
+    {
+      "id": "time-9",
+      "category": "Telling time",
+      "tagalog": "Alas nuwebe",
+      "english": "9:00",
+      "accepted": [
+        "alas nuwebe"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas nuwebe” to say “9:00.”"
+    },
+    {
+      "id": "time-10",
+      "category": "Telling time",
+      "tagalog": "Alas diyes",
+      "english": "10:00",
+      "accepted": [
+        "alas diyes"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas diyes” to say “10:00.”"
+    },
+    {
+      "id": "time-11",
+      "category": "Telling time",
+      "tagalog": "Alas onse",
+      "english": "11:00",
+      "accepted": [
+        "alas onse"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas onse” to say “11:00.”"
+    },
+    {
+      "id": "time-12",
+      "category": "Telling time",
+      "tagalog": "Alas dose",
+      "english": "12:00",
+      "accepted": [
+        "alas dose"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas dose” to say “12:00.”"
+    },
+    {
+      "id": "what-day",
+      "category": "Questions",
+      "tagalog": "Anong araw ngayon?",
+      "english": "What day is it today?",
+      "accepted": [
+        "anong araw ngayon"
+      ],
+      "register": "neutral",
+      "kind": "question",
+      "practice": true,
+      "explanation": "Use “Anong araw ngayon?” to ask “What day is it today?”"
+    },
+    {
+      "id": "today-monday",
+      "category": "Answers",
+      "tagalog": "Lunes ngayon.",
+      "english": "Today is Monday.",
+      "accepted": [
+        "lunes ngayon"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Lunes ngayon.” to say “Today is Monday.”"
+    },
+    {
+      "id": "what-time",
+      "category": "Questions",
+      "tagalog": "Anong oras na?",
+      "english": "What time is it?",
+      "accepted": [
+        "anong oras na"
+      ],
+      "register": "neutral",
+      "kind": "question",
+      "practice": true,
+      "explanation": "Use “Anong oras na?” to ask “What time is it?”"
+    },
+    {
+      "id": "two-oclock",
+      "category": "Answers",
+      "tagalog": "Alas dos na.",
+      "english": "It is two o’clock.",
+      "accepted": [
+        "alas dos na"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas dos na.” to say “It is two o’clock.”"
+    },
+    {
+      "id": "class-time-question",
+      "category": "Questions",
+      "tagalog": "Anong oras ang klase?",
+      "english": "What time is the class?",
+      "accepted": [
+        "anong oras ang klase"
+      ],
+      "register": "neutral",
+      "kind": "question",
+      "practice": true,
+      "explanation": "Use “Anong oras ang klase?” to ask “What time is the class?”"
+    },
+    {
+      "id": "class-time-answer",
+      "category": "Answers",
+      "tagalog": "Alas tres ang klase.",
+      "english": "The class is at three o’clock.",
+      "accepted": [
+        "alas tres ang klase"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Alas tres ang klase.” to say “The class is at three o’clock.”"
+    }
+  ],
+  "grammar_notes": [
+    {
+      "title": "Ala and alas",
+      "body": "Use “ala una” for one o’clock and “alas” before the other Spanish-derived hour forms."
+    },
+    {
+      "title": "Schedules",
+      "body": "Use “Tuwing + day” for a recurring day."
+    },
+    {
+      "title": "Context",
+      "body": "“Ngayon” can mean “now” or “today” depending on the sentence."
+    }
+  ],
+  "patterns": [
+    {
+      "title": "Ask the day",
+      "tagalog": "Anong araw ngayon?",
+      "english": "What day is it today?"
+    },
+    {
+      "title": "Ask the time",
+      "tagalog": "Anong oras na?",
+      "english": "What time is it?"
+    },
+    {
+      "title": "Recurring schedule",
+      "tagalog": "Tuwing Lunes, alas tres ang klase ko.",
+      "english": "Every Monday, my class is at three."
+    }
+  ],
+  "builders": [
+    {
+      "id": "schedule-builder",
+      "title": "Build a schedule sentence",
+      "description": "Say when an activity happens.",
+      "template": "Tuwing {{day}}, {{time}} ang {{activity}} ko.",
+      "fields": [
+        {
+          "name": "day",
+          "label": "Day",
+          "type": "select",
+          "options": [
+            "Lunes",
+            "Martes",
+            "Miyerkules",
+            "Huwebes",
+            "Biyernes",
+            "Sabado",
+            "Linggo"
+          ]
+        },
+        {
+          "name": "time",
+          "label": "Time",
+          "type": "select",
+          "options": [
+            "ala una",
+            "alas dos",
+            "alas tres",
+            "alas kuwatro",
+            "alas singko",
+            "alas sais",
+            "alas siyete",
+            "alas otso"
+          ]
+        },
+        {
+          "name": "activity",
+          "label": "Activity",
+          "type": "text",
+          "placeholder": "klase"
+        }
+      ]
+    }
+  ],
+  "mission": {
+    "title": "Describe your schedule",
+    "description": "Say what happens on five days.",
+    "steps": [
+      "Say what day it is today.",
+      "Use five different day names.",
+      "Use three different times.",
+      "Read the schedule aloud."
+    ],
+    "example": "Lunes ngayon. Tuwing Martes, alas dos ang klase ko."
+  },
+  "resources": [
+    {
+      "title": "Beginner guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Beginner-Guide.pdf#page=9",
+      "description": "Open the vocabulary and patterns for Days and Time."
+    },
+    {
+      "title": "Practice pack",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Practice-Pack.pdf#page=9",
+      "description": "Open the printable practice for Days and Time."
+    },
+    {
+      "title": "Answer guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Answer-Guide.pdf#page=9",
+      "description": "Check the suggested answers for Days and Time."
+    }
+  ]
+}

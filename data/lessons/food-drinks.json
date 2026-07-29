@@ -1,0 +1,379 @@
+{
+  "version": "4.0.0",
+  "id": "food-drinks",
+  "order": 4,
+  "title": "Food and Drinks",
+  "short_title": "Food and Drinks",
+  "summary": "Name everyday food and drinks and talk about preferences.",
+  "content_status": "Published",
+  "objectives": [
+    "Name common food and drinks.",
+    "Ask about favorite food.",
+    "Say what you want to eat or drink.",
+    "Say what you do not like."
+  ],
+  "vocabulary": [
+    {
+      "id": "rice",
+      "category": "Food",
+      "tagalog": "Kanin",
+      "english": "Rice",
+      "accepted": [
+        "kanin"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kanin” means “Rice.”"
+    },
+    {
+      "id": "bread",
+      "category": "Food",
+      "tagalog": "Tinapay",
+      "english": "Bread",
+      "accepted": [
+        "tinapay"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Tinapay” means “Bread.”"
+    },
+    {
+      "id": "chicken",
+      "category": "Food",
+      "tagalog": "Manok",
+      "english": "Chicken",
+      "accepted": [
+        "manok"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Manok” means “Chicken.”"
+    },
+    {
+      "id": "pork",
+      "category": "Food",
+      "tagalog": "Baboy",
+      "english": "Pork",
+      "accepted": [
+        "baboy"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Baboy” means “Pork.”"
+    },
+    {
+      "id": "fish",
+      "category": "Food",
+      "tagalog": "Isda",
+      "english": "Fish",
+      "accepted": [
+        "isda"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Isda” means “Fish.”"
+    },
+    {
+      "id": "vegetables",
+      "category": "Food",
+      "tagalog": "Gulay",
+      "english": "Vegetables",
+      "accepted": [
+        "gulay"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Gulay” means “Vegetables.”"
+    },
+    {
+      "id": "fruit",
+      "category": "Food",
+      "tagalog": "Prutas",
+      "english": "Fruit",
+      "accepted": [
+        "prutas"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Prutas” means “Fruit.”"
+    },
+    {
+      "id": "apple",
+      "category": "Food",
+      "tagalog": "Mansanas",
+      "english": "Apple",
+      "accepted": [
+        "mansanas"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Mansanas” means “Apple.”"
+    },
+    {
+      "id": "banana",
+      "category": "Food",
+      "tagalog": "Saging",
+      "english": "Banana",
+      "accepted": [
+        "saging"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Saging” means “Banana.”"
+    },
+    {
+      "id": "water",
+      "category": "Food and Drinks",
+      "tagalog": "Tubig",
+      "english": "Water",
+      "accepted": [
+        "tubig"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Tubig” means “Water.”"
+    },
+    {
+      "id": "coffee",
+      "category": "Food and Drinks",
+      "tagalog": "Kape",
+      "english": "Coffee",
+      "accepted": [
+        "kape"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kape” means “Coffee.”"
+    },
+    {
+      "id": "tea",
+      "category": "Food and Drinks",
+      "tagalog": "Tsaa",
+      "english": "Tea",
+      "accepted": [
+        "tsaa"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Tsaa” means “Tea.”"
+    },
+    {
+      "id": "milk",
+      "category": "Food and Drinks",
+      "tagalog": "Gatas",
+      "english": "Milk",
+      "accepted": [
+        "gatas"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Gatas” means “Milk.”"
+    },
+    {
+      "id": "favorite-food-q",
+      "category": "Food Questions",
+      "tagalog": "Ano ang paborito mong pagkain?",
+      "english": "What is your favorite food?",
+      "accepted": [
+        "ano ang paborito mong pagkain"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ano ang paborito mong pagkain?” to ask “What is your favorite food?”"
+    },
+    {
+      "id": "want-eat-q",
+      "category": "Food Questions",
+      "tagalog": "Ano ang gusto mong kainin?",
+      "english": "What do you want to eat?",
+      "accepted": [
+        "ano ang gusto mong kainin"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ano ang gusto mong kainin?” to ask “What do you want to eat?”"
+    },
+    {
+      "id": "want-drink-q",
+      "category": "Food Questions",
+      "tagalog": "Ano ang gusto mong inumin?",
+      "english": "What do you want to drink?",
+      "accepted": [
+        "ano ang gusto mong inumin"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ano ang gusto mong inumin?” to ask “What do you want to drink?”"
+    },
+    {
+      "id": "like-rice",
+      "category": "Food Answers",
+      "tagalog": "Gusto ko ng kanin.",
+      "english": "I like or want rice.",
+      "accepted": [
+        "gusto ko ng kanin"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Gusto ko ng kanin.” to say “I like or want rice.”"
+    },
+    {
+      "id": "dont-like-fish",
+      "category": "Food Answers",
+      "tagalog": "Ayaw ko ng isda.",
+      "english": "I do not like fish.",
+      "accepted": [
+        "ayaw ko ng isda"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ayaw ko ng isda.” to say “I do not like fish.”"
+    },
+    {
+      "id": "full",
+      "category": "Food Answers",
+      "tagalog": "Busog ako.",
+      "english": "I am full.",
+      "accepted": [
+        "busog ako"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Busog ako.” to say “I am full.”"
+    },
+    {
+      "id": "do-not-eat",
+      "category": "Food Answers",
+      "tagalog": "Hindi ako kumakain ng isda.",
+      "english": "I do not eat fish.",
+      "accepted": [
+        "hindi ako kumakain ng isda"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Hindi ako kumakain ng isda.” to say “I do not eat fish.”"
+    }
+  ],
+  "grammar_notes": [
+    {
+      "title": "Food preferences",
+      "body": "Use “Gusto ko ng + food or drink” and “Ayaw ko ng + food or drink”."
+    },
+    {
+      "title": "Questions",
+      "body": "“Ano ang gusto mong kainin?” asks what someone wants to eat; “inumin” asks what they want to drink."
+    }
+  ],
+  "patterns": [
+    {
+      "title": "Favorite food",
+      "tagalog": "[Pagkain] ang paborito kong pagkain.",
+      "english": "[Food] is my favorite food."
+    },
+    {
+      "title": "What you want",
+      "tagalog": "Gusto ko ng [pagkain o inumin].",
+      "english": "I want or like [food or drink]."
+    }
+  ],
+  "builders": [
+    {
+      "id": "favorite-things",
+      "title": "Build your favorite-things introduction",
+      "description": "Create four sentences about your preferences.",
+      "template": "{{color}} ang paborito kong kulay. {{food}} ang paborito kong pagkain. Gusto ko ng {{drink}}. Ayaw ko ng {{dislike}}.",
+      "fields": [
+        {
+          "name": "color",
+          "label": "Favorite color",
+          "type": "select",
+          "options": [
+            "Pula",
+            "Asul",
+            "Berde",
+            "Dilaw",
+            "Itim",
+            "Puti",
+            "Lila",
+            "Rosas",
+            "Kahel"
+          ]
+        },
+        {
+          "name": "food",
+          "label": "Favorite food",
+          "type": "text",
+          "placeholder": "adobo"
+        },
+        {
+          "name": "drink",
+          "label": "Preferred drink",
+          "type": "select",
+          "options": [
+            "tubig",
+            "kape",
+            "tsaa",
+            "gatas"
+          ]
+        },
+        {
+          "name": "dislike",
+          "label": "Food you dislike",
+          "type": "text",
+          "placeholder": "isda"
+        }
+      ]
+    }
+  ],
+  "mission": {
+    "title": "Talk about your preferences",
+    "description": "Say four sentences about food and drinks.",
+    "steps": [
+      "Name your favorite food.",
+      "Name a drink you like.",
+      "Name one food you do not like.",
+      "Read the four sentences aloud."
+    ],
+    "example": "Adobo ang paborito kong pagkain. Gusto ko ng kape. Ayaw ko ng isda."
+  },
+  "resources": [
+    {
+      "title": "Beginner guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Beginner-Guide.pdf#page=5",
+      "description": "Open the vocabulary and patterns for Food and Drinks."
+    },
+    {
+      "title": "Practice pack",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Practice-Pack.pdf#page=5",
+      "description": "Open the printable practice for Food and Drinks."
+    },
+    {
+      "title": "Answer guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Answer-Guide.pdf#page=5",
+      "description": "Check the suggested answers for Food and Drinks."
+    }
+  ]
+}

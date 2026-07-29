@@ -1,0 +1,476 @@
+{
+  "version": "4.0.0",
+  "id": "greetings-introductions",
+  "order": 1,
+  "title": "Greetings and Introductions",
+  "short_title": "Greetings and Introductions",
+  "summary": "Greet people, introduce yourself, and talk about how you feel.",
+  "content_status": "Published",
+  "objectives": [
+    "Use common greetings and farewells.",
+    "Say your name and where you are from.",
+    "Describe how you feel.",
+    "Talk about study or work."
+  ],
+  "vocabulary": [
+    {
+      "id": "kumusta",
+      "category": "Greetings",
+      "tagalog": "Kumusta?",
+      "english": "How are you?",
+      "note": "Kamusta? is also common in everyday writing.",
+      "accepted": [
+        "kumusta",
+        "kamusta"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Kumusta?” to ask “How are you?” Kamusta? is also common in everyday writing."
+    },
+    {
+      "id": "morning",
+      "category": "Greetings",
+      "tagalog": "Magandang umaga.",
+      "english": "Good morning.",
+      "accepted": [
+        "magandang umaga"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Magandang umaga.” to say “Good morning.”"
+    },
+    {
+      "id": "afternoon",
+      "category": "Greetings",
+      "tagalog": "Magandang hapon.",
+      "english": "Good afternoon.",
+      "accepted": [
+        "magandang hapon"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Magandang hapon.” to say “Good afternoon.”"
+    },
+    {
+      "id": "evening",
+      "category": "Greetings",
+      "tagalog": "Magandang gabi.",
+      "english": "Good evening.",
+      "accepted": [
+        "magandang gabi"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Magandang gabi.” to say “Good evening.”"
+    },
+    {
+      "id": "okay",
+      "category": "Feelings",
+      "tagalog": "Ayos lang ako.",
+      "english": "I am okay.",
+      "note": "Okay lang ako is also natural and common.",
+      "accepted": [
+        "ayos lang ako",
+        "okay lang ako"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ayos lang ako.” to say “I am okay.” Okay lang ako is also natural and common."
+    },
+    {
+      "id": "happy",
+      "category": "Feelings",
+      "tagalog": "Masaya ako.",
+      "english": "I am happy.",
+      "accepted": [
+        "masaya ako"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Masaya ako.” to say “I am happy.”"
+    },
+    {
+      "id": "sad",
+      "category": "Feelings",
+      "tagalog": "Malungkot ako.",
+      "english": "I am sad.",
+      "accepted": [
+        "malungkot ako"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Malungkot ako.” to say “I am sad.”"
+    },
+    {
+      "id": "sleepy",
+      "category": "Feelings",
+      "tagalog": "Inaantok ako.",
+      "english": "I am sleepy.",
+      "accepted": [
+        "inaantok ako"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Inaantok ako.” to say “I am sleepy.”"
+    },
+    {
+      "id": "excited",
+      "category": "Feelings",
+      "tagalog": "Nasasabik ako.",
+      "english": "I am excited.",
+      "note": "Often expresses anticipation.",
+      "accepted": [
+        "nasasabik ako"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Nasasabik ako.” to say “I am excited.” Often expresses anticipation."
+    },
+    {
+      "id": "hungry",
+      "category": "Feelings",
+      "tagalog": "Gutom ako.",
+      "english": "I am hungry.",
+      "accepted": [
+        "gutom ako"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Gutom ako.” to say “I am hungry.”"
+    },
+    {
+      "id": "stressed",
+      "category": "Feelings",
+      "tagalog": "Na-stress ako.",
+      "english": "I am stressed.",
+      "note": "Everyday Taglish alternatives such as “Stressed ako” and “Nai-stress ako” also appear in use.",
+      "accepted": [
+        "na stress ako",
+        "nai stress ako",
+        "stressed ako"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Na-stress ako.” to say “I am stressed.” Everyday Taglish alternatives such as “Stressed ako” and “Nai-stress ako” also appear in use."
+    },
+    {
+      "id": "tired",
+      "category": "Feelings",
+      "tagalog": "Pagod ako.",
+      "english": "I am tired.",
+      "accepted": [
+        "pagod ako"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Pagod ako.” to say “I am tired.”"
+    },
+    {
+      "id": "name-question",
+      "category": "Introductions",
+      "tagalog": "Ano ang pangalan mo?",
+      "english": "What is your name?",
+      "accepted": [
+        "ano ang pangalan mo"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ano ang pangalan mo?” to ask “What is your name?”"
+    },
+    {
+      "id": "name-answer",
+      "category": "Introductions",
+      "tagalog": "Ako si ____.",
+      "english": "I am ____.",
+      "note": "Use this before a personal name.",
+      "accepted": [],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": false
+    },
+    {
+      "id": "from-question",
+      "category": "Introductions",
+      "tagalog": "Taga-saan ka?",
+      "english": "Where are you from?",
+      "accepted": [
+        "taga saan ka"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Taga-saan ka?” to ask “Where are you from?”"
+    },
+    {
+      "id": "from-answer",
+      "category": "Introductions",
+      "tagalog": "Taga-____ ako.",
+      "english": "I am from ____.",
+      "accepted": [],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": false
+    },
+    {
+      "id": "study-where",
+      "category": "School and Work",
+      "tagalog": "Saan ka nag-aaral?",
+      "english": "Where do you study?",
+      "accepted": [
+        "saan ka nag aaral"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Saan ka nag-aaral?” to ask “Where do you study?”"
+    },
+    {
+      "id": "study-answer",
+      "category": "School and Work",
+      "tagalog": "Nag-aaral ako sa ____.",
+      "english": "I study at ____.",
+      "accepted": [],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": false
+    },
+    {
+      "id": "study-what",
+      "category": "School and Work",
+      "tagalog": "Ano ang inaaral mo?",
+      "english": "What are you studying?",
+      "accepted": [
+        "ano ang inaaral mo"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ano ang inaaral mo?” to ask “What are you studying?”"
+    },
+    {
+      "id": "study-subject",
+      "category": "School and Work",
+      "tagalog": "Nag-aaral ako ng ____.",
+      "english": "I am studying ____.",
+      "note": "A natural pattern for a subject or field.",
+      "accepted": [],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": false
+    },
+    {
+      "id": "work-where",
+      "category": "School and Work",
+      "tagalog": "Saan ka nagtatrabaho?",
+      "english": "Where do you work?",
+      "accepted": [
+        "saan ka nagtatrabaho"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Saan ka nagtatrabaho?” to ask “Where do you work?”"
+    },
+    {
+      "id": "work-answer",
+      "category": "School and Work",
+      "tagalog": "Nagtatrabaho ako sa ____.",
+      "english": "I work at ____.",
+      "accepted": [],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": false
+    },
+    {
+      "id": "job-question",
+      "category": "School and Work",
+      "tagalog": "Ano ang trabaho mo?",
+      "english": "What is your job?",
+      "accepted": [
+        "ano ang trabaho mo"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ano ang trabaho mo?” to ask “What is your job?”"
+    },
+    {
+      "id": "job-answer",
+      "category": "School and Work",
+      "tagalog": "____ ako.",
+      "english": "I am a/an ____.",
+      "note": "Example: Inhinyero ako. You can also say: Ang trabaho ko ay ____.",
+      "accepted": [],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": false
+    },
+    {
+      "id": "thanks",
+      "category": "Leave-Taking",
+      "tagalog": "Salamat!",
+      "english": "Thank you!",
+      "accepted": [
+        "salamat"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Salamat!” means “Thank you.”"
+    },
+    {
+      "id": "goodbye",
+      "category": "Leave-Taking",
+      "tagalog": "Paalam!",
+      "english": "Goodbye!",
+      "accepted": [
+        "paalam"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Paalam!” means “Goodbye.”"
+    },
+    {
+      "id": "take-care-one",
+      "category": "Leave-Taking",
+      "tagalog": "Ingat ka!",
+      "english": "Take care! (one person)",
+      "accepted": [
+        "ingat ka"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ingat ka!” to say “Take care! (one person).”"
+    },
+    {
+      "id": "take-care-many",
+      "category": "Leave-Taking",
+      "tagalog": "Ingat kayo!",
+      "english": "Take care! (plural or respectful)",
+      "accepted": [
+        "ingat kayo"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Ingat kayo!” to say “Take care! (plural or respectful).”"
+    }
+  ],
+  "grammar_notes": [
+    {
+      "title": "Names",
+      "body": "Use “Ako si + name” to introduce yourself."
+    },
+    {
+      "title": "Place of origin",
+      "body": "Use “Taga- + place + ako” to say where you are from."
+    },
+    {
+      "title": "Respect",
+      "body": "Add “po” in respectful conversation when appropriate."
+    }
+  ],
+  "patterns": [
+    {
+      "title": "Introduce yourself",
+      "tagalog": "Ako si [pangalan].",
+      "english": "I am [name]."
+    },
+    {
+      "title": "Say where you are from",
+      "tagalog": "Taga-[lugar] ako.",
+      "english": "I am from [place]."
+    },
+    {
+      "title": "Say how you feel",
+      "tagalog": "[Pakiramdam] ako.",
+      "english": "I am [feeling]."
+    }
+  ],
+  "builders": [
+    {
+      "id": "self-introduction",
+      "title": "Build a self-introduction",
+      "description": "Create a short introduction you can read aloud.",
+      "template": "Kumusta! Ako si {{name}}. Taga-{{place}} ako. {{feeling}} ako. {{role}} ako. Salamat! Paalam!",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "placeholder": "Maya"
+        },
+        {
+          "name": "place",
+          "label": "Place",
+          "type": "text",
+          "placeholder": "Cebu"
+        },
+        {
+          "name": "feeling",
+          "label": "Feeling",
+          "type": "select",
+          "options": [
+            "Masaya",
+            "Ayos lang",
+            "Pagod",
+            "Nasasabik"
+          ]
+        },
+        {
+          "name": "role",
+          "label": "Role or occupation",
+          "type": "text",
+          "placeholder": "Estudyante"
+        }
+      ]
+    }
+  ],
+  "mission": {
+    "title": "Introduce yourself",
+    "description": "Say a short introduction aloud.",
+    "steps": [
+      "Greet the listener.",
+      "Say your name.",
+      "Say where you are from.",
+      "Mention work, study, or an interest.",
+      "End with thanks and a goodbye."
+    ],
+    "example": "Kumusta! Ako si Maya. Taga-Cebu ako. Estudyante ako. Salamat! Paalam!"
+  },
+  "resources": [
+    {
+      "title": "Beginner guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Beginner-Guide.pdf#page=2",
+      "description": "Open the vocabulary and patterns for Greetings and Introductions."
+    },
+    {
+      "title": "Practice pack",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Practice-Pack.pdf#page=2",
+      "description": "Open the printable practice for Greetings and Introductions."
+    },
+    {
+      "title": "Answer guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Answer-Guide.pdf#page=2",
+      "description": "Check the suggested answers for Greetings and Introductions."
+    }
+  ]
+}

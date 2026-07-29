@@ -1,0 +1,408 @@
+{
+  "version": "4.0.0",
+  "id": "daily-routine",
+  "order": 9,
+  "title": "Daily Routine",
+  "short_title": "Daily Routine",
+  "summary": "Describe completed morning activities in order.",
+  "content_status": "Published",
+  "objectives": [
+    "Describe completed morning actions.",
+    "Put actions in a useful order.",
+    "Say when an action happened.",
+    "Ask and answer simple routine questions."
+  ],
+  "vocabulary": [
+    {
+      "id": "routine-woke",
+      "category": "Completed actions",
+      "tagalog": "Gumising ako.",
+      "english": "I woke up.",
+      "accepted": [
+        "gumising ako"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Gumising ako.” to say “I woke up.” Completed aspect."
+    },
+    {
+      "id": "routine-got-up",
+      "category": "Completed actions",
+      "tagalog": "Bumangon ako.",
+      "english": "I got up.",
+      "accepted": [
+        "bumangon ako"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Bumangon ako.” to say “I got up.” Completed aspect."
+    },
+    {
+      "id": "routine-brushed",
+      "category": "Completed actions",
+      "tagalog": "Nagsipilyo ako.",
+      "english": "I brushed my teeth.",
+      "accepted": [
+        "nagsipilyo ako"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect; not a neutral dictionary infinitive.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Nagsipilyo ako.” to say “I brushed my teeth.” Completed aspect; not a neutral dictionary infinitive."
+    },
+    {
+      "id": "routine-washed",
+      "category": "Completed actions",
+      "tagalog": "Naghilamos ako.",
+      "english": "I washed my face.",
+      "accepted": [
+        "naghilamos ako"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Naghilamos ako.” to say “I washed my face.” Completed aspect."
+    },
+    {
+      "id": "routine-bathed",
+      "category": "Completed actions",
+      "tagalog": "Naligo ako.",
+      "english": "I took a bath or shower.",
+      "accepted": [
+        "naligo ako"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Naligo ako.” to say “I took a bath or shower.” Completed aspect."
+    },
+    {
+      "id": "routine-dressed",
+      "category": "Completed actions",
+      "tagalog": "Nagbihis ako.",
+      "english": "I got dressed.",
+      "accepted": [
+        "nagbihis ako"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Nagbihis ako.” to say “I got dressed.” Completed aspect."
+    },
+    {
+      "id": "routine-combed",
+      "category": "Completed actions",
+      "tagalog": "Nagsuklay ako.",
+      "english": "I combed my hair.",
+      "accepted": [
+        "nagsuklay ako"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Nagsuklay ako.” to say “I combed my hair.” Completed aspect."
+    },
+    {
+      "id": "routine-breakfast",
+      "category": "Completed actions",
+      "tagalog": "Nag-almusal ako.",
+      "english": "I ate breakfast.",
+      "accepted": [
+        "nag almusal ako"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Nag-almusal ako.” to say “I ate breakfast.” Completed aspect."
+    },
+    {
+      "id": "routine-water",
+      "category": "Completed actions",
+      "tagalog": "Uminom ako ng tubig.",
+      "english": "I drank water.",
+      "accepted": [
+        "uminom ako ng tubig"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Uminom ako ng tubig.” to say “I drank water.” Completed aspect."
+    },
+    {
+      "id": "routine-coffee",
+      "category": "Completed actions",
+      "tagalog": "Uminom ako ng kape.",
+      "english": "I drank coffee.",
+      "accepted": [
+        "uminom ako ng kape"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Uminom ako ng kape.” to say “I drank coffee.” Completed aspect."
+    },
+    {
+      "id": "routine-left",
+      "category": "Completed actions",
+      "tagalog": "Umalis ako sa bahay.",
+      "english": "I left the house.",
+      "accepted": [
+        "umalis ako sa bahay"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect; sa marks the place left.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Umalis ako sa bahay.” to say “I left the house.” Completed aspect; sa marks the place left."
+    },
+    {
+      "id": "routine-work",
+      "category": "Completed actions",
+      "tagalog": "Pumasok ako sa trabaho.",
+      "english": "I went to work.",
+      "accepted": [
+        "pumasok ako sa trabaho"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Pumasok ako sa trabaho.” to say “I went to work.” Completed aspect."
+    },
+    {
+      "id": "routine-school",
+      "category": "Completed actions",
+      "tagalog": "Pumasok ako sa paaralan.",
+      "english": "I went to school.",
+      "accepted": [
+        "pumasok ako sa paaralan"
+      ],
+      "register": "neutral",
+      "note": "Completed aspect.",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Pumasok ako sa paaralan.” to say “I went to school.” Completed aspect."
+    },
+    {
+      "id": "routine-what-time-wake",
+      "category": "Questions",
+      "tagalog": "Anong oras ka gumising?",
+      "english": "What time did you wake up?",
+      "accepted": [
+        "anong oras ka gumising"
+      ],
+      "register": "neutral",
+      "kind": "question",
+      "practice": true,
+      "explanation": "Use “Anong oras ka gumising?” to ask “What time did you wake up?”"
+    },
+    {
+      "id": "routine-next",
+      "category": "Questions",
+      "tagalog": "Ano ang ginawa mo pagkatapos?",
+      "english": "What did you do next?",
+      "accepted": [
+        "ano ang ginawa mo pagkatapos"
+      ],
+      "register": "neutral",
+      "kind": "question",
+      "practice": true,
+      "explanation": "Use “Ano ang ginawa mo pagkatapos?” to ask “What did you do next?”"
+    },
+    {
+      "id": "routine-what-drink",
+      "category": "Questions",
+      "tagalog": "Ano ang ininom mo?",
+      "english": "What did you drink?",
+      "accepted": [
+        "ano ang ininom mo"
+      ],
+      "register": "neutral",
+      "kind": "question",
+      "practice": true,
+      "explanation": "Use “Ano ang ininom mo?” to ask “What did you drink?”"
+    },
+    {
+      "id": "routine-wake-six",
+      "category": "Time answers",
+      "tagalog": "Gumising ako ng alas sais.",
+      "english": "I woke up at six o’clock.",
+      "accepted": [
+        "gumising ako ng alas sais"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Gumising ako ng alas sais.” to say “I woke up at six o’clock.”"
+    },
+    {
+      "id": "routine-breakfast-seven",
+      "category": "Time answers",
+      "tagalog": "Nag-almusal ako ng alas siyete.",
+      "english": "I ate breakfast at seven o’clock.",
+      "accepted": [
+        "nag almusal ako ng alas siyete"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Nag-almusal ako ng alas siyete.” to say “I ate breakfast at seven o’clock.”"
+    },
+    {
+      "id": "routine-work-eight",
+      "category": "Time answers",
+      "tagalog": "Pumasok ako sa trabaho ng alas otso.",
+      "english": "I went to work at eight o’clock.",
+      "accepted": [
+        "pumasok ako sa trabaho ng alas otso"
+      ],
+      "register": "neutral",
+      "kind": "sentence",
+      "practice": true,
+      "explanation": "Use “Pumasok ako sa trabaho ng alas otso.” to say “I went to work at eight o’clock.”"
+    }
+  ],
+  "grammar_notes": [
+    {
+      "title": "Completed aspect",
+      "body": "Forms such as “nagsipilyo”, “naligo”, and “nagbihis” describe completed actions in this lesson."
+    },
+    {
+      "title": "Time marker",
+      "body": "Use “ng + time” after the action, as in “Gumising ako ng alas sais.”"
+    },
+    {
+      "title": "Sequence",
+      "body": "Use “pagkatapos” to refer to what happened next."
+    }
+  ],
+  "patterns": [
+    {
+      "title": "Completed action",
+      "tagalog": "Nagsipilyo ako.",
+      "english": "I brushed my teeth."
+    },
+    {
+      "title": "Action with time",
+      "tagalog": "Gumising ako ng alas sais.",
+      "english": "I woke up at six o’clock."
+    },
+    {
+      "title": "Ask what came next",
+      "tagalog": "Ano ang ginawa mo pagkatapos?",
+      "english": "What did you do next?"
+    }
+  ],
+  "builders": [
+    {
+      "id": "routine-builder",
+      "title": "Build a morning routine",
+      "description": "Create a short routine you can say aloud.",
+      "template": "Gumising ako ng {{wake}}. {{action1}} {{action2}} Nag-almusal ako ng {{breakfast}}. Pumasok ako sa {{destination}} ng {{leave}}.",
+      "fields": [
+        {
+          "name": "wake",
+          "label": "Wake-up time",
+          "type": "select",
+          "options": [
+            "alas singko",
+            "alas sais",
+            "alas siyete"
+          ]
+        },
+        {
+          "name": "action1",
+          "label": "First action",
+          "type": "select",
+          "options": [
+            "Nagsipilyo ako.",
+            "Naghilamos ako.",
+            "Naligo ako."
+          ]
+        },
+        {
+          "name": "action2",
+          "label": "Next action",
+          "type": "select",
+          "options": [
+            "Nagbihis ako.",
+            "Nagsuklay ako.",
+            "Uminom ako ng tubig."
+          ]
+        },
+        {
+          "name": "breakfast",
+          "label": "Breakfast time",
+          "type": "select",
+          "options": [
+            "alas sais",
+            "alas siyete",
+            "alas otso"
+          ]
+        },
+        {
+          "name": "destination",
+          "label": "Destination",
+          "type": "select",
+          "options": [
+            "trabaho",
+            "paaralan"
+          ]
+        },
+        {
+          "name": "leave",
+          "label": "Arrival time",
+          "type": "select",
+          "options": [
+            "alas siyete",
+            "alas otso",
+            "alas nuwebe"
+          ]
+        }
+      ]
+    }
+  ],
+  "mission": {
+    "title": "Describe your routine",
+    "description": "Say eight completed actions in order.",
+    "steps": [
+      "Start with when you woke up.",
+      "Use at least eight completed actions.",
+      "Mention three times.",
+      "End with going to work or school."
+    ],
+    "example": "Gumising ako ng alas sais. Nagsipilyo ako. Naghilamos ako. Naligo ako. Nag-almusal ako ng alas siyete."
+  },
+  "resources": [
+    {
+      "title": "Beginner guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Beginner-Guide.pdf#page=10",
+      "description": "Open the vocabulary and patterns for Daily Routine."
+    },
+    {
+      "title": "Practice pack",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Practice-Pack.pdf#page=10",
+      "description": "Open the printable practice for Daily Routine."
+    },
+    {
+      "title": "Answer guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Answer-Guide.pdf#page=10",
+      "description": "Check the suggested answers for Daily Routine."
+    }
+  ]
+}

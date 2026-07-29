@@ -1,28 +1,49 @@
 {
+  "id": "/",
   "name": "Tagalog Academy",
-  "short_name": "Tagalog Academy",
-  "description": "Privacy-first Tagalog learning with adaptive review, speaking practice, builders, and weekly missions.",
-  "start_url": "./",
-  "scope": "./",
+  "short_name": "Tagalog",
+  "description": "Learn practical Tagalog through short lessons, recall, speaking, and everyday use.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#f4f7fb",
-  "theme_color": "#102f46",
+  "background_color": "#f5f8fa",
+  "theme_color": "#123b55",
   "icons": [
     {
       "src": "assets/icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "assets/icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "assets/icons/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "assets/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "docs/images/desktop-preview.png",
+      "sizes": "1440x1000",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Tagalog Academy learning path on desktop"
+    },
+    {
+      "src": "docs/images/mobile-preview.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Tagalog Academy lesson on mobile"
     }
   ]
 }

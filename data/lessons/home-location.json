@@ -1,0 +1,588 @@
+{
+  "version": "4.0.0",
+  "id": "home-location",
+  "order": 5,
+  "title": "Home and Location",
+  "short_title": "Home and Location",
+  "summary": "Name household objects and say where people and things are.",
+  "content_status": "Published",
+  "objectives": [
+    "Name household objects.",
+    "Name common rooms and places.",
+    "Ask where an object is.",
+    "Answer with a location."
+  ],
+  "vocabulary": [
+    {
+      "id": "spoon",
+      "category": "Household Objects",
+      "tagalog": "Kutsara",
+      "english": "Spoon",
+      "accepted": [
+        "kutsara"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kutsara” means “Spoon.”"
+    },
+    {
+      "id": "fork",
+      "category": "Household Objects",
+      "tagalog": "Tinidor",
+      "english": "Fork",
+      "accepted": [
+        "tinidor"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Tinidor” means “Fork.”"
+    },
+    {
+      "id": "knife",
+      "category": "Household Objects",
+      "tagalog": "Kutsilyo",
+      "english": "Knife",
+      "accepted": [
+        "kutsilyo"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kutsilyo” means “Knife.”"
+    },
+    {
+      "id": "plate-plato",
+      "category": "Household Objects",
+      "tagalog": "Plato",
+      "english": "Plate",
+      "accepted": [
+        "plato"
+      ],
+      "register": "everyday",
+      "note": "Common everyday form.",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Plate (common form)",
+      "explanation": "“Plato” means “Plate.” Common everyday form."
+    },
+    {
+      "id": "plate-pinggan",
+      "category": "Household Objects",
+      "tagalog": "Pinggan",
+      "english": "Plate",
+      "accepted": [
+        "pinggan"
+      ],
+      "register": "everyday",
+      "note": "Common alternative.",
+      "kind": "word",
+      "practice": true,
+      "exercise_english": "Plate (alternative form)",
+      "explanation": "“Pinggan” means “Plate.” Common alternative."
+    },
+    {
+      "id": "bowl",
+      "category": "Household Objects",
+      "tagalog": "Mangkok",
+      "english": "Bowl",
+      "accepted": [
+        "mangkok"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Mangkok” means “Bowl.”"
+    },
+    {
+      "id": "glass",
+      "category": "Household Objects",
+      "tagalog": "Baso",
+      "english": "Glass",
+      "accepted": [
+        "baso"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Baso” means “Glass.”"
+    },
+    {
+      "id": "cup",
+      "category": "Household Objects",
+      "tagalog": "Tasa",
+      "english": "Cup",
+      "accepted": [
+        "tasa"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Tasa” means “Cup.”"
+    },
+    {
+      "id": "bottle",
+      "category": "Household Objects",
+      "tagalog": "Bote",
+      "english": "Bottle",
+      "accepted": [
+        "bote"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Bote” means “Bottle.”"
+    },
+    {
+      "id": "bed",
+      "category": "Household Objects",
+      "tagalog": "Kama",
+      "english": "Bed",
+      "accepted": [
+        "kama"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kama” means “Bed.”"
+    },
+    {
+      "id": "pillow",
+      "category": "Household Objects",
+      "tagalog": "Unan",
+      "english": "Pillow",
+      "accepted": [
+        "unan"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Unan” means “Pillow.”"
+    },
+    {
+      "id": "blanket",
+      "category": "Household Objects",
+      "tagalog": "Kumot",
+      "english": "Blanket",
+      "accepted": [
+        "kumot"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kumot” means “Blanket.”"
+    },
+    {
+      "id": "toothbrush",
+      "category": "Household Objects",
+      "tagalog": "Sipilyo",
+      "english": "Toothbrush",
+      "accepted": [
+        "sipilyo"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Sipilyo” means “Toothbrush.”"
+    },
+    {
+      "id": "towel",
+      "category": "Household Objects",
+      "tagalog": "Tuwalya",
+      "english": "Towel",
+      "accepted": [
+        "tuwalya"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Tuwalya” means “Towel.”"
+    },
+    {
+      "id": "mirror",
+      "category": "Household Objects",
+      "tagalog": "Salamin",
+      "english": "Mirror",
+      "accepted": [
+        "salamin"
+      ],
+      "note": "Salamin can also mean eyeglasses; context matters.",
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Salamin” means “Mirror.” Salamin can also mean eyeglasses; context matters."
+    },
+    {
+      "id": "soap",
+      "category": "Household Objects",
+      "tagalog": "Sabon",
+      "english": "Soap",
+      "accepted": [
+        "sabon"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Sabon” means “Soap.”"
+    },
+    {
+      "id": "kitchen",
+      "category": "Places at Home",
+      "tagalog": "Kusina",
+      "english": "Kitchen",
+      "accepted": [
+        "kusina"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kusina” means “Kitchen.”"
+    },
+    {
+      "id": "living-room",
+      "category": "Places at Home",
+      "tagalog": "Sala",
+      "english": "Living room",
+      "accepted": [
+        "sala"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Sala” means “Living room.”"
+    },
+    {
+      "id": "bedroom",
+      "category": "Places at Home",
+      "tagalog": "Kwarto",
+      "english": "Bedroom or room",
+      "accepted": [
+        "kwarto",
+        "kuwarto"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Kwarto” means “Bedroom or room.”"
+    },
+    {
+      "id": "bathroom",
+      "category": "Places at Home",
+      "tagalog": "Banyo",
+      "english": "Bathroom",
+      "accepted": [
+        "banyo"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Banyo” means “Bathroom.”"
+    },
+    {
+      "id": "garage",
+      "category": "Places at Home",
+      "tagalog": "Garahe",
+      "english": "Garage",
+      "accepted": [
+        "garahe"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Garahe” means “Garage.”"
+    },
+    {
+      "id": "garden",
+      "category": "Places at Home",
+      "tagalog": "Hardin",
+      "english": "Garden",
+      "accepted": [
+        "hardin"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Hardin” means “Garden.”"
+    },
+    {
+      "id": "where-spoon",
+      "category": "Location Questions",
+      "tagalog": "Nasaan ang kutsara?",
+      "english": "Where is the spoon?",
+      "accepted": [
+        "nasaan ang kutsara"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Nasaan ang kutsara?” to ask “Where is the spoon?”"
+    },
+    {
+      "id": "where-bed",
+      "category": "Location Questions",
+      "tagalog": "Nasaan ang kama?",
+      "english": "Where is the bed?",
+      "accepted": [
+        "nasaan ang kama"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Nasaan ang kama?” to ask “Where is the bed?”"
+    },
+    {
+      "id": "where-person",
+      "category": "Location Questions",
+      "tagalog": "Nasaan si Maria?",
+      "english": "Where is Maria?",
+      "accepted": [
+        "nasaan si maria"
+      ],
+      "kind": "question",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Nasaan si Maria?” to ask “Where is Maria?”"
+    },
+    {
+      "id": "in-kitchen",
+      "category": "Location Answers",
+      "tagalog": "Nasa kusina ang kutsara.",
+      "english": "The spoon is in the kitchen.",
+      "accepted": [
+        "nasa kusina ang kutsara"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Nasa kusina ang kutsara.” to say “The spoon is in the kitchen.”"
+    },
+    {
+      "id": "in-bedroom",
+      "category": "Location Answers",
+      "tagalog": "Nasa kwarto ang kama.",
+      "english": "The bed is in the bedroom.",
+      "accepted": [
+        "nasa kwarto ang kama",
+        "nasa kuwarto ang kama"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Nasa kwarto ang kama.” to say “The bed is in the bedroom.”"
+    },
+    {
+      "id": "person-office",
+      "category": "Location Answers",
+      "tagalog": "Nasa opisina si Maria.",
+      "english": "Maria is in the office.",
+      "accepted": [
+        "nasa opisina si maria"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Nasa opisina si Maria.” to say “Maria is in the office.”"
+    },
+    {
+      "id": "this-room",
+      "category": "Possession",
+      "tagalog": "Kwarto ko ito.",
+      "english": "This is my room.",
+      "accepted": [
+        "kwarto ko ito",
+        "kuwarto ko ito"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Kwarto ko ito.” to say “This is my room.”"
+    },
+    {
+      "id": "this-backpack",
+      "category": "Possession",
+      "tagalog": "Backpack ko ito.",
+      "english": "This is my backpack.",
+      "accepted": [
+        "backpack ko ito"
+      ],
+      "kind": "sentence",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "Use “Backpack ko ito.” to say “This is my backpack.”"
+    },
+    {
+      "id": "big",
+      "category": "Describing Objects",
+      "tagalog": "Malaki",
+      "english": "Big",
+      "accepted": [
+        "malaki"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Malaki” means “Big.”"
+    },
+    {
+      "id": "small",
+      "category": "Describing Objects",
+      "tagalog": "Maliit",
+      "english": "Small",
+      "accepted": [
+        "maliit"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Maliit” means “Small.”"
+    },
+    {
+      "id": "long",
+      "category": "Describing Objects",
+      "tagalog": "Mahaba",
+      "english": "Long",
+      "accepted": [
+        "mahaba"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Mahaba” means “Long.”"
+    },
+    {
+      "id": "thick",
+      "category": "Describing Objects",
+      "tagalog": "Makapal",
+      "english": "Thick",
+      "accepted": [
+        "makapal"
+      ],
+      "kind": "word",
+      "register": "neutral",
+      "practice": true,
+      "explanation": "“Makapal” means “Thick.”"
+    }
+  ],
+  "grammar_notes": [
+    {
+      "title": "Objects and people",
+      "body": "Use “ang” for an object and “si” before a person’s name."
+    },
+    {
+      "title": "Location",
+      "body": "Ask with “Nasaan…?” and answer with “Nasa…”."
+    },
+    {
+      "title": "Possession",
+      "body": "Use “ko” after a noun to mean “my”, as in “tasa ko”."
+    }
+  ],
+  "patterns": [
+    {
+      "title": "Ask for an object",
+      "tagalog": "Nasaan ang [bagay]?",
+      "english": "Where is the [object]?"
+    },
+    {
+      "title": "Give an object location",
+      "tagalog": "Nasa [lugar] ang [bagay].",
+      "english": "The [object] is in the [place]."
+    },
+    {
+      "title": "Ask for a person",
+      "tagalog": "Nasaan si [pangalan]?",
+      "english": "Where is [name]?"
+    }
+  ],
+  "builders": [
+    {
+      "id": "location-builder",
+      "title": "Build a location question and answer",
+      "description": "Choose an object and a room.",
+      "template": "Nasaan ang {{object}}?\nNasa {{place}} ang {{object}}.",
+      "fields": [
+        {
+          "name": "object",
+          "label": "Object",
+          "type": "select",
+          "options": [
+            "kutsara",
+            "plato",
+            "tasa",
+            "kama",
+            "unan",
+            "sabon",
+            "sipilyo",
+            "tuwalya",
+            "bote"
+          ]
+        },
+        {
+          "name": "place",
+          "label": "Place",
+          "type": "select",
+          "options": [
+            "kusina",
+            "sala",
+            "kwarto",
+            "banyo",
+            "garahe",
+            "hardin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-location",
+      "title": "Build a person-location exchange",
+      "description": "Practice si with a name.",
+      "template": "Nasaan si {{name}}?\nNasa {{place}} si {{name}}.",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "placeholder": "Ana"
+        },
+        {
+          "name": "place",
+          "label": "Place",
+          "type": "text",
+          "placeholder": "sala"
+        }
+      ]
+    }
+  ],
+  "mission": {
+    "title": "Describe a room",
+    "description": "Give a short tour of one room.",
+    "steps": [
+      "Name the room.",
+      "Name five objects.",
+      "Ask two “Nasaan…?” questions.",
+      "Answer each question."
+    ],
+    "example": "Ito ang kusina. Nasa kusina ang plato. Nasaan ang tasa? Nasa kusina ang tasa."
+  },
+  "resources": [
+    {
+      "title": "Beginner guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Beginner-Guide.pdf#page=6",
+      "description": "Open the vocabulary and patterns for Home and Location."
+    },
+    {
+      "title": "Practice pack",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Practice-Pack.pdf#page=6",
+      "description": "Open the printable practice for Home and Location."
+    },
+    {
+      "title": "Answer guide",
+      "type": "Download",
+      "url": "downloads/Tagalog-Academy-Answer-Guide.pdf#page=6",
+      "description": "Check the suggested answers for Home and Location."
+    }
+  ]
+}

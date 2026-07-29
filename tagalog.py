@@ -1,116 +1,136 @@
 #!/usr/bin/env python3
-"""Local tools for Tagalog Academy.
-
-Commands:
-  python tagalog.py validate
-  python tagalog.py serve --port 8000
-  python tagalog.py study --week 2 --count 10
-"""
-
 from __future__ import annotations
 
 import argparse
 import json
 import random
+import re
 import subprocess
 import sys
+import unicodedata
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-LESSON_DIR = ROOT / "data" / "lessons"
 
 
-def load_lesson(week: int) -> dict:
-    path = LESSON_DIR / f"week{week}.json"
-    if not path.exists():
-        raise SystemExit(f"Week {week} is not available.")
-    return json.loads(path.read_text(encoding="utf-8"))
+def catalog():
+    return json.loads((ROOT / 'data/catalog.json').read_text(encoding='utf-8'))
 
 
-def validate() -> int:
-    result = subprocess.run(
-        [sys.executable, str(ROOT / "scripts" / "validate_repo.py")],
-        cwd=ROOT,
-        check=False,
+def lessons():
+    course = catalog()
+    return [
+        (meta, json.loads((ROOT / meta['file']).read_text(encoding='utf-8')))
+        for meta in course['lessons']
+    ]
+
+
+def normalize_answer(value: str) -> str:
+    text = ''.join(
+        char for char in unicodedata.normalize('NFD', str(value).lower())
+        if unicodedata.category(char) != 'Mn'
     )
-    schema_code = 0
-    try:
-        import jsonschema  # noqa: F401
-    except ImportError:
-        print("Schema validation skipped locally; install requirements-dev.txt to run it. CI always enforces it.")
-    else:
-        schema = subprocess.run(
-            [sys.executable, str(ROOT / "scripts" / "validate_schema.py")],
-            cwd=ROOT,
-            check=False,
-        )
-        schema_code = schema.returncode
-
-    tests = subprocess.run(
-        [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"],
-        cwd=ROOT,
-        check=False,
-    )
-    return 0 if result.returncode == 0 and schema_code == 0 and tests.returncode == 0 else 1
+    text = re.sub(r'[“”‘’\'"!?.,;:()\[\]{}]', '', text)
+    text = re.sub(r'[-–—]', ' ', text)
+    return re.sub(r'\s+', ' ', text).strip()
 
 
-def serve(port: int) -> None:
+def exercise_prompt(item: dict) -> str:
+    return item.get('exercise_english') or item['english']
+
+
+def validate():
+    commands = [
+        [sys.executable, 'scripts/validate_repo.py'],
+        [sys.executable, 'scripts/validate_schema.py'],
+        [sys.executable, 'scripts/validate_github_templates.py'],
+        [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_*.py', '-v'],
+        [sys.executable, 'scripts/validate_manifest.py'],
+    ]
+    for command in commands:
+        result = subprocess.run(command, cwd=ROOT)
+        if result.returncode:
+            return result.returncode
+    print('All Python validation passed.')
+    return 0
+
+
+def serve(port: int):
     class Handler(SimpleHTTPRequestHandler):
-        def end_headers(self) -> None:
-            self.send_header("Cache-Control", "no-cache")
+        def end_headers(self):
+            self.send_header('Cache-Control', 'no-cache')
             super().end_headers()
 
-    server = ThreadingHTTPServer(("127.0.0.1", port), Handler)
-    print(f"Tagalog Academy is running at http://127.0.0.1:{port}")
-    print("Press Ctrl+C to stop.")
+    import os
+    os.chdir(ROOT)
+    server = ThreadingHTTPServer(('127.0.0.1', port), Handler)
+    print(f'Serving Tagalog Academy at http://127.0.0.1:{port}')
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print("\nStopped.")
+        print('\nServer stopped.')
 
 
-def study(week: int, count: int) -> None:
-    lesson = load_lesson(week)
-    candidates = [
-        item for item in lesson["vocabulary"]
-        if item.get("tagalog") and "____" not in item["tagalog"]
-    ]
-    random.shuffle(candidates)
-
-    for index, item in enumerate(candidates[:count], start=1):
-        print(f"\n{index}. {item['english']}")
-        input("   Press Enter to reveal...")
-        print(f"   {item['tagalog']}")
-        if item.get("note"):
-            print(f"   Note: {item['note']}")
+def resolve_lesson(selector: str):
+    all_lessons = lessons()
+    value = str(selector).strip()
+    if value.isdigit():
+        number = int(value)
+        if 1 <= number <= len(all_lessons):
+            return all_lessons[number - 1]
+    for meta, lesson in all_lessons:
+        if value == meta['id']:
+            return meta, lesson
+    valid_ids = ', '.join(meta['id'] for meta, _ in all_lessons)
+    raise SystemExit(f'Choose a lesson from 1 to {len(all_lessons)} or use one of: {valid_ids}.')
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Tagalog Academy local tools")
-    subparsers = parser.add_subparsers(dest="command", required=True)
+def study(lesson_selector: str, count: int):
+    meta, lesson = resolve_lesson(lesson_selector)
+    items = [item for item in lesson['vocabulary'] if item.get('practice')]
+    random.shuffle(items)
+    print(f"\nLesson {meta['order']}: {meta['title']}\n")
+    score = 0
+    total = min(count, len(items))
 
-    subparsers.add_parser("validate", help="Run repository validation and tests")
+    try:
+        for index, item in enumerate(items[:total], 1):
+            answer = normalize_answer(input(f"{index}. {exercise_prompt(item)}: "))
+            accepted = {normalize_answer(value) for value in item['accepted']}
+            if answer in accepted:
+                print('   Correct.')
+                score += 1
+            else:
+                print(f"   Answer: {item['tagalog']}")
+    except (EOFError, KeyboardInterrupt):
+        print('\nSession ended.')
+        return
 
-    serve_parser = subparsers.add_parser("serve", help="Serve the website locally")
-    serve_parser.add_argument("--port", type=int, default=8000)
+    print(f'\nScore: {score}/{total}')
 
-    study_parser = subparsers.add_parser("study", help="Run a terminal recall session")
-    study_parser.add_argument("--week", type=int, default=1, choices=range(1, 5))
-    study_parser.add_argument("--count", type=int, default=10)
+
+def main():
+    parser = argparse.ArgumentParser(description='Tagalog Academy companion')
+    sub = parser.add_subparsers(dest='command', required=True)
+
+    serve_parser = sub.add_parser('serve')
+    serve_parser.add_argument('--port', type=int, default=8000)
+
+    sub.add_parser('validate')
+
+    study_parser = sub.add_parser('study')
+    study_parser.add_argument('--lesson', default='1', help='Lesson number or lesson id')
+    study_parser.add_argument('--count', type=int, default=10)
 
     args = parser.parse_args()
-
-    if args.command == "validate":
-        return validate()
-    if args.command == "serve":
+    if args.command == 'serve':
         serve(args.port)
-        return 0
-    if args.command == "study":
-        study(args.week, max(1, args.count))
-        return 0
-    return 1
+    elif args.command == 'validate':
+        raise SystemExit(validate())
+    else:
+        study(args.lesson, args.count)
 
 
-if __name__ == "__main__":
-    raise SystemExit(main())
+if __name__ == '__main__':
+    main()

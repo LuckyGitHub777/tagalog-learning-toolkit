@@ -1,109 +1,103 @@
 # Tagalog Academy
 
-**Tagalog Academy** is a privacy-first, mastery-oriented Tagalog course published at **https://tagalog.academy**.
+**Practical Tagalog in one focused learning path.**
 
-The application transforms a multi-week adult-learning curriculum into a reusable learning system:
+[Open Tagalog Academy](https://tagalog.academy)
 
-**Learn → Retrieve → Speak → Build → Apply → Review**
+![Tagalog Academy desktop experience](docs/images/desktop-preview.png)
 
-## Current release
+Tagalog Academy helps learners build useful vocabulary, strengthen recall, speak aloud, and use Tagalog in everyday situations.
 
-Version **3.0.1** includes four active weeks:
+**Learn → Recall → Speak → Use**
 
-1. Introductions and family
-2. Colors and food
-3. Objects and places at home
-4. Numbers, relationships, fruit, and market language
+## Learning path
 
-Weeks 5–8 remain visibly planned until their source curriculum is available.
+1. Greetings and Introductions
+2. People and Family
+3. Colors and Preferences
+4. Food and Drinks
+5. Home and Location
+6. Numbers and Quantities
+7. Fruit and the Market
+8. Days and Time
+9. Daily Routine
+
+The Academy includes 246 machine-readable words, phrases, questions, and complete sentences. Each practice record has one canonical Tagalog form, an English meaning, deterministic exercise wording, accepted recall forms, usage type, register, and a concise explanation.
 
 ## Learner experience
 
-- Searchable vocabulary grouped by topic
-- Device-generated speech playback with a visible warning when no Filipino voice is installed
-- Adaptive review with Again, Hard, and Good ratings
-- Typed English-to-Tagalog recall
-- Ten-question quiz for each week
-- Private microphone recording for self-comparison
-- Dynamic sentence and dialogue builders
-- Weekly real-life missions
-- Local progress storage with export and import
-- Installable, offline-ready Progressive Web App
-- No account, analytics, advertising, or cloud audio upload
+- Short, topic-based lessons
+- Searchable vocabulary and language patterns
+- Listen-and-repeat controls
+- Typed recall and spaced review
+- Deterministic generated quizzes
+- Sentence and dialogue builders
+- Practical speaking activities
+- Visible progress and a clear next action
+- Browser-saved progress with export and import
+- Beginner guide, practice pack, and answer guide
+- Installable and offline-capable web app
+
+No account is required. Progress remains in the learner's browser.
 
 ## Run locally
-
-Do not double-click `index.html`. The app loads JSON lesson files and must be served over HTTP.
 
 ```bash
 python tagalog.py serve
 ```
 
-Then open:
+Open `http://127.0.0.1:8000`.
 
-```text
-http://127.0.0.1:8000
-```
+The site must be served over HTTP because it loads structured lesson data.
 
-Validate the package:
+## Validate
 
 ```bash
+python -m pip install -r requirements-dev.txt
 python tagalog.py validate
+node --check assets/js/theme.js
+node --check assets/js/core.js
+node --check assets/js/app.js
+node --check service-worker.js
+node tests/test_core.mjs
+node tests/test_service_worker.mjs
 ```
 
-Run a terminal recall session:
+GitHub Actions applies the same validation before publishing the site.
 
-```bash
-python tagalog.py study --week 2 --count 10
-```
-
-## Repository architecture
+## Repository structure
 
 ```text
-index.html                 Application structure
-assets/css/styles.css      Responsive visual system
-assets/js/app.js           Course, practice, progress, and PWA behavior
-data/course.json           Course roadmap
-data/lessons/week1.json    Week 1 lesson data
-data/lessons/week2.json    Week 2 lesson data
-data/lessons/week3.json    Week 3 lesson data
-data/lessons/week4.json    Week 4 lesson data
-service-worker.js          Offline caching
-manifest.webmanifest       Installable-app metadata
-scripts/validate_repo.py   Repository quality gate
-scripts/validate_schema.py Lesson-schema quality gate
-requirements-dev.txt       CI and contributor validation dependency
-tests/                     Automated content and application-logic tests
+index.html                         Learner interface
+privacy.html                       Public privacy page
+language-notes.html                Public language guide
+content-use.html                   Public content-use terms
+404.html                           Themed not-found page
+assets/css/styles.css              Responsive design system
+assets/js/theme.js                 Early system-theme selection
+assets/js/core.js                  Tested learning and progress logic
+assets/js/app.js                   Browser interaction layer
+data/catalog.json                  Ordered learning path
+data/lessons/*.json                Machine-readable lessons
+data/lesson.schema.json            Lesson contract
+service-worker.js                  Offline shell and fresh lesson data
+downloads/                         Printable learning set
+scripts/                           Validation, site build, and document generation
+tests/                             Content, accessibility, CLI, and logic tests
+.github/                           CI, Pages deployment, ownership, and contribution forms
 ```
 
-## Updating the live site
+## Language standards
 
-The `main` branch is the approved public version. GitHub Pages serves that branch at `tagalog.academy`.
+The Academy uses one canonical teaching form per record, labels register and usage differences, keeps recall answers deterministic, and documents accepted alternatives. Evidence-based corrections from qualified speakers and educators are welcomed through the structured language-correction process. See `LANGUAGE-GUIDE.md`.
 
-Recommended workflow:
+## Contributing
 
-1. Create a feature branch.
-2. Change the lesson data or application files.
-3. Run `python tagalog.py validate`.
-4. Preview locally.
-5. Open a pull request.
-6. Merge into `main`.
-7. Verify the GitHub Pages deployment and live domain.
+Use the structured issue forms for software bugs, language corrections, and content-use concerns. Security vulnerabilities must be reported privately as described in `SECURITY.md`.
 
-## Content governance
+Changes should be proposed through a branch and pull request with green validation. See `CONTRIBUTING.md`.
 
-The public lesson wording is neutral and does not include live-class administration links, student-submission forms, or school branding.
+## Licensing
 
-The curriculum should receive final review from a qualified Tagalog educator before it is described as authoritative. See:
-
-- `CONTENT-NOTES.md`
-- `CURRICULUM-TRANSFORMATION.md`
-- `PUBLISHING-CHECKLIST.md`
-
-## Privacy
-
-Progress is stored in the learner's browser. Voice recordings stay in the active browser session and are not uploaded by this application. See `PRIVACY.md`.
-
-## License
-
-The software is licensed under the MIT License. Educational content is governed separately in `CONTENT-LICENSE.md`.
+- Software: MIT License
+- Educational content: separate content-use terms in `CONTENT-LICENSE.md`
