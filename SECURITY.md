@@ -2,7 +2,7 @@
 
 ## Supported release
 
-Security fixes are applied to the latest public release on the `main` branch. The current software baseline is **4.0.0**.
+Security fixes are applied to the latest public release on the `main` branch. The current software baseline is **4.0.1**.
 
 ## Reporting a vulnerability
 

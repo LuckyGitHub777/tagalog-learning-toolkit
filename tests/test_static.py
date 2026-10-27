@@ -194,9 +194,9 @@ class StaticTests(unittest.TestCase):
     def test_final_release_version_has_no_rc_suffix(self):
         catalog = (ROOT / 'data/catalog.json').read_text(encoding='utf-8')
         service_worker = (ROOT / 'service-worker.js').read_text(encoding='utf-8')
-        self.assertIn('"version": "4.0.0"', catalog)
-        self.assertIn("tagalog-academy-v4.0.0", service_worker)
-        self.assertNotIn('4.0.0-rc', catalog + service_worker)
+        self.assertIn('"version": "4.0.1"', catalog)
+        self.assertIn("tagalog-academy-v4.0.1", service_worker)
+        self.assertNotIn('4.0.1-rc', catalog + service_worker)
 
 
 if __name__ == '__main__':

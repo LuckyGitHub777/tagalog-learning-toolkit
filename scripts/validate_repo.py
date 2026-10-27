@@ -6,7 +6,7 @@ import re
 import unicodedata
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '4.0.0'
+VERSION = '4.0.1'
 PUBLIC_PAGES = ['index.html', '404.html', 'privacy.html', 'language-notes.html', 'content-use.html']
 REMOVED_HISTORY = {
     'CONTENT-NOTES.md',
@@ -188,6 +188,8 @@ for token in ['rel="canonical"', 'og:title', 'twitter:card', 'apple-touch-icon',
         fail(f'Missing launch metadata: {token}')
 if 'PRIVACY.md' in index or 'CONTENT-NOTES.md' in index:
     fail('Learner footer must use polished HTML information pages')
+if re.search(r'\bstyle=["\']', read('assets/js/app.js')):
+    fail('Inline style attributes are blocked by the page CSP; set styles through the CSSOM')
 if 'github.com/' in index.lower():
     fail('Learner interface must not navigate away to repository chrome')
 
@@ -242,8 +244,12 @@ for token in ['exerciseEnglish', 'shuffle', 'mergeItemProgress', 'sourceId']:
 sw = read('service-worker.js')
 if f'tagalog-academy-v{VERSION}' not in sw:
     fail('Service-worker cache version mismatch')
-if 'const fresh = await update' not in sw or "new Response('Unavailable', {status: 503})" not in sw:
+if 'event?.waitUntil(update)' not in sw or "new Response('Unavailable', {status: 503})" not in sw:
     fail('Service-worker offline fallback is not guaranteed to return a Response')
+if 'cache.addAll(SHELL)' not in sw or 'allSettled(SHELL' in sw:
+    fail('Service-worker shell install must be all-or-nothing')
+if 'startsWith(CACHE_PREFIX)' not in sw:
+    fail('Service-worker cleanup must be limited to Tagalog Academy caches')
 if 'clients.claim' in sw or 'skipWaiting' in sw:
     fail('Service worker must not replace the active version mid-session')
 for rel in ['privacy.html', 'language-notes.html', 'content-use.html']:

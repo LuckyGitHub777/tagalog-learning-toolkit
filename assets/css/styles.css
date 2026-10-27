@@ -66,6 +66,9 @@ html[data-theme="dark"] .button { color: #08141c; }
 .button-secondary { background: var(--surface); color: var(--brand-2); border-color: var(--brand-2); }
 .button-quiet { background: transparent; color: var(--text); border-color: var(--line); }
 .button-danger { background: transparent; color: var(--danger); border-color: var(--danger); }
+html[data-theme="dark"] .button-secondary { color: var(--brand-2); }
+html[data-theme="dark"] .button-quiet { color: var(--text); }
+html[data-theme="dark"] .button-danger { color: var(--danger); }
 .dashboard-card, .lesson-shell, .practice-card, .mission-card, .progress-tools, .builder-card, .resource-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
 .dashboard-card { padding: 1.4rem; display: flex; flex-direction: column; justify-content: center; }
 .dashboard-card > p { color: var(--muted); }
@@ -88,7 +91,7 @@ html[data-theme="dark"] .button { color: #08141c; }
 .lesson-card small, .lesson-card span { display: block; color: var(--muted); }
 .lesson-card strong { display: block; font-size: 1.08rem; margin: .25rem 0; }
 .lesson-card .mini-progress { height: 6px; margin-top: .65rem; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
-.lesson-card .mini-progress i { display: block; height: 100%; background: var(--brand-2); }
+.lesson-card .mini-progress i { display: block; width: 0; height: 100%; background: var(--brand-2); }
 .lesson-shell { overflow: clip; }
 .lesson-header { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding: 1.5rem; border-bottom: 1px solid var(--line); }
 .lesson-header > div { max-width: 68ch; }
