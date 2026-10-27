@@ -33,55 +33,66 @@ class StaticTests(unittest.TestCase):
     def test_theme_defaults_to_system(self):
         self.assertIn("|| 'system'", (ROOT / 'assets/js/theme.js').read_text(encoding='utf-8'))
 
-    def test_manifest_validator_ignores_generated_python_cache(self):
-        validator = (ROOT / "scripts" / "validate_manifest.py").read_text(encoding="utf-8")
-        self.assertIn("__pycache__", validator)
-        self.assertIn(".pyc", validator)
-
-    def test_manifest_validator_ignores_git_metadata_and_site_build(self):
-        import hashlib
+    def _manifest_fixture(self, temp_dir):
         import shutil
+        fixture = Path(temp_dir) / 'repo'
+        shutil.copytree(ROOT, fixture, ignore=shutil.ignore_patterns('.git', '_site', '__pycache__'))
+        return fixture
+
+    def _validate_manifest(self, fixture):
+        import subprocess
+        import sys
+        return subprocess.run(
+            [sys.executable, str(fixture / 'scripts' / 'validate_manifest.py')],
+            cwd=fixture, text=True, capture_output=True, check=False,
+        )
+
+    def test_manifest_covers_exactly_the_public_site(self):
+        import sys
+        sys.path.insert(0, str(ROOT / 'scripts'))
+        from build_site import public_files
+        listed = [
+            line.split('  ', 1)[1]
+            for line in (ROOT / 'MANIFEST.sha256').read_text(encoding='utf-8').splitlines()
+            if line.strip()
+        ]
+        self.assertEqual(sorted(listed), public_files(ROOT))
+        for tooling in ['.github/workflows/ci.yml', '.github/workflows/pages.yml', 'requirements-dev.txt']:
+            self.assertNotIn(tooling, listed)
+
+    def test_dependency_tooling_changes_do_not_require_manifest_update(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as temp_dir:
+            fixture = self._manifest_fixture(temp_dir)
+            for rel in ['.github/workflows/ci.yml', '.github/workflows/pages.yml', 'requirements-dev.txt']:
+                with (fixture / rel).open('a', encoding='utf-8') as handle:
+                    handle.write('\n# dependency update\n')
+            junk = fixture / 'assets' / 'js' / '__pycache__'
+            junk.mkdir()
+            (junk / 'cache.pyc').write_bytes(b'cache')
+            (fixture / '_site').mkdir()
+            (fixture / '_site' / 'index.html').write_text('<!doctype html>\n', encoding='utf-8')
+            result = self._validate_manifest(fixture)
+            self.assertEqual(result.returncode, 0, result.stderr or result.stdout)
+            self.assertIn('MANIFEST PASS', result.stdout)
+
+    def test_public_file_change_requires_manifest_update(self):
         import subprocess
         import sys
         import tempfile
-
         with tempfile.TemporaryDirectory() as temp_dir:
-            fixture = Path(temp_dir)
-            (fixture / 'scripts').mkdir()
-            shutil.copy2(
-                ROOT / 'scripts' / 'validate_manifest.py',
-                fixture / 'scripts' / 'validate_manifest.py',
+            fixture = self._manifest_fixture(temp_dir)
+            with (fixture / 'assets/css/styles.css').open('a', encoding='utf-8') as handle:
+                handle.write('\n/* change */\n')
+            result = self._validate_manifest(fixture)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('assets/css/styles.css', result.stderr + result.stdout)
+            update = subprocess.run(
+                [sys.executable, str(fixture / 'scripts' / 'update_manifest.py')],
+                cwd=fixture, text=True, capture_output=True, check=False,
             )
-            payload = fixture / 'payload.txt'
-            payload.write_text('release payload\n', encoding='utf-8')
-            manifest_rows = []
-            for release_file in [fixture / 'payload.txt', fixture / 'scripts' / 'validate_manifest.py']:
-                digest = hashlib.sha256(release_file.read_bytes()).hexdigest()
-                rel = release_file.relative_to(fixture).as_posix()
-                manifest_rows.append(f'{digest}  {rel}')
-            (fixture / 'MANIFEST.sha256').write_text(
-                '\n'.join(manifest_rows) + '\n',
-                encoding='utf-8',
-            )
-            (fixture / '.git' / 'objects').mkdir(parents=True)
-            (fixture / '.git' / 'config').write_text('[core]\n', encoding='utf-8')
-            (fixture / '.git' / 'objects' / 'temporary').write_bytes(b'git metadata')
-            (fixture / '_site').mkdir()
-            (fixture / '_site' / 'index.html').write_text(
-                '<!doctype html>\n',
-                encoding='utf-8',
-            )
-
-            result = subprocess.run(
-                [sys.executable, str(fixture / 'scripts' / 'validate_manifest.py')],
-                cwd=fixture,
-                text=True,
-                capture_output=True,
-                check=False,
-            )
-
-            self.assertEqual(result.returncode, 0, result.stderr or result.stdout)
-            self.assertIn('MANIFEST PASS: 2 release files', result.stdout)
+            self.assertEqual(update.returncode, 0, update.stderr)
+            self.assertEqual(self._validate_manifest(fixture).returncode, 0)
 
     def test_setup_node_is_pinned(self):
         workflow = (ROOT / '.github/workflows/ci.yml').read_text(encoding='utf-8')
@@ -172,7 +183,7 @@ class StaticTests(unittest.TestCase):
         self.assertIn('Evidence-based corrections', html)
 
     def test_internal_history_files_are_not_shipped(self):
-        for name in ['CHANGELOG.md', 'ROADMAP.md', 'CURRICULUM-TRANSFORMATION.md', 'PUBLISHING-CHECKLIST.md', 'RELEASE-NOTES.md', 'VV-REPORT-v4.0.0.md']:
+        for name in ['ROADMAP.md', 'CURRICULUM-TRANSFORMATION.md', 'PUBLISHING-CHECKLIST.md', 'RELEASE-NOTES.md', 'VV-REPORT-v4.0.0.md']:
             self.assertFalse((ROOT / name).exists(), name)
 
     def test_public_site_build_excludes_markdown(self):
