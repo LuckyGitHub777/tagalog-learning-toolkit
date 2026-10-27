@@ -1,30 +1,44 @@
-const CACHE = 'tagalog-academy-v4.0.0';
+const CACHE_PREFIX = 'tagalog-academy-';
+const CACHE = 'tagalog-academy-v4.0.1';
 const SHELL = [
   './','index.html','404.html','privacy.html','language-notes.html','content-use.html','manifest.webmanifest','assets/css/styles.css','assets/js/theme.js','assets/js/core.js','assets/js/app.js',
   'assets/icons/favicon.svg','assets/icons/icon-192.png','assets/icons/icon-512.png','assets/icons/icon-maskable-512.png','assets/images/social-card.png',
   'data/catalog.json','data/lesson.schema.json',
   'data/lessons/greetings-introductions.json','data/lessons/people-family.json','data/lessons/colors-preferences.json','data/lessons/food-drinks.json',
   'data/lessons/home-location.json','data/lessons/numbers-quantities.json','data/lessons/fruit-market.json','data/lessons/days-time.json','data/lessons/daily-routine.json',
+];
+// Large or non-essential files are cached when available; the app works offline without them.
+const OPTIONAL = [
   'downloads/Tagalog-Academy-Beginner-Guide.pdf','downloads/Tagalog-Academy-Practice-Pack.pdf','downloads/Tagalog-Academy-Answer-Guide.pdf'
 ];
 
+// Installation fails, and the current version stays active, unless every shell file is cached.
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE).then(cache => Promise.allSettled(SHELL.map(asset => cache.add(asset)))));
+  event.waitUntil(caches.open(CACHE).then(async cache => {
+    await cache.addAll(SHELL);
+    await Promise.allSettled(OPTIONAL.map(asset => cache.add(asset)));
+  }));
 });
 
+// Remove only earlier Tagalog Academy caches; other caches on this origin are left alone.
 self.addEventListener('activate', event => {
-  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))));
+  event.waitUntil(caches.keys().then(keys => Promise.all(
+    keys.filter(key => key.startsWith(CACHE_PREFIX) && key !== CACHE).map(key => caches.delete(key))
+  )));
 });
 
-async function staleWhileRevalidate(request) {
+async function staleWhileRevalidate(request, event) {
   const cache = await caches.open(CACHE);
   const cached = await cache.match(request);
-  const update = fetch(request).then(response => {
-    if (response.ok) cache.put(request, response.clone());
+  const update = fetch(request).then(async response => {
+    if (response.ok) await cache.put(request, response.clone());
     return response;
   }).catch(() => null);
-  const fresh = await update;
-  return cached || fresh || new Response('Unavailable', {status: 503});
+  if (cached) {
+    event?.waitUntil(update);
+    return cached;
+  }
+  return (await update) || new Response('Unavailable', {status: 503});
 }
 
 async function navigationResponse(request) {
@@ -64,7 +78,7 @@ self.addEventListener('fetch', event => {
     return;
   }
   if (url.pathname.includes('/data/')) {
-    event.respondWith(staleWhileRevalidate(event.request));
+    event.respondWith(staleWhileRevalidate(event.request, event));
     return;
   }
   event.respondWith(cacheFirst(event.request));

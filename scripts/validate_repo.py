@@ -1,14 +1,14 @@
 from pathlib import Path
 from urllib.parse import urlsplit
+import hashlib
 import json
 import re
 import unicodedata
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '4.0.0'
+VERSION = '4.0.1'
 PUBLIC_PAGES = ['index.html', '404.html', 'privacy.html', 'language-notes.html', 'content-use.html']
 REMOVED_HISTORY = {
-    'CHANGELOG.md',
     'CONTENT-NOTES.md',
     'CURRICULUM-TRANSFORMATION.md',
     'PUBLISHING-CHECKLIST.md',
@@ -17,6 +17,24 @@ REMOVED_HISTORY = {
     'VV-REPORT-v4.0.0.md',
 }
 errors: list[str] = []
+
+# Retired terms are stored as salted hashes so this check does not publish them.
+RETIRED_TERM_SALT = 'tagalog-academy-terms-v1:'
+RETIRED_TERM_HASHES = {
+    '5647b81ab4afafb1ae7a0d6168bff12a6940f4cab7881a77a4f2716235a6e7b8',
+    'ef32831a954c43c86d8e027ab2adfc6fff4b4aeaac8074f15be162e8083db2eb',
+}
+
+
+def retired_terms(text: str) -> list[str]:
+    words = re.findall(r'[a-z0-9]+', text.lower())
+    candidates = set(words)
+    candidates.update(f'{first} {second}' for first, second in zip(words, words[1:]))
+    candidates.update(first + second for first, second in zip(words, words[1:]))
+    return sorted(
+        term for term in candidates
+        if hashlib.sha256((RETIRED_TERM_SALT + term).encode('utf-8')).hexdigest() in RETIRED_TERM_HASHES
+    )
 
 
 def fail(message: str) -> None:
@@ -48,7 +66,7 @@ required = [
     'CONTENT-LICENSE.md', 'PRODUCT-ARCHITECTURE.md',
     'data/catalog.json', 'data/lesson.schema.json',
     'scripts/build_site.py', 'scripts/validate_repo.py', 'scripts/validate_schema.py',
-    'scripts/validate_manifest.py', 'scripts/validate_github_templates.py',
+    'scripts/validate_manifest.py', 'scripts/update_manifest.py', 'scripts/validate_github_templates.py',
     'tests/test_core.mjs', 'tests/test_service_worker.mjs',
     '.github/workflows/ci.yml', '.github/workflows/pages.yml', '.github/dependabot.yml',
     '.github/CODEOWNERS', '.github/PULL_REQUEST_TEMPLATE.md',
@@ -146,7 +164,7 @@ unfinished_public_copy = [
     'privacy-first', 'public beta', 'educator review pending', 'review remains open',
     'not authoritative', 'not certified', 'not complete', 'coming soon',
     'work in progress', 'under construction', 'choose a learning week',
-    'course roadmap', 'jeepney school',
+    'course roadmap',
 ]
 for rel in PUBLIC_PAGES:
     html = read(rel)
@@ -159,6 +177,8 @@ for rel in PUBLIC_PAGES:
     for phrase in unfinished_public_copy:
         if phrase in lower:
             fail(f'Unfinished or legacy public copy in {rel}: {phrase}')
+    if retired_terms(html):
+        fail(f'Retired term in public page: {rel}')
 
 index = read('index.html')
 if 'id="next-lesson"' not in index:
@@ -168,6 +188,8 @@ for token in ['rel="canonical"', 'og:title', 'twitter:card', 'apple-touch-icon',
         fail(f'Missing launch metadata: {token}')
 if 'PRIVACY.md' in index or 'CONTENT-NOTES.md' in index:
     fail('Learner footer must use polished HTML information pages')
+if re.search(r'\bstyle=["\']', read('assets/js/app.js')):
+    fail('Inline style attributes are blocked by the page CSP; set styles through the CSSOM')
 if 'github.com/' in index.lower():
     fail('Learner interface must not navigate away to repository chrome')
 
@@ -222,8 +244,12 @@ for token in ['exerciseEnglish', 'shuffle', 'mergeItemProgress', 'sourceId']:
 sw = read('service-worker.js')
 if f'tagalog-academy-v{VERSION}' not in sw:
     fail('Service-worker cache version mismatch')
-if 'const fresh = await update' not in sw or "new Response('Unavailable', {status: 503})" not in sw:
+if 'event?.waitUntil(update)' not in sw or "new Response('Unavailable', {status: 503})" not in sw:
     fail('Service-worker offline fallback is not guaranteed to return a Response')
+if 'cache.addAll(SHELL)' not in sw or 'allSettled(SHELL' in sw:
+    fail('Service-worker shell install must be all-or-nothing')
+if 'startsWith(CACHE_PREFIX)' not in sw:
+    fail('Service-worker cleanup must be limited to Tagalog Academy caches')
 if 'clients.claim' in sw or 'skipWaiting' in sw:
     fail('Service worker must not replace the active version mid-session')
 for rel in ['privacy.html', 'language-notes.html', 'content-use.html']:
@@ -264,7 +290,7 @@ for token in ["'privacy.html'", "'language-notes.html'", "'content-use.html'"]:
         fail(f'Public site builder missing {token}')
 
 # Repository and lesson data must not contain private operational references.
-private_patterns = ['zoom.us', 'forms.gle', 'docs.google.com/forms', '@jeepneyschool', '#jeepneyschool']
+private_patterns = ['zoom.us', 'forms.gle', 'docs.google.com/forms']
 for path in ROOT.rglob('*'):
     if not path.is_file() or '_site' in path.parts or '__pycache__' in path.parts:
         continue
@@ -274,6 +300,8 @@ for path in ROOT.rglob('*'):
     for pattern in private_patterns:
         if pattern in text:
             fail(f'Private or legacy source reference {pattern} in {path.relative_to(ROOT)}')
+    if retired_terms(text):
+        fail(f'Retired term in {path.relative_to(ROOT)}')
 
 if errors:
     print('VALIDATION FAILED')

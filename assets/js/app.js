@@ -279,9 +279,12 @@ function renderLessonGrid() {
     return `<button type="button" class="lesson-card ${active ? 'is-active' : ''} ${complete ? 'is-complete' : ''}" data-lesson-id="${escapeHtml(meta.id)}" ${active ? 'aria-current="step"' : ''} aria-label="Lesson ${meta.order}: ${escapeHtml(meta.title)}, ${percent}% progress${complete ? ', marked done' : ''}">
       <span class="lesson-card-meta"><small>Lesson ${meta.order}</small><span class="lesson-status">${status}</span></span>
       <strong>${escapeHtml(meta.title)}</strong><span>${escapeHtml(meta.summary)}</span>
-      <span class="mini-progress" aria-hidden="true"><i style="width:${percent}%"></i></span>
+      <span class="mini-progress" aria-hidden="true"><i data-percent="${percent}"></i></span>
     </button>`;
   }).join('');
+  $('#lesson-grid').querySelectorAll('.mini-progress i[data-percent]').forEach(bar => {
+    bar.style.width = `${bar.dataset.percent}%`;
+  });
 }
 
 function updateDashboard() {

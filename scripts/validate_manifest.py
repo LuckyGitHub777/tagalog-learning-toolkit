@@ -1,43 +1,36 @@
+"""Verify MANIFEST.sha256 against the files published to the public site.
+
+The manifest covers the deployed artifact only. Repository tooling such as
+workflows and validation dependencies is excluded so automated dependency
+updates do not require a manifest change.
+"""
 from pathlib import Path
 import hashlib
+import sys
 
-ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_site import ROOT, public_files  # noqa: E402
+
 MANIFEST = ROOT / 'MANIFEST.sha256'
 
-IGNORED_DIRECTORIES = {
-    '.git',
-    '_site',
-    '__pycache__',
-    '.pytest_cache',
-    '.mypy_cache',
-    '.ruff_cache',
-}
-IGNORED_FILES = {'.DS_Store', 'Thumbs.db'}
-IGNORED_SUFFIXES = {'.pyc', '.pyo'}
+
+def digests(root: Path = ROOT) -> dict[str, str]:
+    return {
+        rel: hashlib.sha256((root / rel).read_bytes()).hexdigest()
+        for rel in public_files(root)
+    }
 
 
-def is_release_file(path: Path) -> bool:
-    rel = path.relative_to(ROOT)
-    if path.name == 'MANIFEST.sha256':
-        return False
-    if any(part in IGNORED_DIRECTORIES for part in rel.parts):
-        return False
-    if path.name in IGNORED_FILES:
-        return False
-    if path.suffix in IGNORED_SUFFIXES:
-        return False
-    return path.is_file()
+def render(entries: dict[str, str]) -> str:
+    return ''.join(f'{digest}  {rel}\n' for rel, digest in sorted(entries.items()))
 
 
 def read_manifest() -> dict[str, str]:
     if not MANIFEST.exists():
-        raise SystemExit('MANIFEST.sha256 missing')
+        raise SystemExit('MANIFEST.sha256 missing. Run: python tagalog.py manifest')
 
     listed: dict[str, str] = {}
-    for line_number, line in enumerate(
-        MANIFEST.read_text(encoding='utf-8').splitlines(),
-        start=1,
-    ):
+    for line_number, line in enumerate(MANIFEST.read_text(encoding='utf-8').splitlines(), start=1):
         if not line.strip():
             continue
         try:
@@ -54,23 +47,21 @@ def read_manifest() -> dict[str, str]:
 
 def main() -> None:
     listed = read_manifest()
-    actual = {
-        path.relative_to(ROOT).as_posix()
-        for path in ROOT.rglob('*')
-        if is_release_file(path)
-    }
+    actual = digests()
 
-    if set(listed) != actual:
-        missing = sorted(actual - set(listed))
-        extra = sorted(set(listed) - actual)
-        raise SystemExit(f'Manifest coverage mismatch. Missing={missing} Extra={extra}')
+    if set(listed) != set(actual):
+        missing = sorted(set(actual) - set(listed))
+        extra = sorted(set(listed) - set(actual))
+        raise SystemExit(
+            f'Manifest coverage mismatch. Missing={missing} Extra={extra}. '
+            'Run: python tagalog.py manifest'
+        )
 
     for rel, digest in listed.items():
-        got = hashlib.sha256((ROOT / rel).read_bytes()).hexdigest()
-        if got != digest:
-            raise SystemExit(f'Hash mismatch: {rel}')
+        if actual[rel] != digest:
+            raise SystemExit(f'Hash mismatch: {rel}. Run: python tagalog.py manifest')
 
-    print(f'MANIFEST PASS: {len(listed)} release files')
+    print(f'MANIFEST PASS: {len(listed)} public files')
 
 
 if __name__ == '__main__':
