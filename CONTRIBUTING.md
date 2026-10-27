@@ -27,7 +27,7 @@ node tests/test_service_worker.mjs
 
 `python tagalog.py validate` runs repository validation, JSON Schema validation, GitHub-template validation, Python tests, and manifest verification.
 
-Update `MANIFEST.sha256` after every release-tree change. When public shell files change, update the service-worker cache name together with the release version.
+`MANIFEST.sha256` covers the files published to the public site. After changing any of them, run `python tagalog.py manifest`. Workflow and validation-dependency updates do not change the manifest. When public shell files change, update the service-worker cache name together with the release version.
 
 ## Pull requests
 

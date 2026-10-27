@@ -56,6 +56,10 @@ def validate():
     return 0
 
 
+def manifest():
+    return subprocess.run([sys.executable, 'scripts/update_manifest.py'], cwd=ROOT).returncode
+
+
 def serve(port: int):
     class Handler(SimpleHTTPRequestHandler):
         def end_headers(self):
@@ -118,6 +122,7 @@ def main():
     serve_parser.add_argument('--port', type=int, default=8000)
 
     sub.add_parser('validate')
+    sub.add_parser('manifest', help='Regenerate MANIFEST.sha256 for the public site files')
 
     study_parser = sub.add_parser('study')
     study_parser.add_argument('--lesson', default='1', help='Lesson number or lesson id')
@@ -128,6 +133,8 @@ def main():
         serve(args.port)
     elif args.command == 'validate':
         raise SystemExit(validate())
+    elif args.command == 'manifest':
+        raise SystemExit(manifest())
     else:
         study(args.lesson, args.count)
 
