@@ -94,6 +94,16 @@ class StaticTests(unittest.TestCase):
             self.assertEqual(update.returncode, 0, update.stderr)
             self.assertEqual(self._validate_manifest(fixture).returncode, 0)
 
+    def test_dependabot_updates_are_grouped_per_ecosystem(self):
+        import yaml
+        config = yaml.safe_load((ROOT / '.github/dependabot.yml').read_text(encoding='utf-8'))
+        ecosystems = {update['package-ecosystem']: update for update in config['updates']}
+        self.assertEqual(set(ecosystems), {'github-actions', 'pip'})
+        for update in ecosystems.values():
+            self.assertTrue(update.get('groups'), update['package-ecosystem'])
+            for group in update['groups'].values():
+                self.assertEqual(group['patterns'], ['*'])
+
     def test_setup_node_is_pinned(self):
         workflow = (ROOT / '.github/workflows/ci.yml').read_text(encoding='utf-8')
         self.assertRegex(workflow, r'actions/setup-node@[0-9a-f]{40}')
